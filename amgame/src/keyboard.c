@@ -14,19 +14,21 @@ void print_key() {
     puts("Key pressed: ");
     puts(key_names[event.keycode]);
     puts("\n");
-    // printInt(event.keycode);
-    // switch(event.keycode){
-    //   case 'W':
-          
-    //   break;
-    //   case 'S':
-    //       dir[0] = 1;
-    //   break;
-    //   case 'A':
-    //       dir[1] = -1;
-    //   break;
-    //   case 'D':
-    //       dir[1] = 1;
-    // }
+    int dir[] = {0, 0};
+    switch(event.keycode){
+      case 'W':
+          dir[0] = -1;
+      break;
+      case 'S':
+          dir[0] = 1;
+      break;
+      case 'A':
+          dir[1] = -1;
+      break;
+      case 'D':
+          dir[1] = 1;
+    }
+    movePos(dir[0], dir[1]);
+    splash();
   }
 }
