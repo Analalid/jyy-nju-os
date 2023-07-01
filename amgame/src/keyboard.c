@@ -13,5 +13,24 @@ void print_key() {
     puts("Key pressed: ");
     puts(key_names[event.keycode]);
     puts("\n");
+    // printf(event.keycode);
+    int dir[2];
+    switch(event.keycode){
+      case 'W':
+          dir[0] = -1;
+      break;
+      case 'S':
+          dir[0] = 1;
+      break;
+      case 'A':
+          dir[1] = -1;
+      break;
+      case 'D':
+          dir[1] = 1;
+      break;
+      default :
+        return;
+    }
+    moveSplash(dir);
   }
 }
