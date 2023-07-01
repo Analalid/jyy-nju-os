@@ -2,7 +2,7 @@
 
 #define SIDE 16
 //定义初始位置
-// static int Row = 0, Col = 0;
+// static int Row = 5, Col = 5;
 static int w, h;
 static void init() {
   AM_GPU_CONFIG_T info = {0};
@@ -28,11 +28,11 @@ void splash() {
   for (int x = 0; x * SIDE <= w; x ++) {
     for (int y = 0; y * SIDE <= h; y++) {
       // if(x == Row && y == Col){
-      //   draw_tile(x * SIDE, y * SIDE, SIDE, SIDE, ); // 
+      //   draw_tile(x * SIDE, y * SIDE, SIDE, SIDE, 0xccbbee); // 
       //   continue;
       // }
       if ((x & 1) ^ (y & 1)) {
-        draw_tile(x * SIDE, y * SIDE, SIDE, SIDE, 0xccbbee); // white
+        draw_tile(x * SIDE, y * SIDE, SIDE, SIDE, 0xffffff); // white
       }
     }
   }
