@@ -15,7 +15,7 @@ void print_key() {
     puts("\n");
     // printf(event.keycode);
     int dir[2];
-    // printf("%d",event.keycode);
+    printf("==============%d================\n",event.keycode);
     switch(event.keycode){
       case 'W':
           dir[0] = -1;
