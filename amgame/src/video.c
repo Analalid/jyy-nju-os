@@ -32,7 +32,7 @@ void splash() {
       //   continue;
       // }
       if ((x & 1) ^ (y & 1)) {
-        draw_tile(x * SIDE, y * SIDE, SIDE, SIDE, 0xaabbaa); // white
+        draw_tile(x * SIDE, y * SIDE, SIDE, SIDE, 0xccbbee); // white
       }
     }
   }
