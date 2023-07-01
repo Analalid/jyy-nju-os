@@ -28,8 +28,8 @@ void print_key() {
       case 'D':
           dir[1] = 1;
     }
-    // printf("===========%d==", &dir[0]);
-    // printf("=================%d", &dir[1]);
+    printf("===========%d==", &dir[0]);
+    printf("=================%d", &dir[1]);
     movePos(dir[0], dir[1]);
     D();
   }
