@@ -1,5 +1,4 @@
 #include <game.h>
-
 // Operating system is a C program!
 int main(const char *args) {
   ioe_init();
@@ -13,6 +12,9 @@ int main(const char *args) {
   puts("Press any key to see its key code...\n");
   while (1) {
     print_key();
+    // splash();
+    // if(dir) puts("//");
+    // else puts("\\");
   }
   return 0;
 }

@@ -1,9 +1,9 @@
 #include <game.h>
 
 #define SIDE 16
-static int w, h;
 //定义初始位置
-static int oriX = 0, oriY = 0;
+// static int Row = 0, Col = 0;
+static int w, h;
 static void init() {
   AM_GPU_CONFIG_T info = {0};
   ioe_read(AM_GPU_CONFIG, &info);
@@ -27,22 +27,19 @@ void splash() {
   init();
   for (int x = 0; x * SIDE <= w; x ++) {
     for (int y = 0; y * SIDE <= h; y++) {
+      // if(x == Row && y == Col){
+      //   draw_tile(x * SIDE, y * SIDE, SIDE, SIDE, ); // 
+      //   continue;
+      // }
       if ((x & 1) ^ (y & 1)) {
-        draw_tile(x * SIDE, y * SIDE, SIDE, SIDE, 0xffffff); // white
+        draw_tile(x * SIDE, y * SIDE, SIDE, SIDE, 0xfffeff); // white
       }
     }
   }
 }
-//移动事件触发
-void moveSplash(int dir[]) {
-  oriX += dir[0];
-  oriY += dir[1];
-  for (int x = 0; x * SIDE <= w; x ++) {
-    for (int y = 0; y * SIDE <= h; y++) {
-      if ((x & 1) ^ (y & 1)) {
-        draw_tile(x * SIDE, y * SIDE, SIDE, SIDE, 0xffffff); // white
-      }
-      if(x == oriX && y == oriY) draw_tile(x * SIDE, y * SIDE, SIDE, SIDE, 0x00ffffff);
-    }
-  }
-}
+// void addRow(){
+//   ++Row;
+// }
+// void addCol(){
+//   ++Col;
+// }
