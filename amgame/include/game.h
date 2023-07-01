@@ -5,6 +5,7 @@
 
 void splash();
 void print_key();
+void D();
 void movePos(int x, int y);
 static inline void puts(const char *s) {
   for (; *s; s++) putch(*s);

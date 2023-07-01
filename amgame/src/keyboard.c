@@ -31,6 +31,6 @@ void print_key() {
     printf("===========%d==", &dir[0]);
     printf("=================%d", &dir[1]);
     movePos(dir[0], dir[1]);
-    splash();
+    D();
   }
 }

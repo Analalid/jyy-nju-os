@@ -41,3 +41,13 @@ void movePos(int x, int y){
   Row += x;
   Col += y;
 }
+void D(){
+    for (int x = 0; x * SIDE <= w; x ++) {
+    for (int y = 0; y * SIDE <= h; y++) {
+      if(x == Row && y == Col){
+        draw_tile(x * SIDE, y * SIDE, SIDE, SIDE, 0xccbbee); // purple
+        continue;
+      }
+    }
+  }
+} 
