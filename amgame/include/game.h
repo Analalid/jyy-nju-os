@@ -9,3 +9,6 @@ void print_key();
 static inline void puts(const char *s) {
   for (; *s; s++) putch(*s);
 }
+static inline void printInt(int i){
+  printf("%d", i);
+}
