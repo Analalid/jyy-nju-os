@@ -32,6 +32,6 @@ void print_key() {
         puts("anything you pressed\n");
     }
     movePos(dir[0], dir[1]);
-    D();
+    splash();
   }
 }
