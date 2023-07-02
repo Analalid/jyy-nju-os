@@ -29,14 +29,14 @@ void splash() {
   for (int x = 0; x * SIDE <= w; x ++) {
     for (int y = 0; y * SIDE <= h; y++) {
       if(x == Row && y == Col){
-        draw_tile(x * SIDE, y * SIDE, SIDE, SIDE, 0xccbbee); // purple
+        draw_tile(x * SIDE, y * SIDE, SIDE, SIDE, 0xbbabff); // purple
         continue;
       }
       if ((x & 1) ^ (y & 1)) {
         draw_tile(x * SIDE, y * SIDE, SIDE, SIDE, 0xffffff); // white
         continue;
       }
-      draw_tile(x * SIDE, y * SIDE, SIDE, SIDE, 0xbbabff); // asfdas
+      draw_tile(x * SIDE, y * SIDE, SIDE, SIDE, 0x000000); // black
     }
   }
 }
