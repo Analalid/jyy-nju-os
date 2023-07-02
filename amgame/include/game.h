@@ -9,6 +9,3 @@ void movePos(int x, int y);
 static inline void puts(const char *s) {
   for (; *s; s++) putch(*s);
 }
-// static inline void printInt(int i){
-//   printf("%d", i);
-// }
