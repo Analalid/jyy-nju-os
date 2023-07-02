@@ -14,7 +14,7 @@ void print_key() {
     puts("Key pressed: ");
     puts(key_names[event.keycode]);
     puts("\n");
-    int dir[] = {0, 0};
+    int dir[] = {1, 1};
     switch(event.keycode){
       case 'W':
           dir[0] = -1;
