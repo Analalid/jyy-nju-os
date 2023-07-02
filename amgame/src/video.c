@@ -42,6 +42,7 @@ void movePos(int x, int y){
   Col += y;
 }
 void D(){
+  init();
     for (int x = 0; x * SIDE <= w; x ++) {
     for (int y = 0; y * SIDE <= h; y++) {
       if(x == Row && y == Col){
