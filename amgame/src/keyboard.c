@@ -15,16 +15,16 @@ void print_key() {
     int dir[] = {0, 0};
     switch(*key_names[event.keycode]){
       case 'W':
-          dir[0] = -1;
-      break;
-      case 'S':
-          dir[0] = 1;
-      break;
-      case 'A':
           dir[1] = -1;
       break;
-      case 'D':
+      case 'S':
           dir[1] = 1;
+      break;
+      case 'A':
+          dir[0] = -1;
+      break;
+      case 'D':
+          dir[0] = 1;
           break;
       default:
         puts("anything you pressed\n");
