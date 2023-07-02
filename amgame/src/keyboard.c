@@ -29,7 +29,6 @@ void print_key() {
       default:
         puts("anything you pressed\n");
     }
-    int x = 100;
     movePos(dir[0], dir[1]);
     splash();
   }
