@@ -28,7 +28,8 @@ void print_key() {
       case 'D':
           dir[1] = 1;
     }
-    
+    puts("检测到输入：");
+    puts(key_names[event.keycode]);
     movePos(dir[0], dir[1]);
     D();
   }
