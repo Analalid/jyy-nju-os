@@ -12,6 +12,7 @@ static void init() {
 }
 
 static void draw_tile(int x, int y, int w, int h, uint32_t color) {
+  puts("draw_title begin ........");
   uint32_t pixels[w * h]; // WARNING: large stack-allocated memory
   AM_GPU_FBDRAW_T event = {
     .x = x, .y = y, .w = w, .h = h, .sync = 1,
@@ -47,7 +48,6 @@ void D(){
     for (int y = 0; y * SIDE <= h; y++) {
       if(x == Row && y == Col){
         draw_tile(x * SIDE, y * SIDE, SIDE, SIDE, 0xccbbee); // purple
-        puts("================================()()()()");
         continue;
       }
     }
