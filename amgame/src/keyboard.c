@@ -27,6 +27,9 @@ void print_key() {
       break;
       case 'D':
           dir[1] = 1;
+          break;
+      default:
+        puts("anything you pressed\n");
     }
     movePos(dir[0], dir[1]);
     D();
