@@ -28,7 +28,7 @@ void print_key() {
       case 'D':
           dir[1] = 1;
     }
-    puts("================================");
+    
     movePos(dir[0], dir[1]);
     D();
   }
