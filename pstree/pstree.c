@@ -61,8 +61,8 @@ void mkTree(char *dirName, int pid){
       if(i != 0 && i != 5) continue;
       // if(i == 0){
       // }
-      printf("id:%d\t", pid);
-      printf("%s", buf);
+      // printf("id:%d\t", pid);
+      // printf("%s", buf);
       loadProcessName(buf, pid);
     }
     fclose(fp);
