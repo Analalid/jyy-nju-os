@@ -25,8 +25,8 @@ int main(int argc, char *argv[]) {
     //"proc/"
     mkTree(argv[1], i);
   }
+  puts("=============================");
   dfs(0, 0);
-
   return 0;
 }
 void dfs(int curNode, int depth){
