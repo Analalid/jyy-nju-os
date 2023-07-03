@@ -31,9 +31,9 @@ int main(int argc, char *argv[]) {
 void dfs(int curNode, int depth){
   if(curNode == -1) return;
   printf("%d", curNode);
-  for(int i = 0; i < depth; ++i){
-    printf("---------------");
-  }
+  // for(int i = 0; i < depth; ++i){
+  //   printf("---------------");
+  // }
   printf("\n");
   for(int i = 0; i < processesSonCount[curNode]; ++i){
     int son = processesFatherId[curNode][i];
@@ -118,5 +118,5 @@ void loadProcessFather(char *buf , int pid){
   }
   newSPace[processesSonCount[PPidV] - 1] = pid;
   processesFatherId[PPidV] = newSPace;
-  // printf("father:%d,    son:  %d,     sonCount:%d\n", PPidV, pid, processesSonCount[PPidV]);
+  printf("father:%d,    son:  %d,     sonCount:%d\n", PPidV, pid, processesSonCount[PPidV]);
 }
