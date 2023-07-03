@@ -56,7 +56,7 @@ void mkTree(char *dirName, int pid){
     // fscanf(fp, "%d", &pid);
     // printf("pid:%d\n", pid);
     fgets(buf, sizeof(buf), fp);
-    printf("Read line: %s\n", buf);
+    printf("%s\n", buf);
     fclose(fp);
   } else {
     // 错误处理
