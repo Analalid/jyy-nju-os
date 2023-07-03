@@ -51,13 +51,12 @@ void mkTree(char *dirName, int pid){
 
   FILE *fp = fopen(filename, "r");
   char buf[1024];
-  puts(filename);
   if (fp) {
   // 用fscanf, fgets等函数读取
-    // fscanf(fp, "%d", &pid);
-    // printf("pid:%d\n", pid);
-    // fgets(buf, sizeof(buf), fp);
-    // printf("Read line: %s\n", buf);
+    fscanf(fp, "%d", &pid);
+    printf("pid:%d\n", pid);
+    fgets(buf, sizeof(buf), fp);
+    printf("Read line: %s\n", buf);
     fclose(fp);
   } else {
     // 错误处理
