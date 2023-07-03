@@ -58,5 +58,4 @@ void mkTree(char *dirName, int pid){
   puts("error!!!!!!!!!!!!!!!!!!");
   }
   free(num);
-  free(filename);
 }
