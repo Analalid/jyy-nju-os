@@ -73,7 +73,7 @@ void mkTree(char *dirName, int pid){
     filename[strlen(dirName) + pidLen + i] = status[i];
   }
 
-  FILE *fp = fopen(filename, "r");sdgyjfydsjhgf
+  FILE *fp = fopen(filename, "r");
   char buf[1024];
   if (fp) {
   // 用fscanf, fgets等函数读取
