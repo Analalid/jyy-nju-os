@@ -33,7 +33,7 @@ void dfs(int curNode, int depth){
   if(curNode == -1) return;
   printf("==============%d  ", curNode);
   for(int i = 0; i < depth; ++i){
-    puts("\t");
+    printf("\t");
   }
   printf("\n");
   for(int i = 0; i < processesSonCount[curNode]; ++i){
