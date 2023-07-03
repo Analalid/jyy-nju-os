@@ -58,8 +58,8 @@ void mkTree(char *dirName, int pid){
       fgets(buf, sizeof(buf), fp);
       printf("id:%d\t", pid);
       printf("%s", buf);
-      fclose(fp);
     }
+    fclose(fp);
   } else {
     // 错误处理
     // puts("error!!!!!!!!!!!!!!!!!!");
