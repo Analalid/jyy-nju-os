@@ -124,6 +124,7 @@ void loadProcessFather(char *buf , int pid){
   printf("father:%d,    son:  %d,     sonCount:%d\n", PPidV, pid, processesSonCount[PPidV]);
   if(PPidV != 5407) return;
   for(int i = 0; i < processesSonCount[PPidV]; ++i){
-    printf("%d", processesFatherId[PPidV][i]);
+    printf("%d     ", processesFatherId[PPidV][i]);
   }
+  puts("\n");
 }
