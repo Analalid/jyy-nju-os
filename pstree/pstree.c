@@ -115,13 +115,14 @@ void loadProcessFather(char *buf , int pid){
     ++i;
   }
   ++processesSonCount[PPidV];
-  int newSPace[processesSonCount[PPidV]];
-  for(int i = 0; i < processesSonCount[PPidV] - 1; ++i){
-    newSPace[i] = processesFatherId[PPidV][i]; 
-    if(PPidV == 5407) printf("%d",processesFatherId[PPidV][i]);
-  }
+  int *newSPace;
+  newSPace = (int *)realloc(processesFatherId[PPidV], processesSonCount[PPidV] * sizeof(int));
+  // for(int i = 0; i < processesSonCount[PPidV]; ++i){
+  //   newSPace[i] = processesFatherId[PPidV][i];
+  //   if(PPidV == 5407) printf("%d",processesFatherId[PPidV][i]);
+  // }
   newSPace[processesSonCount[PPidV] - 1] = pid;
-  processesFatherId[PPidV] = newSPace;
+  *processesFatherId[PPidV] = *newSPace;
   if(PPidV != 5407) return;
   printf("father:%d,    son:  %d,     sonCount:%d\n", PPidV, pid, processesSonCount[PPidV]);
   for(int i = 0; i < processesSonCount[PPidV]; ++i){
