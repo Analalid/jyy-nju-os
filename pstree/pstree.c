@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
     mkTree(argv[1], i);
   }
   for(int i = 0; i < 26; ++i){
-    printf("son:%d", processesFatherId[5407][i]);
+    printf("son:%d\n", processesFatherId[5407][i]);
   }
   // dfs(0, 0);
   return 0;
