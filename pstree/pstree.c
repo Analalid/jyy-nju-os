@@ -12,7 +12,7 @@ void loadProcessName(char *buf, int pid);
 void loadProcessFather(char *buf , int pid);
 char static processesName[65536][100];
 int *processesFatherId[65536];
-int  precessesSonCount[65536];
+int  processesSonCount[65536];
 int main(int argc, char *argv[]) {
   for (int i = 0; i < argc; i++) {
     assert(argv[i]);
@@ -24,11 +24,6 @@ int main(int argc, char *argv[]) {
     mkTree(argv[1], i);
   }
   // dfs(0);
-
-  for(int i = 0; i < 65536; ++i){
-    if(!processesName[i][0]) continue;
-    printf("name:%s", processesName[i]);
-  }
 
   return 0;
 }
@@ -88,7 +83,6 @@ void loadProcessName(char *buf, int pid){
   while(buf[i]){
     processesName[pid][idx++] = buf[i++];
   }
-  // printf("%s", processesName[pid]);
 }
 
 void loadProcessFather(char *buf , int pid){
@@ -104,7 +98,12 @@ void loadProcessFather(char *buf , int pid){
     PidV += buf[i] - '0';
     ++i;
   }
-
-  ++precessesSonCount[PidV];
-  // printf("father:%d,    son:  %d\n", PidV, pid);
+  ++processesSonCount[PidV];
+  int newSPace[processesSonCount[PidV]];
+  for(int i = 0; i < processesSonCount[PidV] - 1; ++i){
+    newSPace[i] = processesFatherId[PidV][i]; 
+  }
+  newSPace[processesSonCount[PidV] - 1] = pid;
+  processesFatherId[PidV] = newSPace;
+  printf("father:%d,    son:  %d\n,     sonCount:%d", PidV, pid, processesSonCount[PidV]);
 }
