@@ -88,7 +88,7 @@ void loadProcessName(char *buf, int pid){
 void loadProcessFather(char *buf , int pid){
   int idx = 0;
   int i = 0;
-  puts(buf);
+  printf("+++++++++++++++%s\n", buf);
   while(buf[i] != '\t'){
     ++i;
   }
