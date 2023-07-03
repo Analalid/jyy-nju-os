@@ -30,7 +30,7 @@ int main(int argc, char *argv[]) {
 }
 void dfs(int curNode, int depth){
   for(int i = 0; i < depth; ++i){
-    printf("\t├");
+    printf("\t");
   }
   printf("%s(%d)", processesName[curNode],curNode);
   if(processesSonCount[curNode] == 0){
