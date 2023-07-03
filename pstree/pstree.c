@@ -23,6 +23,9 @@ int main(int argc, char *argv[]) {
 void mkTree(char *dirName, int pid){
   char *num;
   int pidLen;
+  //尾部
+  char status[] = "/status";
+  int tairLen = strlen(status);
   //获取转换后的字符串长度
   pidLen = snprintf(NULL, 0, "%d", pid);
   // 分配足够的空间来容纳转换后的字符串
@@ -31,21 +34,19 @@ void mkTree(char *dirName, int pid){
   snprintf(num, pidLen + 1, "%d", pid);
 
   
-  int len = strlen(dirName) + pidLen + 1;
+  int len = strlen(dirName) + pidLen + tairLen + 1;
   char filename[len];
 
   //将dirName复制到filename里
   strcpy(filename, dirName);
 
-  int idx = 0;
   //拼接数字
-  for (; idx <= pidLen; idx++) {
-    filename[strlen(dirName) + idx] = num[idx];
+  for (int i = 0; i <= pidLen; i++) {
+    filename[strlen(dirName) + i] = num[i];
   }
   //拼接尾部
-  char status[] = "/status";
-  for(int i = 0; i < strlen(status); ++i){
-    filename[strlen(dirName) + idx + i] = status[i];
+  for(int i = 0; i < tairLen; ++i){
+    filename[strlen(dirName) + pidLen + i] = status[i];
   }
 
   FILE *fp = fopen(filename, "r");
