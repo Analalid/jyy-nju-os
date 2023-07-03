@@ -55,7 +55,7 @@ void mkTree(char *dirName, int pid){
   fclose(fp);
   } else {
   // 错误处理
-  puts("error!!!!!!!!!!!!!!!!!!");
+  // puts("error!!!!!!!!!!!!!!!!!!");
   }
   free(num);
 }
