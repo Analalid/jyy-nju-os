@@ -3,8 +3,8 @@
 void mkTree(char * filename);
 int main(int argc, char *argv[]) {
   char *processesName[65536];
-  int * processesFatherId[65536];
-  processesFatherId[1] = 0;
+  // int * processesFatherId[65536];
+  // processesFatherId[1] = 0;
   for (int i = 0; i < argc; i++) {
     assert(argv[i]);
     printf("argv[%d] = %s\n", i, argv[i]);
