@@ -118,7 +118,7 @@ void loadProcessFather(char *buf , int pid){
   int newSPace[processesSonCount[PPidV]];
   for(int i = 0; i < processesSonCount[PPidV] - 1; ++i){
     newSPace[i] = processesFatherId[PPidV][i]; 
-    if(PPidV == 5407) printf("x");
+    if(PPidV == 5407) printf("%d",processesFatherId[PPidV][i]);
   }
   newSPace[processesSonCount[PPidV] - 1] = pid;
   processesFatherId[PPidV] = newSPace;
