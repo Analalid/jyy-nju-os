@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
 
   for(int i = 0; i < 65536; ++i){
     if(!processesName[i][0]) continue;
-    printf("%s", processesName[i]);
+    printf("name:%s", processesName[i]);
   }
 
   return 0;
