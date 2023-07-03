@@ -25,9 +25,9 @@ int main(int argc, char *argv[]) {
     //"proc/"
     mkTree(argv[1], i);
   }
-  for(int i = 0; i < 26; ++i){
-    printf("son:%d\n", processesFatherId[5407][i]);
-  }
+  // for(int i = 0; i < 26; ++i){
+  //   printf("son:%d\n", processesFatherId[5407][i]);
+  // }
   // dfs(0, 0);
   return 0;
 }
@@ -121,5 +121,5 @@ void loadProcessFather(char *buf , int pid){
   }
   newSPace[processesSonCount[PPidV] - 1] = pid;
   processesFatherId[PPidV] = newSPace;
-  // printf("father:%d,    son:  %d,     sonCount:%d\n", PPidV, pid, processesSonCount[PPidV]);
+  printf("father:%d,    son:  %d,     sonCount:%d\n", PPidV, pid, processesSonCount[PPidV]);
 }
