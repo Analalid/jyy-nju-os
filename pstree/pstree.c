@@ -29,7 +29,7 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 void dfs(int curNode, int depth){
-  if(curNode == -1){
+  if(processesSonCount[curNode] == 0){
     printf("\n");
     return;
   }
