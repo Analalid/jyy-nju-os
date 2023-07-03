@@ -93,7 +93,7 @@ void loadProcessFather(char *buf , int pid){
   }
   ++i;
   int PidV = 0;
-  while(buf[i]){
+  while(buf[i + 1]){
     PidV *= 10;
     // printf("%c", buf[i]);
     PidV += buf[i] - '0';
