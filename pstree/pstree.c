@@ -41,12 +41,12 @@ void mkTree(char *dirName, int pid){
   for (int i = 0; i <= pidLen; i++) {
     filename[strlen(dirName) + i] = num[i];
   }
-  puts("=========================");
-  puts(filename);
+  // puts("=========================");
   
   FILE *fp = fopen(filename, "r");
   char buf[1024];
   if (fp) {
+  puts(filename);
   // 用fscanf, fgets等函数读取
   fscanf(fp, "%d", &pid);
   printf("pid:%d\n", pid);
