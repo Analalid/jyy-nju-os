@@ -41,7 +41,6 @@ void mkTree(char *dirName, int pid){
   for (int i = 0; i <= pidLen; i++) {
     filename[strlen(dirName) + i] = num[i];
   }
-  // puts("=========================");
   
   FILE *fp = fopen(filename, "r");
   char buf[1024];
@@ -53,9 +52,9 @@ void mkTree(char *dirName, int pid){
   fgets(buf, sizeof(buf), fp);
   printf("Read line: %s\n", buf);
   fclose(fp);
+  puts("error!!!!!!!!!!!!!!!!!!");
   } else {
   // 错误处理
-  // puts("error!!!!!!!!!!!!!!!!!!");
   }
   free(num);
 }
