@@ -29,9 +29,14 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 void dfs(int curNode, int depth){
-  if(curNode == -1) return;
-  printf("%d", curNode);
-  printf("\n");
+  if(curNode == -1){
+    printf("\n");
+    return;
+  }
+  for(int i = 0; i < depth; ++i){
+    printf("\t\t");
+  }
+  printf("─%d", curNode);
   for(int i = 0; i < processesSonCount[curNode]; ++i){
     int son = processesFatherId[curNode][i];
     dfs(son, depth + 1);
