@@ -45,7 +45,7 @@ void mkTree(char *dirName, int pid){
   //拼接尾部
   char status[] = "/status";
   for(int i = 0; i < strlen(status); ++i){
-    filename[strlen(dirName) + idx + 1] = status[i];
+    filename[strlen(dirName) + idx + i] = status[i];
   }
 
   FILE *fp = fopen(filename, "r");
