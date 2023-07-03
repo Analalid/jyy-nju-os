@@ -41,7 +41,7 @@ void mkTree(char *dirName, int pid){
   strcpy(filename, dirName);
 
   //拼接数字
-  for (int i = 0; i <= pidLen; i++) {
+  for (int i = 0; i < pidLen; i++) {
     filename[strlen(dirName) + i] = num[i];
   }
   //拼接尾部
