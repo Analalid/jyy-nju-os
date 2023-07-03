@@ -79,6 +79,13 @@ void loadProcessName(char *buf, int pid){
   //   processesName[pid][i] = buf[i];
   //   buf = buf + 1;
   // }
-  strcpy(processesName[pid], buf);
+  int idx = 0;
+  int i = 0;
+  while(buf[i]) ++i;
+  ++i;
+  while(buf){
+    processesName[pid][idx++] = buf[i];
+    buf = buf + 1;
+  }
   printf("==============%s", processesName[pid]);
 }
