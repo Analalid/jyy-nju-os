@@ -88,12 +88,12 @@ void loadProcessName(char *buf, int pid){
 void loadProcessFather(char *buf , int pid){
   int idx = 0;
   int i = 0;
+  puts(buf);
   while(buf[i] != '\t'){
     ++i;
   }
   ++i;
   int PPidV = 0;
-  puts(buf);
   while(buf[i + 1]){
     PPidV *= 10;
     PPidV += buf[i] - '0';
