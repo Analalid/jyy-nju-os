@@ -63,7 +63,7 @@ void mkTree(char *dirName, int pid){
       // }
       // printf("id:%d\t", pid);
       // printf("%s", buf);
-      loadProcessName(buf, pid);
+      if(i == 0) loadProcessName(buf, pid);
     }
     fclose(fp);
   } else {
