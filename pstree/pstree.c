@@ -21,12 +21,13 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 void mkTree(char *dirName, int pid){
-  char *filename;
+  char filename[100];
   char num[10];
   sprintf(num, "%d", pid);
   strcat(filename, dirName);
   strcat(filename, num);
   puts(filename);
+  
   FILE *fp = fopen(filename, "r");
   char buf[1024];
   if (fp) {
