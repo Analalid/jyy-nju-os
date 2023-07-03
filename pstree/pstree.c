@@ -95,11 +95,7 @@ void loadProcessFather(char *buf , int pid){
   int PidV = 0;
   while(buf[i + 1]){
     PidV *= 10;
-    // printf("%c", buf[i]);
     PidV += buf[i] - '0';
-    if(pid == 1){
-      printf("==:%d", PidV);
-    }
     ++i;
   }
   printf("father:%d,    son:  %d\n", PidV, pid);
