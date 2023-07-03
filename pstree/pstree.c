@@ -2,7 +2,6 @@
 #include <assert.h>
 
 #include <string.h>
-#include <cstdlib>
 void mkTree(char * dirName, int pid);
 int main(int argc, char *argv[]) {
   char *processesName[65536];
