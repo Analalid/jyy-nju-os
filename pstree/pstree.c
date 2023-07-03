@@ -34,9 +34,9 @@ void dfs(int curNode, int depth){
     return;
   }
   for(int i = 0; i < depth; ++i){
-    printf("\t\t");
+    printf("\t");
   }
-  printf("─%d", curNode);
+  printf("%d", curNode);
   for(int i = 0; i < processesSonCount[curNode]; ++i){
     int son = processesFatherId[curNode][i];
     dfs(son, depth + 1);
