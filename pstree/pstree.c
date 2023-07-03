@@ -31,6 +31,8 @@ int main(int argc, char *argv[]) {
 void dfs(int curNode, int depth){
   for(int i = 0; i < depth; ++i){
     printf("\t");
+    if(i != depth - 1)printf("│");
+    else printf("├─");
   }
   printf("%s(%d)", processesName[curNode],curNode);
   if(processesSonCount[curNode] == 0){
