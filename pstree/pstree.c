@@ -25,15 +25,14 @@ int main(int argc, char *argv[]) {
     //"proc/"
     mkTree(argv[1], i);
   }
-  puts("=============================");
   dfs(0, 0);
   return 0;
 }
 void dfs(int curNode, int depth){
   if(curNode == -1) return;
-  printf("==============%d  ", curNode);
+  printf("%d  ", curNode);
   for(int i = 0; i < depth; ++i){
-    printf("\t");
+    printf("---------------");
   }
   printf("\n");
   for(int i = 0; i < processesSonCount[curNode]; ++i){
