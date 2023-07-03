@@ -3,9 +3,12 @@
 
 #include<stdlib.h>
 #include <string.h>
+
+
 void mkTree(char * dirName, int pid);
+void loadProcessName(char *buf, int pid);
+char processesName[65536][100];
 int main(int argc, char *argv[]) {
-  char *processesName[65536];
   // int * processesFatherId[65536];
   // processesFatherId[1] = 0;
   for (int i = 0; i < argc; i++) {
@@ -56,6 +59,11 @@ void mkTree(char *dirName, int pid){
     for(int i = 0; i < 6; ++i){
       fgets(buf, sizeof(buf), fp);
       if(i != 0 && i != 5) continue;
+      if(i == 0){
+        loadProcessName(buf, pid);
+      }else{
+
+      }
       printf("id:%d\t", pid);
       printf("%s", buf);
     }
@@ -65,4 +73,13 @@ void mkTree(char *dirName, int pid){
     // puts("error!!!!!!!!!!!!!!!!!!");
   }
   free(num);
+}
+
+void loadProcessName(char *buf, int pid){
+  int i = 0;
+  while(buf){
+    processesName[pid][i] = buf[i];
+    buf = buf + 1;
+  }
+  printf("==============%s", processesName[pid]);
 }
