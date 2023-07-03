@@ -4,13 +4,16 @@
 #include<stdlib.h>
 #include <string.h>
 
-
+//建立目录树
 void mkTree(char * dirName, int pid);
+//加载进程名和Pid的映射
 void loadProcessName(char *buf, int pid);
-char processesName[65536][100];
+//确立父子关系
+void loadProcessFather(char *buf , int pid);
+char static processesName[65536][100];
+int static processesFatherId[65536][65536];
+
 int main(int argc, char *argv[]) {
-  // int * processesFatherId[65536];
-  // processesFatherId[1] = 0;
   for (int i = 0; i < argc; i++) {
     assert(argv[i]);
     printf("argv[%d] = %s\n", i, argv[i]);
@@ -58,12 +61,8 @@ void mkTree(char *dirName, int pid){
   // 用fscanf, fgets等函数读取
     for(int i = 0; i < 6; ++i){
       fgets(buf, sizeof(buf), fp);
-      if(i != 0 && i != 5) continue;
-      // if(i == 0){
-      // }
-      // printf("id:%d\t", pid);
-      // printf("%s", buf);
       if(i == 0) loadProcessName(buf, pid);
+      if(i == 5) loadProcessFather(buf, pid);
     }
     fclose(fp);
   } else {
@@ -74,21 +73,31 @@ void mkTree(char *dirName, int pid){
 }
 
 void loadProcessName(char *buf, int pid){
-  // int i = 0;
-  // while(buf){
-  //   processesName[pid][i] = buf[i];
-  //   buf = buf + 1;
-  // }
   int idx = 0;
   int i = 0;
   while(buf[i] != '\t'){
-    // printf("%c",buf[i]);
     ++i;
   }
   ++i;
   while(buf[i]){
     processesName[pid][idx++] = buf[i++];
   }
-  // processesName[pid][idx] = '\n';
   printf("%s", processesName[pid]);
+}
+
+void loadProcessFather(char *buf , int pid){
+  int idx = 0;
+  int i = 0;
+  while(buf[i] != '\t'){
+    ++i;
+  }
+  ++i;
+  int PidV = 0;
+  while(buf[i]){
+    PidV *= 10;
+    PidV += buf[i] - '0';
+    ++i;
+  }
+  printf("father:%d,    son:  %d", PidV, pid);
+
 }
