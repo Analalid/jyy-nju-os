@@ -21,11 +21,14 @@ int main(int argc, char *argv[]) {
 void mkTree(char * filename){
   FILE *fp = fopen(filename, "r");
   int pid;
+  char buf[1024];
   if (fp) {
   // 用fscanf, fgets等函数读取
   puts(filename);
   fscanf(fp, "%d", &pid);
   printf("pid:%d\n", pid);
+  fgets(buf, sizeof(buf), fp);
+  printf("Read line: %s\n", buf);
   fclose(fp);
   } else {
   // 错误处理
