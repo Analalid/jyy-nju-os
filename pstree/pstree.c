@@ -25,18 +25,12 @@ int main(int argc, char *argv[]) {
     //"proc/"
     mkTree(argv[1], i);
   }
-  // for(int i = 0; i < 26; ++i){
-  //   printf("son:%d\n", processesFatherId[5407][i]);
-  // }
-  // dfs(0, 0);
+  dfs(0, 0);
   return 0;
 }
 void dfs(int curNode, int depth){
   if(curNode == -1) return;
   printf("%d", curNode);
-  // for(int i = 0; i < depth; ++i){
-  //   printf("---------------");
-  // }
   printf("\n");
   for(int i = 0; i < processesSonCount[curNode]; ++i){
     int son = processesFatherId[curNode][i];
@@ -116,15 +110,5 @@ void loadProcessFather(char *buf , int pid){
   }
   ++processesSonCount[PPidV];
   processesFatherId[PPidV]= (int *)realloc(processesFatherId[PPidV], processesSonCount[PPidV] * sizeof(int));
-  // for(int i = 0; i < processesSonCount[PPidV]; ++i){
-  //   newSPace[i] = processesFatherId[PPidV][i];
-  //   if(PPidV == 5407) printf("%d",processesFatherId[PPidV][i]);
-  // }
   processesFatherId[PPidV][processesSonCount[PPidV] - 1] = pid;
-  if(PPidV != 5407) return;
-  printf("father:%d,    son:  %d,     sonCount:%d\n", PPidV, pid, processesSonCount[PPidV]);
-  for(int i = 0; i < processesSonCount[PPidV]; ++i){
-    printf("%d     ", processesFatherId[PPidV][i]);
-  }
-  puts("\n");
 }
