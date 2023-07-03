@@ -95,7 +95,7 @@ void loadProcessName(char *buf, int pid){
     ++i;
   }
   ++i;
-  while(buf[i]){
+  while(buf[i+1]){
     processesName[pid][idx++] = buf[i++];
   }
 }
