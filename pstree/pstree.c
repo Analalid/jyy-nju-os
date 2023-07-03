@@ -81,7 +81,7 @@ void loadProcessName(char *buf, int pid){
   // }
   int idx = 0;
   int i = 0;
-  while(buf[i]){
+  while(buf[i] != '\t'){
     printf("%c",buf[i]);
     ++i;
   }
