@@ -11,7 +11,7 @@ void loadProcessName(char *buf, int pid);
 //确立父子关系
 void loadProcessFather(char *buf , int pid);
 char static processesName[65536][100];
-int static processesFatherId[65536][65536];
+long static processesFatherId[65536][65536];
 
 int main(int argc, char *argv[]) {
   for (int i = 0; i < argc; i++) {
