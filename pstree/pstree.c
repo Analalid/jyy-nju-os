@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <assert.h>
 
+#include<stdlib.h>
 #include <string.h>
 void mkTree(char * dirName, int pid);
 int main(int argc, char *argv[]) {
@@ -20,11 +21,26 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 void mkTree(char *dirName, int pid){
-  char filename[100];
-  char num[10];
-  sprintf(num, "%d", pid);
-  strcat(filename, dirName);
-  strcat(filename, num);
+  char *num;
+  int pidLen;
+  //获取转换后的字符串长度
+  pidLen = snprintf(NULL, 0, "%d", pid);
+  // 分配足够的空间来容纳转换后的字符串
+  num = (char*)malloc(pidLen + 1);
+  // 将 num 转换为字符数组
+  snprintf(num, pidLen + 1, "%d", pid);
+
+  
+  int len = strlen(dirName) + pidLen + 1;
+  char filename[len];
+
+  //将dirName复制到filename里
+  strcpy(filename, dirName);
+
+  //拼接数字
+  for (int i = 0; i <= pidLen; i++) {
+    filename[strlen(dirName) + i] = num[i];
+  }
   puts("=========================");
   puts(filename);
   
@@ -41,4 +57,6 @@ void mkTree(char *dirName, int pid){
   // 错误处理
   puts("error!!!!!!!!!!!!!!!!!!");
   }
+  free(num);
+  free(filename);
 }
