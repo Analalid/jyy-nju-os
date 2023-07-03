@@ -86,18 +86,19 @@ void loadProcessName(char *buf, int pid){
 }
 
 void loadProcessFather(char *buf , int pid){
-  // int idx = 0;
-  // int i = 0;
-  // while(buf[i] != '\t'){
-  //   ++i;
-  // }
-  // ++i;
+  int idx = 0;
+  int i = 0;
+  while(buf[i] != '\t'){
+    ++i;
+  }
+  ++i;
   int PidV = 0;
-  // while(buf[i]){
-  //   PidV *= 10;
-    // printf("%c", buf[i]);
-  //   PidV += buf[i] - '0';
-  // }
+  while(buf[i]){
+    PidV *= 10;
+    printf("%c", buf[i]);
+    PidV += buf[i] - '0';
+  }
+  
   printf("father:%d,    son:  %d\n", PidV, pid);
 
 }
