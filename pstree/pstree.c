@@ -54,6 +54,7 @@ void mkTree(char *dirName, int pid){
   if (fp) {
   // 用fscanf, fgets等函数读取
     fgets(buf, sizeof(buf), fp);
+    printf("id:%d", pid);
     printf("%s", buf);
     fclose(fp);
   } else {
