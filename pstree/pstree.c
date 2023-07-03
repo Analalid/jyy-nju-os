@@ -26,6 +26,7 @@ void mkTree(char *dirName, int pid){
   sprintf(num, "%d", pid);
   strcat(filename, dirName);
   strcat(filename, num);
+  puts("=========================")
   puts(filename);
   
   FILE *fp = fopen(filename, "r");
