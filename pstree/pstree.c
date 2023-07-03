@@ -11,8 +11,8 @@ void loadProcessName(char *buf, int pid);
 //确立父子关系
 void loadProcessFather(char *buf , int pid);
 char static processesName[65536][100];
-long static processesFatherId[65536][65536];
-
+int *processesFatherId[65536];
+int  precessessonCount[65536];
 int main(int argc, char *argv[]) {
   for (int i = 0; i < argc; i++) {
     assert(argv[i]);
@@ -99,7 +99,5 @@ void loadProcessFather(char *buf , int pid){
     PidV += buf[i] - '0';
     ++i;
   }
-  
   printf("father:%d,    son:  %d\n", PidV, pid);
-
 }
