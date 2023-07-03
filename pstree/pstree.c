@@ -14,7 +14,7 @@ int main(int argc, char *argv[]) {
   }
   assert(!argv[argc]);
   for(int i = 0; i < 65536; ++i){
-    //"/proc"
+    //"proc"
     mkTree(argv[1], i);
   }
   // dfs(0);
