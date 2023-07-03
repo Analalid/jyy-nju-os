@@ -63,7 +63,7 @@ void mkTree(char *dirName, int pid){
       // }
       printf("id:%d\t", pid);
       printf("%s", buf);
-      // loadProcessName(buf, pid);
+      loadProcessName(buf, pid);
     }
     fclose(fp);
   } else {
@@ -74,10 +74,11 @@ void mkTree(char *dirName, int pid){
 }
 
 void loadProcessName(char *buf, int pid){
-  int i = 0;
-  printf("==============%s", processesName[pid]);
-  while(buf){
-    processesName[pid][i] = buf[i];
-    buf = buf + 1;
-  }
+  // int i = 0;
+  // printf("==============%s", processesName[pid]);
+  // while(buf){
+  //   processesName[pid][i] = buf[i];
+  //   buf = buf + 1;
+  // }
+  strcpy(processesName[pid], buf);
 }
