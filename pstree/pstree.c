@@ -92,18 +92,19 @@ void loadProcessFather(char *buf , int pid){
     ++i;
   }
   ++i;
-  int PidV = 0;
+  int PPidV = 0;
+  puts(buf);
   while(buf[i + 1]){
-    PidV *= 10;
-    PidV += buf[i] - '0';
+    PPidV *= 10;
+    PPidV += buf[i] - '0';
     ++i;
   }
-  ++processesSonCount[PidV];
-  int newSPace[processesSonCount[PidV]];
-  for(int i = 0; i < processesSonCount[PidV] - 1; ++i){
-    newSPace[i] = processesFatherId[PidV][i]; 
+  ++processesSonCount[PPidV];
+  int newSPace[processesSonCount[PPidV]];
+  for(int i = 0; i < processesSonCount[PPidV] - 1; ++i){
+    newSPace[i] = processesFatherId[PPidV][i]; 
   }
-  newSPace[processesSonCount[PidV] - 1] = pid;
-  processesFatherId[PidV] = newSPace;
-  printf("father:%d,    son:  %d,     sonCount:%d \n", PidV, pid, processesSonCount[PidV]);
+  newSPace[processesSonCount[PPidV] - 1] = pid;
+  processesFatherId[PPidV] = newSPace;
+  printf("father:%d,    son:  %d,     sonCount:%d \n", PPidV, pid, processesSonCount[PPidV]);
 }
