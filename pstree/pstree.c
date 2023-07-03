@@ -105,5 +105,5 @@ void loadProcessFather(char *buf , int pid){
   }
   newSPace[processesSonCount[PidV] - 1] = pid;
   processesFatherId[PidV] = newSPace;
-  printf("father:%d,    son:  %d\n,     sonCount:%d", PidV, pid, processesSonCount[PidV]);
+  printf("father:%d,    son:  %d,     sonCount:%d \n", PidV, pid, processesSonCount[PidV]);
 }
