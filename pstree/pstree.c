@@ -10,6 +10,8 @@ void mkTree(char * dirName, int pid);
 void loadProcessName(char *buf, int pid);
 //确立父子关系
 void loadProcessFather(char *buf , int pid);
+//迭代打印
+void dfs(int curNode, int depth);
 char static processesName[65536][100];
 int *processesFatherId[65536];
 int  processesSonCount[65536];
@@ -23,9 +25,21 @@ int main(int argc, char *argv[]) {
     //"proc/"
     mkTree(argv[1], i);
   }
-  // dfs(0);
+  dfs(0, 0);
 
   return 0;
+}
+void dfs(int curNode, int depth){
+  if(curNode == -1) return;
+  printf("%d  ", curNode);
+  for(int i = 0; i < depth; ++i){
+    printf('\t');
+  }
+  printf('\n');
+  for(int i = 0; i < processesSonCount[curNode]; ++i){
+    int son = processesFatherId[curNode][i];
+    dfs(son, depth + 1);
+  }
 }
 void mkTree(char *dirName, int pid){
   char *num;
