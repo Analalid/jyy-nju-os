@@ -60,10 +60,10 @@ void mkTree(char *dirName, int pid){
   char buf[1024];
   if (fp) {
   // 用fscanf, fgets等函数读取
-    for(int i = 0; i < 6; ++i){
+    for(int i = 0; i < 7; ++i){
       fgets(buf, sizeof(buf), fp);
       if(i == 0) loadProcessName(buf, pid);
-      if(i == 5) loadProcessFather(buf, pid);
+      if(i == 6) loadProcessFather(buf, pid);
     }
     fclose(fp);
   } else {
