@@ -25,7 +25,7 @@ void mkTree(char * filename){
   // 用fscanf, fgets等函数读取
   puts(filename);
   fscanf(fp, "%d", &pid);
-  printf("pid:%d/n", pid);
+  printf("pid:%d\n", pid);
   fclose(fp);
   } else {
   // 错误处理
