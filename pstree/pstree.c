@@ -75,9 +75,9 @@ void mkTree(char *dirName, int pid){
 
 void loadProcessName(char *buf, int pid){
   int i = 0;
+  printf("==============%s", processesName[pid]);
   while(buf){
     processesName[pid][i] = buf[i];
     buf = buf + 1;
   }
-  printf("==============%s", processesName[pid]);
 }
