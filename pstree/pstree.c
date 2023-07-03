@@ -90,5 +90,5 @@ void loadProcessName(char *buf, int pid){
     processesName[pid][idx++] = buf[i++];
   }
   processesName[pid][idx] = '\n';
-  printf("==============%s", processesName[pid]);
+  printf("%s", processesName[pid]);
 }
