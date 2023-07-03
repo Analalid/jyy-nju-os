@@ -60,7 +60,7 @@ void mkTree(char *dirName, int pid){
       fgets(buf, sizeof(buf), fp);
       if(i != 0 && i != 5) continue;
       // if(i == 0){
-        loadProcessName(buf, pid);
+        // loadProcessName(buf, pid);
       // }
       printf("id:%d\t", pid);
       printf("%s", buf);
