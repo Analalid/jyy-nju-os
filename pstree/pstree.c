@@ -37,24 +37,30 @@ void mkTree(char *dirName, int pid){
   //将dirName复制到filename里
   strcpy(filename, dirName);
 
+  int idx = 0;
   //拼接数字
-  for (int i = 0; i <= pidLen; i++) {
-    filename[strlen(dirName) + i] = num[i];
+  for (; idx <= pidLen; idx++) {
+    filename[strlen(dirName) + idx] = num[idx];
   }
-  
+  //拼接尾部
+  char status[] = "/status";
+  for(int i = 0; i < strlen(status); ++i){
+    filename[strlen(dirName) + idx + 1] = status[i];
+  }
+
   FILE *fp = fopen(filename, "r");
   char buf[1024];
-  // puts(filename);
+  puts(filename);
   if (fp) {
   // 用fscanf, fgets等函数读取
-  fscanf(fp, "%d", &pid);
-  printf("pid:%d\n", pid);
-  fgets(buf, sizeof(buf), fp);
-  printf("Read line: %s\n", buf);
-  fclose(fp);
-  // puts("error!!!!!!!!!!!!!!!!!!");
+    fscanf(fp, "%d", &pid);
+    printf("pid:%d\n", pid);
+    fgets(buf, sizeof(buf), fp);
+    printf("Read line: %s\n", buf);
+    fclose(fp);
   } else {
-  // 错误处理
+    // 错误处理
+    // puts("error!!!!!!!!!!!!!!!!!!");
   }
   free(num);
 }
