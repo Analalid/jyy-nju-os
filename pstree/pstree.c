@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <assert.h>
-void mkTree(char * filename);
+
+#include <string.h>
+
+void mkTree(char * dirName, int pid);
 int main(int argc, char *argv[]) {
   char *processesName[65536];
   // int * processesFatherId[65536];
@@ -10,21 +13,24 @@ int main(int argc, char *argv[]) {
     printf("argv[%d] = %s\n", i, argv[i]);
   }
   assert(!argv[argc]);
-  //"/proc"
-  mkTree(argv[1]);
+  for(int i = 0; i < 65536; ++i){
+    //"/proc"
+    mkTree(argv[1], i);
+  }
   // dfs(0);
   return 0;
 }
-// void dfs(int pid){
-    // if(pid == -1) return;
-// }
-void mkTree(char * filename){
+void mkTree(char *dirName, int pid){
+  char *filename;
+  char num[10];
+  sprintf(num, "%d", pid);
+  strcat(filename, dirName);
+  strcat(filename, num);
+  puts(filename);
   FILE *fp = fopen(filename, "r");
-  int pid;
   char buf[1024];
   if (fp) {
   // 用fscanf, fgets等函数读取
-  puts(filename);
   fscanf(fp, "%d", &pid);
   printf("pid:%d\n", pid);
   fgets(buf, sizeof(buf), fp);
