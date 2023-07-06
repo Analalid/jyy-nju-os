@@ -1,4 +1,4 @@
 #!/bin/bash
 clear
-make
-./pstree-64 /proc/
+
+make && ./pstree-64 /proc/
