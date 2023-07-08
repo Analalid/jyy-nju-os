@@ -1,0 +1,3 @@
+-I./amgame/include
+-I./abstract-machine/am/include
+-I./abstract-machine/klib/include
