@@ -1,6 +1,7 @@
 #include "co.h"
 #include <stdlib.h>
 #include <pthread.h>
+#include <stdio.h>
 #define NTHREAD 64
 enum { T_FREE = 0, T_LIVE, T_DEAD, };
 
