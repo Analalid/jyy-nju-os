@@ -18,11 +18,10 @@ void *wrapper(void *arg) {
 }
 
 struct co *co_start(const char *name, void (*func)(void *), void *arg) {
-  struct co* res = NULL;
-  *res = (struct co) {
-    .status = T_LIVE,
-    .entry = func,
-  };
+  struct co* res = ; {status = T_LIVE, entry = func};
+  // *res = (struct co) {
+    
+  // };
   puts("\n***************************\n");
 
   pthread_create(&(res->thread), NULL, wrapper, res);
