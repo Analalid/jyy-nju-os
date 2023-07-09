@@ -7,7 +7,7 @@ enum { T_FREE = 0, T_LIVE, T_DEAD, };
 struct co {
   int status;
   pthread_t thread;
-  void (*entry)(void);
+  void (*entry)(void*);
 };
 
 void *wrapper(void *arg) {
