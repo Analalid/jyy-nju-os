@@ -17,6 +17,7 @@ void *wrapper(void *arg) {
 }
 
 struct co *co_start(const char *name, void (*func)(void *), void *arg) {
+  printf("\n***************************\n");
   struct co* res = NULL;
   *res = (struct co) {
     .status = T_LIVE,
