@@ -24,7 +24,7 @@ struct co *co_start(const char *name, void (*func)(void *), void *arg) {
   };
   puts("\n***************************\n");
 
-  pthread_create(&(res->thread), NULL, wrapper, res);
+  pthread_create(&(res->thread), NULL, wrapper, &res);
 
   return res;
 }
