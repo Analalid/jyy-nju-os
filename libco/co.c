@@ -10,6 +10,12 @@ struct co {
   void (*entry)(int);
 };
 
+void *wrapper(void *arg) {
+  struct thread *thread = (struct thread *)arg;
+  thread->entry(thread->id);
+  return NULL;
+}
+
 struct co *co_start(const char *name, void (*func)(void *), void *arg) {
   struct co* res;
   *res = (struct co) {
@@ -17,7 +23,7 @@ struct co *co_start(const char *name, void (*func)(void *), void *arg) {
     .entry = func,
   };
 
-  pthread_create(&(res->thread), NULL, NULL, res);
+  pthread_create(&(res->thread), NULL, wrapper, res);
 
   return res;
 }
