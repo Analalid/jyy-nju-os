@@ -12,7 +12,7 @@ struct co {
 
 void *wrapper(void *arg) {
   struct co *co = (struct co *)arg;
-  co->entry(co->id);
+  co->entry(co->status);
   return NULL;
 }
 
