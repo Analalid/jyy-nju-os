@@ -11,8 +11,8 @@ struct co {
 };
 
 void *wrapper(void *arg) {
-  struct thread *thread = (struct thread *)arg;
-  thread->entry(thread->id);
+  struct co *co = (struct co *)arg;
+  co->entry(co->id);
   return NULL;
 }
 
