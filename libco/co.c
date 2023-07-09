@@ -20,7 +20,7 @@ void *wrapper(void *arg) {
 struct co *co_start(const char *name, void (*func)(void *), void *arg) {
   struct co res = {
     .status = T_LIVE,
-    .entry = func,
+    .entry = func
   };
   puts("\n***************************\n");
 
