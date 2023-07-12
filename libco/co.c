@@ -31,7 +31,16 @@ struct co *co_start(const char *name, void (*func)(void *), void *arg) {
     .name = name,
     .func = func,
   };
-  return my_co;
+  printf("=========1");
+  asm volatile (
+#if __x86_64__
+    "movq %0, %%rsp; movq %2, %%rdi; jmp *%1" : : "b"((uintptr_t)sp),     "d"(entry), "a"(arg)
+#else
+    "movl %0, %%esp; movl %2, 4(%0); jmp *%1" : : "b"((uintptr_t)sp - 8), "d"(entry), "a"(arg)
+#endif
+  );
+  printf("=========2");
+  return NULL;
 }
 
 void co_wait(struct co *co) {
