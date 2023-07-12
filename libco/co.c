@@ -4,6 +4,8 @@
 #include <setjmp.h>
 #define NTHREAD 64
 
+typedef unsigned long int	uintptr_t;
+
 enum co_status {
   CO_NEW = 1, // 新创建，还未执行过
   CO_RUNNING, // 已经执行过
@@ -32,9 +34,13 @@ struct co *co_start(const char *name, void (*func)(void *), void *arg) {
     .func = func,
   };
   printf("=========1");
+  void *sp;
+  asm volatile ("mov %%rsp, %0" : "=r" (sp));
   asm volatile (
 #if __x86_64__
-    "movq %0, %%rsp; movq %2, %%rdi; jmp *%1" : : "b"((uintptr_t)sp),     "d"(entry), "a"(arg)
+    "movq %0, %%rsp; movq %2, %%rdi; jmp *%1" 
+    : 
+    : "b"((uintptr_t)sp),     "d"(func), "a"(arg)
 #else
     "movl %0, %%esp; movl %2, 4(%0); jmp *%1" : : "b"((uintptr_t)sp - 8), "d"(entry), "a"(arg)
 #endif
