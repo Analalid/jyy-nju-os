@@ -47,15 +47,15 @@ struct co *co_start(const char *name, void (*func)(void *), void *arg) {
   my_co->arg = arg;
   my_co->status = CO_NEW;
   my_co->waiter = NULL;
-  printf("=========in");
+  printf("=========in\n");
   if(setjmp(my_co->context) == 0){
     //初次初始化
-    printf("init->%s", my_co->name);  
+    printf("init->%s\n", my_co->name);  
   }else{
     //error!
-    printf("cann't init->%s twice !!!", my_co->name);  
+    printf("cann't init->%s twice !!!\n", my_co->name);  
   }
-  printf("=========out");
+  printf("=========out\n");
   return my_co;
 }
 
