@@ -41,6 +41,7 @@ void *wrapper(void *arg) {
 struct co *co_start(const char *name, void (*func)(void *), void *arg) {
   
   struct co *my_co = malloc(sizeof(struct co));
+  my_co->name = malloc(sizeof(name));
   strcpy(my_co->name, name);
   my_co->func = func;
   my_co->arg = arg;
@@ -49,10 +50,10 @@ struct co *co_start(const char *name, void (*func)(void *), void *arg) {
   printf("=========in");
   if(setjmp(my_co->context) == 0){
     //初次初始化
-    // printf("init->%s", my_co->name);  
+    printf("init->%s", my_co->name);  
   }else{
     //error!
-    // printf("cann't init->%s twice !!!", my_co->name);  
+    printf("cann't init->%s twice !!!", my_co->name);  
   }
   printf("=========out");
   return my_co;
