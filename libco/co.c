@@ -39,7 +39,6 @@ void *wrapper(void *arg) {
   return NULL;
 }
 struct co *co_start(const char *name, void (*func)(void *), void *arg) {
-  
   struct co *my_co = malloc(sizeof(struct co));
   my_co->name = malloc(sizeof(name));
   strcpy(my_co->name, name);
