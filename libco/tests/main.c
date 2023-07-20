@@ -26,7 +26,8 @@ static void work_loop(void *arg) {
 static void work(void *arg) {
     work_loop(arg);
 }
-
+//ISO C99 and later do not support implicit function declarations, 标准一点
+struct co *co_start(const char *name, void (*func)(void *), void *arg);
 static void test_1() {
 
     struct co *thd1 = co_start("thread-1", work, "X");
