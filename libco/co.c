@@ -92,7 +92,6 @@ struct co *co_start(const char *name, void (*func)(void *), void *arg) {
 
 void co_wait(struct co *co) {
   co_current -> status = CO_WAITING;
-  printf("asbhjdas");
   //直到这个协程还没死，就一直循环
   while(co->status != CO_DEAD){
     co_yield();
@@ -103,6 +102,7 @@ void co_wait(struct co *co) {
 }
 
 void co_yield() {
+  printf("asbhjdas");
   int val = setjmp(co_current->context);
   if(val == 0){
     struct co *nextNode = co_current->next;
