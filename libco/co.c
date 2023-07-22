@@ -86,13 +86,13 @@ struct co *co_start(const char *name, void (*func)(void *), void *arg) {
     //error!
     printf("cann't init->%s twice !!!\n", my_co->name);
   }
-
   printf("=========out\n");
   return my_co;
 }
 
 void co_wait(struct co *co) {
   co_current -> status = CO_WAITING;
+  printf("asbhjdas");
   //直到这个协程还没死，就一直循环
   while(co->status != CO_DEAD){
     co_yield();
