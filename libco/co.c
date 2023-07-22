@@ -116,10 +116,10 @@ void co_yield() {
         asm volatile("mov %0,%%rsp"::"b"((uintptr_t)stackTop));
         wrapper(NULL);
       }
-      printf("hear!!!!!!!!!!!");
     } else{
       longjmp(nextNode -> context,0);
     } 
+      printf("hear!!!!!!!!!!!!!!!!!!!!!!");
   }
   return;
 }
