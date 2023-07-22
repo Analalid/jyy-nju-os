@@ -102,7 +102,7 @@ void co_wait(struct co *co) {
 }
 
 void co_yield() {
-  printf("============");
+  printf("ikajsd");
   int val = setjmp(co_current->context);
   if(val == 0){
     struct co *nextNode = co_current->next;
