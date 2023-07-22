@@ -103,7 +103,7 @@ void co_wait(struct co *co) {
 
 void co_yield() {
   int val = setjmp(co_current->context);
-  printf("ashjkd")
+  printf("ashjkd");
   if(val == 0){
     struct co *nextNode = co_current->next;
     while(nextNode -> status == CO_WAITING || nextNode -> status == CO_DEAD) nextNode = nextNode->next;
