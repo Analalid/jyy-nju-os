@@ -14,6 +14,7 @@
 typedef unsigned long int	uintptr_t;
 
 static inline void stack_switch_call(void *sp, void *entry, uintptr_t arg) {
+      printf("hear!!!!!!!!!!!!!!!!!!!!!!");
   asm volatile (
 #if __x86_64__
     "movq %0, %%rsp; movq %2, %%rdi; jmp *%1" : : "b"((uintptr_t)sp),     "d"(entry), "a"(arg)
@@ -116,7 +117,6 @@ void co_yield() {
         asm volatile("mov %0,%%rsp"::"b"((uintptr_t)stackTop));
         wrapper(NULL);
       }
-      printf("hear!!!!!!!!!!!!!!!!!!!!!!");
     } else{
       longjmp(nextNode -> context,0);
     } 
