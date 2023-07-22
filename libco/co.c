@@ -106,7 +106,6 @@ void co_yield() {
   if(val == 0){
     struct co *nextNode = co_current->next;
     while(nextNode -> status == CO_WAITING || nextNode -> status == CO_DEAD) nextNode = nextNode->next;
-    printf("hear!!!!!!!!!!!");
     co_current = nextNode;
     //如果尚未执行过则先初始化
     if(nextNode -> status == CO_NEW){
@@ -117,10 +116,10 @@ void co_yield() {
         asm volatile("mov %0,%%rsp"::"b"((uintptr_t)stackTop));
         wrapper(NULL);
       }
-    }
-    else{
+    } else{
       longjmp(nextNode -> context,0);
     } 
+    printf("hear!!!!!!!!!!!");
   }
   return;
 }
