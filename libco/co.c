@@ -76,7 +76,7 @@ struct co *co_start(const char *name, void (*func)(void *), void *arg) {
   //插入新节点
   my_co->next = co_main;
   my_co->pre = co_main->pre;
-  co_main->pre->next = co_main;
+  co_main->pre->next = my_co;
   co_main->pre = my_co;
   printf("=========in\n");
   if(setjmp(my_co->context) == 0){
@@ -105,10 +105,7 @@ void co_yield() {
   int val = setjmp(co_current->context);
   if(val == 0){
     struct co *nextNode = co_current->next;
-    while(nextNode -> status == CO_WAITING || nextNode -> status == CO_DEAD){
-      printf("ashjkd");
-      nextNode = nextNode->next;
-    } 
+    while(nextNode -> status == CO_WAITING || nextNode -> status == CO_DEAD) nextNode = nextNode->next;
     co_current = nextNode;
     //如果尚未执行过则先初始化
     if(nextNode -> status == CO_NEW){
