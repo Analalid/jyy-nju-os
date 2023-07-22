@@ -117,9 +117,9 @@ void co_yield() {
         wrapper(NULL);
       }
     } else{
+      printf("hear!!!!!!!!!!!!!!!!!!!!!!");
       longjmp(nextNode -> context,0);
     } 
-      printf("hear!!!!!!!!!!!!!!!!!!!!!!");
   }
   return;
 }
