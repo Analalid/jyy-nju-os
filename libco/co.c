@@ -33,31 +33,35 @@ struct co {
   void (*func)(void *); // co_start 指定的入口地址和参数
   void *arg;
   enum co_status status;  // 协程的状态
-  struct co *    waiter;  // 是否有其他协程在等待当前协程
+  struct co *    pre;
+  struct co *    next;
   jmp_buf        context; // 寄存器现场 (setjmp.h)
   // uint8_t        stack[STACK_SIZE]; // 协程的堆栈
 
 };
+//co_main作为新插入协程的哨兵节点， current协程指向正在运行的协程
 struct co* co_main, *co_current;
 
 __attribute__((constructor)) void co_init() {
   co_main = malloc(sizeof(struct co));
-  co_main->name="main";
-  co_main->status=CO_RUNNING;
-  co_main->waiter=co_main;
+  co_main->name = "main";
+  co_main->status = CO_RUNNING;
+  co_main->next = co_main;
+  co_main->pre = co_main;
   co_current = co_main;
+  printf("main_init\n");
 }
 
 
 
 void *wrapper(void *arg) {
-  co_current->status = CO_RUNNING;
-  co_current->func(co_current->arg);
-  co_current->status = CO_DEAD;
-  if(co_current->waiter != NULL){
-    co_current->waiter->status = CO_RUNNING;
-    co_current->waiter = NULL;
-  }
+  co_current -> status = CO_RUNNING;
+  co_current -> func(co_current->arg);
+  co_current -> status = CO_DEAD;
+  // if(co_current->waiter != NULL){
+  //   co_current->waiter->status = CO_RUNNING;
+  //   co_current->waiter = NULL;
+  // }
   co_yield();
   return NULL;
 }
@@ -69,7 +73,11 @@ struct co *co_start(const char *name, void (*func)(void *), void *arg) {
   my_co->func = func;
   my_co->arg = arg;
   my_co->status = CO_NEW;
-  my_co->waiter = NULL;
+  //插入新节点
+  my_co->next = co_main;
+  my_co->pre = co_main->pre;
+  co_main->pre->next = co_main;
+  co_main->pre = my_co;
   printf("=========in\n");
   if(setjmp(my_co->context) == 0){
     //初次初始化
@@ -78,11 +86,13 @@ struct co *co_start(const char *name, void (*func)(void *), void *arg) {
     //error!
     printf("cann't init->%s twice !!!\n", my_co->name);
   }
+
   printf("=========out\n");
   return my_co;
 }
 
 void co_wait(struct co *co) {
+  co_current -> status = CO_WAITING;
   //直到这个协程还没死，就一直循环
   while(co->status != CO_DEAD){
     co_yield();
@@ -93,6 +103,24 @@ void co_wait(struct co *co) {
 }
 
 void co_yield() {
-  
+  int val = setjmp(co_current->context);
+  if(val == 0){
+    struct co *nextNode = co_current->next;
+    while(nextNode -> status == CO_WAITING || nextNode -> status == CO_DEAD) nextNode = nextNode->next;
+    co_current = nextNode;
+    //如果尚未执行过则先初始化
+    if(nextNode -> status == CO_NEW){
+      //栈顶指针的位置由计算得出
+      void *stackTop = (void*)((char*)nextNode + sizeof(struct co));
+      if(sizeof(void*) == 4) stack_switch_call(stackTop, wrapper, (uintptr_t)NULL);
+      else{
+        asm volatile("mov %0,%%rsp"::"b"((uintptr_t)stackTop));
+        wrapper(NULL);
+      }
+    }
+    else{
+      longjmp(nextNode -> context,0);
+    } 
+  }
   return;
 }
