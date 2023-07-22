@@ -108,6 +108,7 @@ void co_yield() {
     while(nextNode -> status == CO_WAITING || nextNode -> status == CO_DEAD) nextNode = nextNode->next;
     co_current = nextNode;
     //如果尚未执行过则先初始化
+    printf("hear!!!!!!!!!!!");
     if(nextNode -> status == CO_NEW){
       //栈顶指针的位置由计算得出
       void *stackTop = (void*)((char*)nextNode + sizeof(struct co));
@@ -119,7 +120,6 @@ void co_yield() {
     } else{
       longjmp(nextNode -> context,0);
     } 
-    printf("hear!!!!!!!!!!!");
   }
   return;
 }
