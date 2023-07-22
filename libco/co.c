@@ -14,7 +14,6 @@
 typedef unsigned long int	uintptr_t;
 
 static inline void stack_switch_call(void *sp, void *entry, uintptr_t arg) {
-      printf("hear!!!!!!!!!!!!!!!!!!!!!!");
   asm volatile (
 #if __x86_64__
     "movq %0, %%rsp; movq %2, %%rdi; jmp *%1" : : "b"((uintptr_t)sp),     "d"(entry), "a"(arg)
@@ -112,6 +111,7 @@ void co_yield() {
     if(nextNode -> status == CO_NEW){
       //栈顶指针的位置由计算得出
       void *stackTop = (void*)((char*)nextNode + sizeof(struct co));
+      printf(stackTop);
       if(sizeof(void*) == 4) stack_switch_call(stackTop, wrapper, (uintptr_t)NULL);
       else{
         asm volatile("mov %0,%%rsp"::"b"((uintptr_t)stackTop));
