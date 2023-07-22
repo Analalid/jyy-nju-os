@@ -111,7 +111,7 @@ void co_yield() {
     if(nextNode -> status == CO_NEW){
       //栈顶指针的位置由计算得出
       void *stackTop = (void*)((char*)nextNode + sizeof(struct co));
-      printf(stackTop);
+      printf("%d",stackTop);
       if(sizeof(void*) == 4) stack_switch_call(stackTop, wrapper, (uintptr_t)NULL);
       else{
         asm volatile("mov %0,%%rsp"::"b"((uintptr_t)stackTop));
