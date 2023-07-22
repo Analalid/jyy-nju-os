@@ -104,8 +104,8 @@ void co_wait(struct co *co) {
 void co_yield() {
   int val = setjmp(co_current->context);
   if(val == 0){
-    printf("hear!!!!!!!!!!!");
     struct co *nextNode = co_current->next;
+    printf("hear!!!!!!!!!!!");
     while(nextNode -> status == CO_WAITING || nextNode -> status == CO_DEAD) nextNode = nextNode->next;
     co_current = nextNode;
     //如果尚未执行过则先初始化
