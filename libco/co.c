@@ -112,8 +112,8 @@ void co_yield() {
     //如果尚未执行过则先初始化
     if(nextNode -> status == CO_NEW){
       //栈顶指针的位置由计算得出
-      // void *stackTop = (void*)((char*)nextNode + sizeof(struct co));
-      // printf("ptr的地址是: %p\n",stackTop);
+      void *stackTop = (void*)((char*)nextNode + sizeof(struct co));
+      printf("ptr的地址是: %p\n",stackTop);
       co_current -> status = CO_RUNNING;
       stack_switch_call(co_current->stack + STACK_SIZE, wrapper, (uintptr_t)NULL);
     }else{
