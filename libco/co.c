@@ -5,8 +5,8 @@
 #include <string.h>
 
 //支持STACK_SIZE
-#define STACK_SIZE 2048 //ptr的地址是: 0x55d3d0dee0a8
-
+// #define STACK_SIZE 2048 //ptr的地址是: 0x55686f7018a8
+#define STACK_SIZE 1024 //ptr的地址是: 0x55d3d0dee0a8
 // #define STACK_SIZE (1 << 14)
 
 //支持unit_8
@@ -113,17 +113,17 @@ void co_yield() {
     //如果尚未执行过则先初始化
     if(nextNode -> status == CO_NEW){
       //栈顶指针的位置由计算得出
-      void *stackTop = (void*)((char*)nextNode + sizeof(struct co));
-      printf("ptr的地址是: %p\n",stackTop);
+      // void *stackTop = (void*)((char*)nextNode + sizeof(struct co));
+      // printf("ptr的地址是: %p\n",stackTop);
 
       if(sizeof(void*) == 4){
-        stack_switch_call(stackTop, wrapper, (uintptr_t)NULL);
+        stack_switch_call(co_current->stack + STACK_SIZE, wrapper, (uintptr_t)NULL);
       }
       
-      else{
-        asm volatile("mov %0,%%rsp"::"b"((uintptr_t)stackTop));
-        wrapper(NULL);
-      }
+      // else{
+      //   asm volatile("mov %0,%%rsp"::"b"((uintptr_t)stackTop));
+      //   wrapper(NULL);
+      // }
     } else{
       longjmp(nextNode -> context,0);
     } 
