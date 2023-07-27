@@ -119,10 +119,11 @@ void co_yield() {
         stack_switch_call(co_current->stack + STACK_SIZE, wrapper, (uintptr_t)NULL);
       }
       
-      // else{
-      //   asm volatile("mov %0,%%rsp"::"b"((uintptr_t)co_current->stack + STACK_SIZE));
-      //   wrapper(NULL);
-      // }
+      else{
+        printf("ajskd");
+        asm volatile("mov %0,%%rsp"::"b"((uintptr_t)co_current->stack + STACK_SIZE));
+        wrapper(NULL);
+      }
     } else{
       longjmp(nextNode -> context,0);
     } 
