@@ -116,11 +116,11 @@ void co_yield() {
       printf("ptr的地址是: %p\n",stackTop);
 
       if(sizeof(void*) == 4){
+        printf("ajskd");
         stack_switch_call(co_current->stack + STACK_SIZE, wrapper, (uintptr_t)NULL);
       }
       
       else{
-        // printf("ajskd");
         asm volatile("mov %0,%%rsp"::"b"((uintptr_t)co_current->stack + STACK_SIZE));
         wrapper(NULL);
       }
