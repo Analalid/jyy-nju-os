@@ -5,7 +5,8 @@
 #include <string.h>
 
 //支持STACK_SIZE
-#define STACK_SIZE 1024
+#define STACK_SIZE 2048 //ptr的地址是: 0x55d3d0dee0a8
+
 // #define STACK_SIZE (1 << 14)
 
 //支持unit_8
