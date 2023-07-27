@@ -114,18 +114,10 @@ void co_yield() {
       //栈顶指针的位置由计算得出
       // void *stackTop = (void*)((char*)nextNode + sizeof(struct co));
       // printf("ptr的地址是: %p\n",stackTop);
-
-      if(sizeof(void*) == 4){
-        // printf("ajskd");
-        stack_switch_call(co_current->stack + STACK_SIZE, wrapper, (uintptr_t)NULL);
-      }
-      
-      else{
-        asm volatile("mov %0,%%rsp"::"b"((uintptr_t)co_current->stack + STACK_SIZE));
-        wrapper(NULL);
-      }
-    } else{
-      longjmp(nextNode -> context,0);
+      co_current -> status = CO_RUNNING;
+      stack_switch_call(co_current->stack + STACK_SIZE, wrapper, (uintptr_t)NULL);
+    }else{
+      longjmp(co_current -> context,0);
     } 
   }
   return;
