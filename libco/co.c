@@ -4,10 +4,12 @@
 #include <setjmp.h>
 #include <string.h>
 
-//支持unit_8
-// typedef unsigned char uint8_t;
 //支持STACK_SIZE
 // #define STACK_SIZE 1024
+#define STACK_SIZE (1 << 14)
+
+//支持unit_8
+typedef unsigned char uint8_t;
 
 #define NTHREAD 64
 
@@ -36,7 +38,7 @@ struct co {
   struct co *    pre;
   struct co *    next;
   jmp_buf        context; // 寄存器现场 (setjmp.h)
-  // uint8_t        stack[STACK_SIZE]; // 协程的堆栈
+  uint8_t        stack[STACK_SIZE]; // 协程的堆栈
 
 };
 //co_main作为新插入协程的哨兵节点， current协程指向正在运行的协程
