@@ -18,11 +18,17 @@ typedef unsigned long int	uintptr_t;
 static inline void stack_switch_call(void *sp, void *entry, uintptr_t arg) {
   asm volatile (
 #if __x86_64__
-    "movq %0, %%rsp; movq %2, %%rdi; jmp *%1" : : "b"((uintptr_t)sp),     "d"(entry), "a"(arg)
+      "movq %0, %%rsp"
+      :
+      : "g"((uintptr_t)sp)
+      : "memory"
 #else
-    "movl %0, %%esp; movl %2, 4(%0); jmp *%1" : : "b"((uintptr_t)sp - 8), "d"(entry), "a"(arg)
-#endif
-  );
+      "movl %0, %%esp"
+      :
+      : "g"((uintptr_t)sp)
+      : "memory" 
+#endif  
+      );
 }
 enum co_status {
   CO_NEW = 1, // 新创建，还未执行过
