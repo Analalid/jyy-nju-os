@@ -126,6 +126,6 @@ void co_yield() {
       longjmp(co_current -> context,0);
     } 
   }
-  co_current -> status = CO_DEAD;
+  // co_current -> status = CO_DEAD;
   return;
 }
