@@ -34,7 +34,7 @@ enum co_status {
   CO_DEAD,    // 已经结束，但还未释放资源
 };
 struct co {
-  char name[32];
+  char *name;
   void (*func)(void *arg); // co_start 指定的入口地址和参数
   void *arg;
   enum co_status status;  // 协程的状态
