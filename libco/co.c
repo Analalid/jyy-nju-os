@@ -19,16 +19,12 @@ static inline void stack_switch_call(void *sp, void *entry, uintptr_t arg) {
   printf("==========saukjdhasjd=====\n");
   asm volatile (
 #if __x86_64__
-      "movq %0, %%rsp"
-      :
-      : "g"((uintptr_t)sp)
-      : "memory"
+    "movq %0, %%rsp; movq %2, %%rdi; jmp *%1"
+      : : "b"((unsigned char*)sp), "d"(entry), "a"(arg) : "memory"
 #else
-      "movl %0, %%esp"
-      :
-      : "g"((uintptr_t)sp)
-      : "memory" 
-#endif  
+    "movl %0, %%esp; movl %2, 4(%0); jmp *%1"
+      : : "b"((unsigned char*)sp - 8), "d"(entry), "a"(arg) : "memory"
+#endif
       );
 }
 enum co_status {
