@@ -62,10 +62,10 @@ __attribute__((constructor)) void co_init() {
 
 
 void *wrapper(void *arg) {
-  printf("test!=====================");
   co_current -> status = CO_RUNNING;
   co_current -> func(co_current->arg);
   co_current -> status = CO_DEAD;
+  printf("test!=====================");
   // if(co_current->waiter != NULL){
   //   co_current->waiter->status = CO_RUNNING;
   //   co_current->waiter = NULL;
