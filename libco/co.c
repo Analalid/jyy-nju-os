@@ -52,6 +52,7 @@ __attribute__((constructor)) void co_init() {
   co_main->pre = co_main;
   co_current = co_main;
   printf("main_init\n");
+  printf("main_exit\n");
 }
 
 
