@@ -87,7 +87,7 @@ struct co *co_start(const char *name, void (*func)(void *), void *arg) {
   co_main->pre->next = my_co;
   co_main->pre = my_co;
   printf("=========in\n");
-  if(setjmp(*(my_co->context)) == 0){
+  if(setjmp(*my_co->context) == 0){
     //初次初始化
     printf("init->%s\n", my_co->name);
   }else{
