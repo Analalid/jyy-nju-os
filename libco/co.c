@@ -16,7 +16,7 @@ typedef unsigned char uint8_t;
 typedef unsigned long int	uintptr_t;
 
 static inline void stack_switch_call(void *sp, void *entry, uintptr_t arg) {
-  printf("saukjdhasjd\n");
+  printf("==========saukjdhasjd=====\n");
   asm volatile (
 #if __x86_64__
       "movq %0, %%rsp"
