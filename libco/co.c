@@ -85,15 +85,15 @@ struct co *co_start(const char *name, void (*func)(void *), void *arg) {
   my_co->pre = co_main->pre;
   co_main->pre->next = my_co;
   co_main->pre = my_co;
-  printf("=========in\n");
+  // printf("=========in\n");
   if(setjmp(my_co->context) == 0){
     //初次初始化
-    printf("init->%s\n", my_co->name);
+    // printf("init->%s\n", my_co->name);
   }else{
     //error!
     printf("cann't init->%s twice !!!\n", my_co->name);
   }
-  printf("=========out\n");
+  // printf("=========out\n");
   return my_co;
 }
 
@@ -119,7 +119,7 @@ void co_yield() {
       //栈顶指针的位置由计算得出
       void *stackTop = (void*)((char*)nextNode + sizeof(struct co));
       co_current -> status = CO_RUNNING;
-      printf("ptr的地址是: %p\n",stackTop);
+      // printf("ptr的地址是: %p\n",stackTop);
       stack_switch_call(co_current->stack + STACK_SIZE, wrapper, (uintptr_t)NULL);
     }else{
       longjmp(co_current -> context,0);
