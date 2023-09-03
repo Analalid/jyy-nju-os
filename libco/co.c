@@ -40,7 +40,7 @@ struct co {
   enum co_status status;  // 协程的状态
   struct co *    pre;
   struct co *    next;
-  jmp_buf        *context; // 寄存器现场 (setjmp.h)
+  jmp_buf*      context; // 寄存器现场 (setjmp.h)
   uint8_t        stack[STACK_SIZE]; // 协程的堆栈
 
 };
