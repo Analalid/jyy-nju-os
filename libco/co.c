@@ -40,7 +40,7 @@ struct co {
   enum co_status status;  // 协程的状态
   struct co *    pre;
   struct co *    next;
-  jmp_buf*      context; // 寄存器现场 (setjmp.h)
+  jmp_buf      context; // 寄存器现场 (setjmp.h)
   uint8_t        stack[STACK_SIZE]; // 协程的堆栈
 
 };
@@ -55,7 +55,7 @@ __attribute__((constructor)) void co_init() {
   co_main->next = co_main;
   co_main->pre = co_main;
   co_current = co_main;
-  // setjmp(*co_main->context);
+  setjmp(co_main->context);
   // co_main = co_start("main", NULL, NULL);
   printf("main_exit\n");
 }
@@ -87,7 +87,7 @@ struct co *co_start(const char *name, void (*func)(void *), void *arg) {
   co_main->pre->next = my_co;
   co_main->pre = my_co;
   printf("=========in\n");
-  if(setjmp(*my_co->context) == 0){
+  if(setjmp(my_co->context) == 0){
     //初次初始化
     printf("init->%s\n", my_co->name);
   }else{
@@ -110,7 +110,7 @@ void co_wait(struct co *co) {
 }
 
 void co_yield() {
-  int val = setjmp(*co_current->context);
+  int val = setjmp(co_current->context);
   if(val == 0){
     struct co *nextNode = co_current->next;
     while(nextNode -> status == CO_WAITING || nextNode -> status == CO_DEAD) nextNode = nextNode->next;
@@ -123,7 +123,7 @@ void co_yield() {
       printf("ptr的地址是: %p\n",stackTop);
       stack_switch_call(co_current->stack + STACK_SIZE, wrapper, (uintptr_t)NULL);
     }else{
-      longjmp(*co_current -> context,0);
+      longjmp(co_current -> context,0);
     } 
   }
   return;
