@@ -31,8 +31,8 @@ struct co *co_start(const char *name, void (*func)(void *), void *arg);
 static void test_1() {
 
     struct co *thd1 = co_start("thread-1", work, "X");
-    co_wait(thd1);
     struct co *thd2 = co_start("thread-2", work, "Y");
+    co_wait(thd1);
     co_wait(thd2);
 
 }
