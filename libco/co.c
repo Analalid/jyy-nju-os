@@ -5,7 +5,7 @@
 #include <string.h>
 
 //支持STACK_SIZE
-#define STACK_SIZE 1024 * 256
+#define STACK_SIZE 1024 * 256 * 4
 // #define STACK_SIZE (1 << 14)
 
 //支持unit_8
