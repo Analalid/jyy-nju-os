@@ -100,7 +100,7 @@ struct co *co_start(const char *name, void (*func)(void *), void *arg) {
 void co_wait(struct co *co) {
   co_current -> status = CO_WAITING;
   //直到这个协程还没死，就一直循环
-    printf("==change!=======================");
+    // printf("==change!=======================");
   while(co->status != CO_DEAD){
     co_yield();
   }
@@ -126,5 +126,6 @@ void co_yield() {
       longjmp(co_current -> context,0);
     } 
   }
+  co_current -> status = CO_DEAD;
   return;
 }
