@@ -52,6 +52,7 @@ __attribute__((constructor)) void co_init() {
   co_main->next = co_main;
   co_main->pre = co_main;
   co_current = co_main;
+  setjmp(co_main->context)
   // co_main = co_start("main", NULL, NULL);
   printf("main_exit\n");
 }
