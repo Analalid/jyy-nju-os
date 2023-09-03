@@ -65,6 +65,7 @@ void *wrapper(void *arg) {
   co_current -> status = CO_RUNNING;
   co_current -> func(co_current->arg);
   co_current -> status = CO_DEAD;
+  printf("%s",co_current->name);
   // if(co_current->waiter != NULL){
   //   co_current->waiter->status = CO_RUNNING;
   //   co_current->waiter = NULL;
