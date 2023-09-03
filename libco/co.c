@@ -62,6 +62,7 @@ __attribute__((constructor)) void co_init() {
 
 
 void *wrapper(void *arg) {
+  printf("test!=====================")
   co_current -> status = CO_RUNNING;
   co_current -> func(co_current->arg);
   co_current -> status = CO_DEAD;
@@ -126,6 +127,6 @@ void co_yield() {
       longjmp(co_current -> context,0);
     } 
   }
-  co_current -> status = CO_DEAD;
+  // co_current -> status = CO_DEAD;
   return;
 }
