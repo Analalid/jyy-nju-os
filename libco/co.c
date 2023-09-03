@@ -45,13 +45,14 @@ struct co {
 struct co* co_main, *co_current;
 
 __attribute__((constructor)) void co_init() {
+  printf("main_init\n");
   co_main = malloc(sizeof(struct co));
   co_main->name = "main";
   co_main->status = CO_RUNNING;
   co_main->next = co_main;
   co_main->pre = co_main;
   co_current = co_main;
-  printf("main_init\n");
+  // co_main = co_start("main", NULL, NULL);
   printf("main_exit\n");
 }
 
