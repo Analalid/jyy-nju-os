@@ -107,6 +107,7 @@ void co_wait(struct co *co) {
   }
   //死了再释放
   free(co);
+  printf("sauhjdfasjd");
   return;
 }
 
