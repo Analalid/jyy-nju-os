@@ -102,7 +102,7 @@ void co_wait(struct co *co) {
   //直到这个协程还没死，就一直循环
   while(co->status != CO_DEAD){
     co_yield();
-    printf("change!");
+    printf("==change!=======================");
   }
   //死了再释放
   free(co);
