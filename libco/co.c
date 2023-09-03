@@ -65,7 +65,7 @@ void *wrapper(void *arg) {
   co_current -> status = CO_RUNNING;
   co_current -> func(co_current->arg);
   co_current -> status = CO_DEAD;
-  printf("\n%s\n",co_current->name);
+  // printf("\n%s\n",co_current->name);
   // if(co_current->waiter != NULL){
   //   co_current->waiter->status = CO_RUNNING;
   //   co_current->waiter = NULL;
@@ -101,7 +101,7 @@ struct co *co_start(const char *name, void (*func)(void *), void *arg) {
 void co_wait(struct co *co) {
   co_current -> status = CO_WAITING;
   //直到这个协程还没死，就一直循环
-    printf("==change!=======================");
+    // printf("==change!=======================");
   while(co->status != CO_DEAD){
     co_yield();
   }
