@@ -100,7 +100,7 @@ struct co *co_start(const char *name, void (*func)(void *), void *arg) {
 
 void co_wait(struct co *co) {
   co_current -> status = CO_WAITING;
-  printf("%s",co_current->name);
+  printf("=================%s==",co_current->name);
   //直到这个协程还没死，就一直循环
     // printf("==change!=======================");
   while(co->status != CO_DEAD){
