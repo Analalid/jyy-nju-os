@@ -116,9 +116,9 @@ void co_yield() {
     if(nextNode -> status == CO_NEW){
       //栈顶指针的位置由计算得出
       void *stackTop = (void*)((char*)nextNode + sizeof(struct co));
-      printf("ptr的地址是: %p\n",stackTop);
       co_current -> status = CO_RUNNING;
       stack_switch_call(co_current->stack + STACK_SIZE, wrapper, (uintptr_t)NULL);
+      printf("ptr的地址是: %p\n",stackTop);
     }else{
       longjmp(co_current -> context,0);
     } 
