@@ -41,7 +41,7 @@ struct co {
   struct co *    pre;
   struct co *    next;
   jmp_buf      context; // 寄存器现场 (setjmp.h)
-  uint8_t        stack[STACK_SIZE]; // 协程的堆栈
+  unsigned char   stack[STACK_SIZE]; // 协程的堆栈
 
 };
 //co_main作为新插入协程的哨兵节点， current协程指向正在运行的协程
