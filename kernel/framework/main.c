@@ -4,6 +4,5 @@
 int main() {
   os->init();
   mpe_init(os->run);
-  printf("============================");
   return 1;
 }
