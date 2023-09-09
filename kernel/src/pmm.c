@@ -13,7 +13,11 @@ static void pmm_init() {
   
 }
 
-
+//1 
+//2 3 
+//4 5 6 7
+//8 9 10 11 12 13 14 15
+//
 MODULE_DEF(pmm) = {
   .init  = pmm_init,
   .alloc = kalloc,
