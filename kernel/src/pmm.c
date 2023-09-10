@@ -49,7 +49,7 @@ static void buddy_init(uintptr_t start, uintptr_t end){
   BUDDY_SIZE = (end - start) / MAX_BUDDY_BLOCK_SIZE;
   for(uintptr_t i = start; i < end; ++i){
     buddysArray = (buddy_block*)i;
-    printf("%p", (uintptr_t)i);
+    printf("%p\n", (uintptr_t)i);
   }
 }
 //1 
