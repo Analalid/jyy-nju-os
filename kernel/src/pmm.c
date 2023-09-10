@@ -51,7 +51,9 @@ static void buddy_init(uintptr_t start, uintptr_t end){
   for(uintptr_t i = start; i < end; i += MAX_BUDDY_BLOCK_SIZE){
     buddysArray = (buddy_block*)i;
     ++idx;
+  #ifdef TESTHEAP
     printf("%d       %p\n", idx, (uintptr_t)i);
+  #endif
   }
 }
 //1 
