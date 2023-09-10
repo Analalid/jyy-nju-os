@@ -47,11 +47,13 @@ static void pmm_init() {
 }
 static void buddy_init(uintptr_t start, uintptr_t end){
   BUDDY_SIZE = (end - start) / MAX_BUDDY_BLOCK_SIZE;
-  
+  int idx = 0;
   for(uintptr_t i = start; i < end; ++i){
     buddysArray = (buddy_block*)i;
+
+    ++idx;
+    printf("%d       %p\n", idx, (uintptr_t)i);
   }
-  printf("%p\n", (uintptr_t)buddysArray);
 }
 //1 
 //2 3 
