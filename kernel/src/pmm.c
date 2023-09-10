@@ -5,6 +5,9 @@
 #define MINSIZE (1 << 12)
 #define MAX_BUDDY_BLOCK_SIZE (16 * MB)//伙伴系统最大块
 
+//testDefine
+#define TESTHEAP
+
 // #define uintptr_t int
 //BUDDYS数组的长度
 static int BUDDY_SIZE;
