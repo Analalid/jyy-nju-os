@@ -146,7 +146,9 @@ static void pmm_init() {
   //伙伴系统的初始化
   buddy_sys_init((uintptr_t)heap.start, (uintptr_t)heap.end);
 }
-
+void tt(){
+  
+}
 
 //1 
 //2 3 
