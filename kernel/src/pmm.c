@@ -1,3 +1,4 @@
+// #include <cmath>
 #include <common.h>
 // #include <cstring>
 #include <pmm.h>
@@ -18,7 +19,7 @@ typedef struct node_t{
    struct node_t * next;
 } node_t;
 typedef struct buddy_block{
-  char *head;
+  char *head;//保留字
   int status;//0 代表空闲
   //锁
 }buddy_block;
@@ -30,13 +31,45 @@ static int get2PowSize(int size){
   while(newSize < size) newSize <<= 1;
   return newSize;
 }
+//伙伴系统分配
+static void* balloc(size_t size){
+  //TODO
+  //尚未完成slab时的代替方案
+  size = size > MINSIZE ? size : MINSIZE;
+  //递归查找
+  int v = dfs(size, MAXSIZE);
+  if(v == -1) return (void *)-1;
+  return (void *)0;
+}
+//递归查找，详情看伙伴系统的实现, 无可用空间的时候返回-1
+static int dfs(size_t size, size_t curSize){
+  if(curSize < size){
+    //找不到可分配的空间了
+    #ifdef BUDDY_SYS_DEBUG
+    panic("no more space error!!!");
+    #endif
+    return -1;
+  }
+  return -1;
+  //找到了对应的内存块
+  // if(size == curSize){
+
+  // }
+}
 //对应实验要求中的 kalloc；
 static void *kalloc(size_t size) {
   //超过MAXSIZE的是不合法的申请
   if(size >= MAXSIZE || size < 0) return NULL;
   //组装头部
-  // size = size + sizeof(node_t);
-  return NULL;
+  size = size + sizeof(buddy_block);
+  //向上对齐
+  size = get2PowSize(size);
+  //通过伙伴系统分配
+  for(int i = 0; i < BUDDY_SIZE; ++i){
+    void* res = balloc(size);
+    if(res != (void*)-1) return (void*)res;
+  }
+  return (void*)-1;
 }
 //对应实验要求中的 kfree。
 static void kfree(void *ptr) {
