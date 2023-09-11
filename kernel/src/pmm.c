@@ -1,4 +1,5 @@
 #include <common.h>
+// #include <cstring>
 #include <pmm.h>
 #define MB (1 << 20)
 #define MAXSIZE (16 * MB) //16MiB 能接受的最大内存分配
@@ -34,7 +35,7 @@ static void *kalloc(size_t size) {
   //超过MAXSIZE的是不合法的申请
   if(size >= MAXSIZE || size < 0) return NULL;
   //组装头部
-  // size = size + sizeof(node_t); 
+  // size = size + sizeof(node_t);
   return NULL;
 }
 //对应实验要求中的 kfree。
@@ -48,16 +49,21 @@ static void pmm_init() {
   //伙伴系统的初始化
   buddy_init((uintptr_t)heap.start, (uintptr_t)heap.end);
 }
+void buddy_Block_Init(buddy_block* block, int size){
+  memset(block, 0, size);
+}
 static void buddy_init(uintptr_t start, uintptr_t end){
   BUDDY_SIZE = (end - start) / MAX_BUDDY_BLOCK_SIZE;
   int idx = 0;
+  buddysArray = (buddy_block*)start;
   for(uintptr_t i = start; i < end; i += MAX_BUDDY_BLOCK_SIZE){
-    buddysArray = (buddy_block*)i;
+    buddy_Block_Init((buddy_block*)i, MAX_BUDDY_BLOCK_SIZE);
     ++idx;
   #ifdef TESTHEAP
     printf("%d       %p\n", idx, (uintptr_t)i);
   #endif
   }
+  BUDDY_SIZE = idx;
 }
 //1 
 //2 3 
