@@ -146,10 +146,6 @@ static void pmm_init() {
   //伙伴系统的初始化
   buddy_sys_init((uintptr_t)heap.start, (uintptr_t)heap.end);
 }
-int tt(int a, int b){
-  return a + b;
-}
-
 //1 
 //2 3 
 //4 5 6 7
