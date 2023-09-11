@@ -19,7 +19,7 @@ typedef struct node_t{
 } node_t;
 typedef struct buddy_block{
   char *head;
-  int status;
+  int status;//0 代表空闲
   //锁
 }buddy_block;
 //伙伴系统数组
@@ -49,7 +49,7 @@ static void pmm_init() {
   //伙伴系统的初始化
   buddy_init((uintptr_t)heap.start, (uintptr_t)heap.end);
 }
-void buddy_Block_Init(buddy_block* block, int size){
+static void buddy_Block_Init(buddy_block* block, int size){
   memset(block, 0, size);
 }
 static void buddy_init(uintptr_t start, uintptr_t end){
