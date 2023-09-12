@@ -109,7 +109,7 @@ static void *kalloc(size_t size) {
     void* res = balloc(size, i);
     if(res != (void*)-1) return (void*)res;
   }
-  return (void*)-1;
+  return (void*)0;
 }
 static void buddy_Block_Init(void* block, int size){
   memset(block, 0, size);
