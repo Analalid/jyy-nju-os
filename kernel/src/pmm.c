@@ -107,8 +107,8 @@ static void *kalloc(size_t size) {
   for(int i = 0; i < BUDDY_SIZE; ++i){
     void* res = balloc(size, i);
     if(res != (void*)-1) return (void*)res;
-    printf("%d\n", size);
   }
+    printf("%d\n", size);
   return (void*)0;
 }
 static void buddy_Block_Init(void* block, int size){
