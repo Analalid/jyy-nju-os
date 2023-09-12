@@ -1,4 +1,5 @@
 #include <common.h>
+#include <stdio.h>
 #define MB (1 << 20)
 #define MAXSIZE (16 * MB) //16MiB 能接受的最大内存分配
 #define MAX_BUDDY_BLOCK_SIZE (16 * MB)//伙伴系统最大块
@@ -150,6 +151,7 @@ static void pmm_init() {
 
   //伙伴系统的初始化
   buddy_sys_init((uintptr_t)heap.start, (uintptr_t)heap.end);
+  kalloc(100);
 }
 #endif
 //1 
@@ -161,3 +163,6 @@ MODULE_DEF(pmm) = {
   .alloc = kalloc,
   .free  = kfree,
 };
+void pWord(){
+  printf("pWold!\n");
+}
