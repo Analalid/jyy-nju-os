@@ -104,8 +104,8 @@ static void *kalloc(size_t size) {
   //向上对齐
   size = get2PowSize(size);
   //通过伙伴系统分配
-    printf("%d\n", BUDDY_SIZE);
   for(int i = 0; i < BUDDY_SIZE; ++i){
+    printf("%d\n", BUDDY_SIZE);
     void* res = balloc(size, i);
     if(res != (void*)-1) return (void*)res;
   }
