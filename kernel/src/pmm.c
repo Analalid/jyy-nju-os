@@ -115,6 +115,7 @@ static void buddy_Block_Init(void* block, int size){
 static void kfree(void *ptr) {
 }
 static void buddy_sys_init(uintptr_t start, uintptr_t end){
+  panic("dd");
   //伙伴数组的个数
   BUDDY_SIZE = (end - start) / (MAX_BUDDY_BLOCK_SIZE + BUDDY_HEAD_SIZE * sizeof(buddy_head));
   //计算出伙伴数组开头和结尾的地址
@@ -152,7 +153,7 @@ static void pmm_init() {
   //伙伴系统的初始化
   buddy_sys_init((uintptr_t)heap.start, (uintptr_t)heap.end);
   // printf("%p", (uintptr_t)kalloc(100));
-  printf("end\n");
+  // printf("end\n");
 }
 #endif
 //1 
