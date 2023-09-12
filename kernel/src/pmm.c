@@ -151,7 +151,7 @@ static void pmm_init() {
 
   //伙伴系统的初始化
   buddy_sys_init((uintptr_t)heap.start, (uintptr_t)heap.end);
-  // kalloc(100);
+  kalloc(100);
 }
 #endif
 //1 
