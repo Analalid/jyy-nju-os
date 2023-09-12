@@ -1,5 +1,5 @@
 #include <kernel.h>
-#include <stdio.h>
+// #include <stdio.h>
 #include <threads.h>
 
 // static void entry(int tid) {
@@ -16,7 +16,7 @@
 
 int main() {
 	printf("hello\n");
-	pmm->init();
+	// pmm->init();
 	// for (int i = 0; i < 1; i++) {
 	// 	create(entry);
 	// }
