@@ -134,6 +134,9 @@ static void buddy_sys_init(uintptr_t start, uintptr_t end){
   }
 }
 #ifdef TEST
+static void pmm_init() {
+  printf("go to TEST");
+}
 #else
 //初始化 pmm 模块，它应当在多处理器启动前 (os->init() 中) 调用。你会在这里完成数据结构、锁的初始化等
 static void pmm_init() {
