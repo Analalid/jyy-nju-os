@@ -149,9 +149,9 @@ static void pmm_init() {
   HEAP_START = (uintptr_t)heap.start;
   HEAP_END = (uintptr_t)heap.end;
 
-  printf("end\n");
   //伙伴系统的初始化
   buddy_sys_init((uintptr_t)heap.start, (uintptr_t)heap.end);
+  printf("end\n");
   kalloc(100);
 }
 #endif
