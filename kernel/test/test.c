@@ -1,6 +1,6 @@
 #include <kernel.h>
 #include <stdio.h>
-#include <thread.h>
+#include <threads.h>
 
 // static void entry(int tid) {
 // 	void *addr = pmm->alloc(1 << 18);
