@@ -133,7 +133,7 @@ static void buddy_sys_init(uintptr_t start, uintptr_t end){
     printf("%d       %p\n", idx, (uintptr_t)i);
   #endif
   }
-  printf("emnd");
+  printf("emnd\n");
 }
 #ifdef TEST
 static void pmm_init() {
