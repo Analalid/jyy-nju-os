@@ -12,8 +12,8 @@ void alloc_and_free() {
 	a = alloc(1 << 17);		free(a);
 }
 void pmm_test(){
-  printf("endl\n");
   alloc_and_free();
+  printf("endl\n");
 }
 
 
