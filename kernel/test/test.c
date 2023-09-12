@@ -15,7 +15,7 @@
 // static void finish() { printf("End\n"); }
 
 int main() {
-	printf("hello");
+	printf("hello\n");
 	// pmm->init();
 	// for (int i = 0; i < 1; i++) {
 	// 	create(entry);
