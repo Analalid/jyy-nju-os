@@ -1,4 +1,4 @@
-#include <common.h>
+// #include <common.h>
 
 static void os_init() {
   pmm->init();
