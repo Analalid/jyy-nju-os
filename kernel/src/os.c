@@ -1,17 +1,18 @@
 #include <common.h>
+#include <stdio.h>
 
 
 #define alloc(sz) pmm->alloc(sz)
 #define free(addr) pmm->free(addr)
 void alloc_and_free() {
 	void *a;
-	// a = alloc(1);					free(a);
+	a = alloc(1);				
+  printf("%p", a);
+  	// free(a);
 	// a = alloc(128);				free(a);
 	// a = alloc(4096);			free(a);
 	// a = alloc(1 << 16);		free(a);
 	// a = alloc(1 << 17);		free(a);
-  a = (void*)1;
-  free(a);
 }
 void pmm_test(){
   alloc_and_free();
