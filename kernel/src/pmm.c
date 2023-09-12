@@ -133,6 +133,8 @@ static void buddy_sys_init(uintptr_t start, uintptr_t end){
   #endif
   }
 }
+#ifdef TEST
+#else
 //初始化 pmm 模块，它应当在多处理器启动前 (os->init() 中) 调用。你会在这里完成数据结构、锁的初始化等
 static void pmm_init() {
   uintptr_t pmsize = ((uintptr_t)heap.end - (uintptr_t)heap.start);
@@ -146,6 +148,7 @@ static void pmm_init() {
   //伙伴系统的初始化
   buddy_sys_init((uintptr_t)heap.start, (uintptr_t)heap.end);
 }
+#endif
 //1 
 //2 3 
 //4 5 6 7
