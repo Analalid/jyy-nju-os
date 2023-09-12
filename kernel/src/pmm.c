@@ -4,7 +4,7 @@
 #define MAX_BUDDY_BLOCK_SIZE (16 * MB)//伙伴系统最大块
 #define MIN_BUDDY_BLOCK_SIZE (1 << 12)//伙伴系统最小块
 #define BUDDY_HEAD_SIZE ((MAX_BUDDY_BLOCK_SIZE / MIN_BUDDY_BLOCK_SIZE) * 2 - 1)//伙伴头节点的个数
-
+  
 //testDefine
 #define TESTHEAP 
 #define BUDDY_SYS_DEBUG
