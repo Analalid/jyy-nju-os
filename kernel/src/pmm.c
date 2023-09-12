@@ -100,7 +100,7 @@ static void *kalloc(size_t size) {
   if(size >= MAXSIZE || size < 0) return NULL;
   //TODO
   //尚未完成slab时的代替方案
-  printf("%d\n", &size);
+  printf("%d\n", size);
   size = size > MIN_BUDDY_BLOCK_SIZE ? size : MIN_BUDDY_BLOCK_SIZE;
   //向上对齐
   size = get2PowSize(size);
