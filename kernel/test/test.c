@@ -1,25 +1,8 @@
-// #include <kernel.h>
-// #include <stdio.h>
-#include <threads.h>
-// #include <common.h>
-// static void entry(int tid) {
-// 	void *addr = pmm->alloc(1 << 18);
-// 	pmm->free(addr);
-// 	addr = pmm->alloc(1 << 17);
-// 	pmm->free(addr);
-// 	/* addr = pmm->alloc(128); */
-// 	/* void *addr16 = pmm->alloc(16); */
-// 	/* pmm->free(addr); */
-// 	/* pmm->free(addr16); */
-// }
-// static void finish() { printf("End\n"); }
-
+static void entry(int tid) { pmm->alloc(128); }
+static void goodbye()      { printf("End.\n"); }
 int main() {
-	printf("hello\n");
-	// pmm->init();
-	// for (int i = 0; i < 1; i++) {
-	// 	create(entry);
-	// }
-	
-	// join(finish);
+  pmm->init();
+  for (int i = 0; i < 4; i++)
+  create(entry);
+  join(goodbye);
 }
