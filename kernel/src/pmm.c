@@ -95,7 +95,7 @@ static void* balloc(size_t size, int idx){
 //对应实验要求中的 kalloc；
 static void *kalloc(size_t size) {
   printf("init\n");
-  return (void*)HEAP_START;
+  // return (void*)HEAP_START;
   //超过MAXSIZE的是不合法的申请
   if(size >= MAXSIZE || size < 0) return NULL;
   //TODO
