@@ -1,7 +1,7 @@
 #include <kernel.h>
 // #include <stdio.h>
 #include <threads.h>
-#include <command.h>
+#include <common.h>
 // static void entry(int tid) {
 // 	void *addr = pmm->alloc(1 << 18);
 // 	pmm->free(addr);
