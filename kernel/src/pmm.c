@@ -87,6 +87,7 @@ static uintptr_t dfs(size_t size, size_t curSize, void* baseAddr, buddy_head* bu
 }
 //伙伴系统分配
 static void* balloc(size_t size, int idx){
+  return (void*)HEAP_START;
   //递归查找
   uintptr_t res = dfs(size, MAX_BUDDY_BLOCK_SIZE, (void*)BUDDY_START + idx * MAX_BUDDY_BLOCK_SIZE, (buddy_head*)(BUDDY_HEAD_START), 1);
   //BUDDY_START + size * res - (BUDDY_END - BUDDY_START)位置是算出来
@@ -107,7 +108,6 @@ static void *kalloc(size_t size) {
   for(int i = 0; i < BUDDY_SIZE; ++i){
     void* res = balloc(size, i);
     if(res != (void*)-1) return (void*)res;
-    printf("%d\n", BUDDY_SIZE);
   }
   return (void*)0;
 }
