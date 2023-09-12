@@ -12,6 +12,7 @@ void alloc_and_free() {
 	a = alloc(1 << 17);		free(a);
 }
 void pmm_test(){
+  printf("endl\n");
   alloc_and_free();
 }
 
@@ -24,7 +25,7 @@ static void os_run() {
   for (const char *s = "Hello World from CPU #*\n"; *s; s++) {
     putch(*s == '*' ? '0' + cpu_current() : *s);
   }
-  //  pmm_test();
+   pmm_test();
   while (1) ;
 }
 
