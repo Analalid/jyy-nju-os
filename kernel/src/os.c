@@ -6,7 +6,8 @@
 #define free(addr) pmm->free(addr)
 void alloc_and_free() {
 	void *a;
-	a = alloc(1);				
+	a = alloc(1);		
+  printf("===================================\n");		
   printf("%p\n", a);
   	// free(a);
 	// a = alloc(128);				free(a);
