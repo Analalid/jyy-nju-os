@@ -56,6 +56,7 @@ static void setBuddyHead(uintptr_t idx, buddy_head* buddy_head_base){
 }
 //递归查找，详情看伙伴系统的实现, 无可用空间的时候返回-1, idx用于定位伙伴头数组的位置
 static uintptr_t dfs(size_t size, size_t curSize, void* baseAddr, buddy_head* buddy_head_base, uintptr_t idx){
+    printf("%d",&idx);
   //找不到可分配的空间了
   if(curSize < size){
     #ifdef BUDDY_SYS_DEBUG
@@ -87,7 +88,6 @@ static uintptr_t dfs(size_t size, size_t curSize, void* baseAddr, buddy_head* bu
 }
 //伙伴系统分配
 static void* balloc(size_t size, int idx){
-  return (void*)HEAP_START;
   //递归查找
   uintptr_t res = dfs(size, MAX_BUDDY_BLOCK_SIZE, (void*)BUDDY_START + idx * MAX_BUDDY_BLOCK_SIZE, (buddy_head*)(BUDDY_HEAD_START), 1);
   //BUDDY_START + size * res - (BUDDY_END - BUDDY_START)位置是算出来
@@ -105,9 +105,9 @@ static void *kalloc(size_t size) {
   //向上对齐
   size = get2PowSize(size);
   //通过伙伴系统分配
-  for(int i = 0; i < BUDDY_SIZE; ++i){
+  for(size_t i = 0; i < BUDDY_SIZE; i += 1){
     void* res = balloc(size, i);
-    if(res != (void*)-1) return (void*)res;
+    if(res != (void*)0) return (void*)res;
   }
   return (void*)0;
 }
