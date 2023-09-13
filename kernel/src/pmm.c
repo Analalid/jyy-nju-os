@@ -57,7 +57,7 @@ static uintptr_t dfs(size_t size, size_t curSize, void* baseAddr, buddy_head* bu
     #endif
     return -1;
   }
-  buddy_head* node = (buddy_head*)(buddy_head_base + (idx - 1) * sizeof(buddy_head) * BUDDY_HEAD_SIZE);
+  buddy_head* node = (buddy_head*)(buddy_head_base + (idx - 1) * sizeof(buddy_head));
   //内存块完全被占用
   if(node->status == 2) return -1;
   //找到了合适大小的内存块
