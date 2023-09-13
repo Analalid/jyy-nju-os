@@ -1,4 +1,5 @@
 #include <common.h>
+#include <stdint.h>
 #include <stdio.h>
 
 #define MB (1 << 20)
@@ -29,10 +30,13 @@ static void os_init() {
 }
 
 static void os_run() {
-  // for (const char *s = "Hello World from CPU #*\n"; *s; s++) {
-  //   putch(*s == '*' ? '0' + cpu_current() : *s);
-  // }
+  for (const char *s = "Hello World from CPU #*\n"; *s; s++) {
+    putch(*s == '*' ? '0' + cpu_current() : *s);
+  }
+  int v =sizeof(uintptr_t); 
+  printf("%d\n==========================++======================\n", &v);
    pmm_test();
+
   while (1) ;
 }
 
