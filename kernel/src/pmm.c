@@ -95,7 +95,7 @@ static void* balloc(size_t size, size_t idx){
   return res == 0 ? (void*)0 : (void*)BUDDY_START + size * res - (BUDDY_END - BUDDY_START) + idx * MAX_BUDDY_BLOCK_SIZE;
 }
 void change(int x){
-  printf("%d   hear!!!!!!!!\n", x);
+  printf("%d   here!!!!!!!!\n", x);
 }
 //对应实验要求中的 kalloc；
 static void *kalloc(size_t size) {
