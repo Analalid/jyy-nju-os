@@ -108,14 +108,14 @@ static void *kalloc(size_t size) {
   printf("need space: %d\n", size);
   //通过伙伴系统分配
   for(int i = 0; i < BUDDY_SIZE; i++){
-    if(i == 0) continue;
     void* res = balloc(size, i);
     if(res != (void*)-1){
       // printf("init in address: %p\n", res);
       return (void*)res;
-    }else{
-      printf("try init in block %d fail!\n", i);
     }
+    // else{
+    //   printf("try init in block %d fail!\n", i);
+    // }
   }
   return (void*)-1;
 }
