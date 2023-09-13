@@ -112,6 +112,8 @@ static void *kalloc(size_t size) {
     if(res != (void*)-1){
       // printf("init in address: %p\n", res);
       return (void*)res;
+    }else{
+      printf("init in block %d fail!\n", i);
     }
   }
   return (void*)-1;
