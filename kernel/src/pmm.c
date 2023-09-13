@@ -117,7 +117,7 @@ static void buddy_Block_Init(void* block, int size){
   memset(block, 0, size);
 }
 //递归调用， 释放空间, 成功则返回1
-int searchFull(void* ptr, void* baseBuddy, void *baseBuddyHead, int idx, size_t curSize){
+int searchFull(void* ptr, void* baseBuddy, void *baseBuddyHead, int idx, uintptr_t curSize){
   buddy_head* headAddress = getBuddyHead(baseBuddyHead, idx);
   // printf("baseBuddyHead:  %p\n", baseBuddyHead);
   // printf("%b", )
@@ -195,7 +195,6 @@ static void pmm_init() {
   printf("BUDDY_HEAD_START: %p\n", BUDDY_HEAD_START);
   printf("BUDDY_HEAD_END: %p\n", BUDDY_HEAD_END);
   printf("===================================================\n");
-  printf("%d          asiohdoaus", MAX_BUDDY_BLOCK_SIZE);
 }
 MODULE_DEF(pmm) = {
   .init  = pmm_init,
