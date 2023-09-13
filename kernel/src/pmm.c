@@ -32,7 +32,7 @@ static uintptr_t BUDDY_END;
 static uintptr_t BUDDY_HEAD_START;
 //伙伴头数组的结尾
 static uintptr_t BUDDY_HEAD_END;
-//传入idx和headBaseAddress， 返回所在的buddy_head
+//传入headBaseAddress和idx， 返回所在的buddy_head
 static inline buddy_head* getBuddyHead(void* headBaseAddress, uintptr_t idx){
     return (buddy_head*)(headBaseAddress + (idx - 1) * sizeof(buddy_head));
 }
@@ -130,16 +130,17 @@ int searchFull(void* ptr, void* baseBuddy, void *baseBuddyHead, int idx, size_t 
   if(ptr < baseBuddy + (curSize << 1)){
     res = searchFull(ptr, baseBuddy, baseBuddyHead, idx >> 1, curSize >> 1);
   }else{
-    res = searchFull(ptr, baseBuddy, baseBuddyHead + (curSize >> 1), (idx >> 1) + 1, curSize >> 1);
+    res = searchFull(ptr, baseBuddy + (curSize >> 1), baseBuddyHead, (idx >> 1) + 1, curSize >> 1);
   }
-  // if(res){
-  //   headAddress->status = ;
-  // }
+  if(res){
+    uintptr_t lStatus = getBuddyHead(baseBuddyHead, idx >> 1)->status;
+    uintptr_t rStatus = getBuddyHead(baseBuddyHead, (idx >> 1) + 1)->status;
+    headAddress->status = (lStatus == rStatus && lStatus == 0) ? 0 : 1;
+  }
   return res;
 }
 //对应实验要求中的 kfree。
 static void kfree(void *ptr) {
-  return;
   searchFull(ptr, ptr - (((uintptr_t)ptr - BUDDY_START) % MAX_BUDDY_BLOCK_SIZE), (void*)((BUDDY_HEAD_START + (((uintptr_t)ptr - BUDDY_START)) / MAX_BUDDY_BLOCK_SIZE) * BUDDY_HEAD_SIZE * sizeof(buddy_head)),1, MAX_BUDDY_BLOCK_SIZE);
 }
 static void buddy_sys_init(uintptr_t start, uintptr_t end){
