@@ -119,7 +119,7 @@ static void buddy_Block_Init(void* block, int size){
 //递归调用， 释放空间, 成功则返回1
 int searchFull(void* ptr, void* baseBuddy, void *baseBuddyHead, int idx, size_t curSize){
   buddy_head* headAddress = (buddy_head*) baseBuddyHead + (idx - 1) * sizeof(buddy_head);
-  printf("ptr:%p, baseBuddy:%p   status:%lu\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n ", ptr, baseBuddy, headAddress->status);
+  printf("ptr:%p, baseBuddy:%p   status:%d\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n ", ptr, baseBuddy,(int)headAddress->status);
   if(ptr == baseBuddy && headAddress->status == 2){
     printf("free :%p\n", headAddress);
     //释放空间
