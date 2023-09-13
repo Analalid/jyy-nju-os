@@ -4,7 +4,7 @@
 #define MAXSIZE (16 * MB) //16MiB 能接受的最大内存分配
 #define MAX_BUDDY_BLOCK_SIZE (16 * MB)//伙伴系统最大块
 #define MIN_BUDDY_BLOCK_SIZE (1 << 12)//伙伴系统最小块
-#define BUDDY_HEAD_SIZE ((MAX_BUDDY_BLOCK_SIZE / MIN_BUDDY_BLOCK_SIZE) * 2 - 1)//伙伴头节点的个数
+#define BUDDY_HEAD_SIZE ((MAX_BUDDY_BLOCK_SIZE / MIN_BUDDY_BLOCK_SIZE) * 2 - 1)//每个组的伙伴头节点的个数
   
 //testDefine
 #define TESTHEAP 
@@ -91,7 +91,7 @@ static uintptr_t dfs(size_t size, size_t curSize, void* baseAddr, buddy_head* bu
 //伙伴系统分配
 static void* balloc(size_t size, size_t idx){
   //递归查找
-  uintptr_t res = dfs(size, MAX_BUDDY_BLOCK_SIZE, (void*)BUDDY_START + idx * MAX_BUDDY_BLOCK_SIZE, (buddy_head*)(BUDDY_HEAD_START), 1);
+  uintptr_t res = dfs(size, MAX_BUDDY_BLOCK_SIZE, (void*)BUDDY_START + idx * MAX_BUDDY_BLOCK_SIZE, (buddy_head*)(BUDDY_HEAD_START + idx * BUDDY_HEAD_SIZE * sizeof(buddy_head)), 1);
   //BUDDY_START + size * res - (BUDDY_END - BUDDY_START)位置是算出来
   if(res != -1) printf("init in block: %d , section: %d \n", idx, res);
   return res == -1 ? (void*)-1 : (void*)BUDDY_START + size * res - (BUDDY_END - BUDDY_START) + idx * MAX_BUDDY_BLOCK_SIZE;
@@ -109,7 +109,6 @@ static void *kalloc(size_t size) {
   //通过伙伴系统分配
   for(int i = 0; i < BUDDY_SIZE; i++){
     void* res = balloc(size, i);
-    if(i == 1) printf("askdjas\n");
     if(res != (void*)-1){
       // printf("init in address: %p\n", res);
       return (void*)res;
@@ -131,7 +130,7 @@ static void buddy_sys_init(uintptr_t start, uintptr_t end){
   BUDDY_END = (uintptr_t)start + BUDDY_SIZE * MAX_BUDDY_BLOCK_SIZE;
   //计算出伙伴头数组
   BUDDY_HEAD_START = (uintptr_t)BUDDY_END;
-  BUDDY_HEAD_END = (uintptr_t)BUDDY_HEAD_START + BUDDY_HEAD_SIZE * sizeof(buddy_head);
+  BUDDY_HEAD_END = (uintptr_t)BUDDY_HEAD_START + BUDDY_SIZE * BUDDY_HEAD_SIZE * sizeof(buddy_head);
   #ifdef TESTHEAP
   int idx = 0;
   #endif
