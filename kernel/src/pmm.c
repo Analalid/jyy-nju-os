@@ -143,7 +143,7 @@ int searchFull(void* ptr, void* baseBuddy, void *baseBuddyHead, int idx, size_t 
 }
 //对应实验要求中的 kfree。
 static void kfree(void *ptr) {
-  printf("try free:  %p", ptr);
+  // printf("try free:  %p", ptr);
   searchFull(ptr, ptr - (((uintptr_t)ptr - BUDDY_START) % MAX_BUDDY_BLOCK_SIZE), (void*)((BUDDY_HEAD_START + (((uintptr_t)ptr - BUDDY_START)) / MAX_BUDDY_BLOCK_SIZE) * BUDDY_HEAD_SIZE * sizeof(buddy_head)),1, MAX_BUDDY_BLOCK_SIZE);
 }
 static void buddy_sys_init(uintptr_t start, uintptr_t end){
