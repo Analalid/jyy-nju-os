@@ -1,4 +1,5 @@
 #include <common.h>
+#include <stdint.h>
 #include <stdio.h>
 #define MB (1 << 20)
 #define MAXSIZE (16 * MB) //16MiB 能接受的最大内存分配
@@ -31,7 +32,10 @@ static uintptr_t BUDDY_END;
 static uintptr_t BUDDY_HEAD_START;
 //伙伴头数组的结尾
 static uintptr_t BUDDY_HEAD_END;
-
+//传入idx和headBaseAddress， 返回所在的buddy_head
+static inline buddy_head* getBuddyHead(void* headBaseAddress, uintptr_t idx){
+    return (buddy_head*)(headBaseAddress + (idx - 1) * sizeof(buddy_head));
+}
 //向上对齐到最接近的幂, tips:(之后替换为二分解法)
 static uintptr_t get2PowSize(uintptr_t size){
   uintptr_t newSize = 1;
@@ -57,7 +61,7 @@ static uintptr_t dfs(size_t size, size_t curSize, void* baseAddr, buddy_head* bu
     #endif
     return -1;
   }
-  buddy_head* node = (buddy_head*)(buddy_head_base + (idx - 1) * sizeof(buddy_head));
+  buddy_head* node = getBuddyHead(buddy_head_base, idx);
   //内存块完全被占用
   if(node->status == 2) return -1;
   //找到了合适大小的内存块
@@ -112,17 +116,30 @@ static void *kalloc(size_t size) {
 static void buddy_Block_Init(void* block, int size){
   memset(block, 0, size);
 }
-// void searchFull(void* ptr, void* baseBuddy, void *baseBuddyHead, int idx, size_t curSize){
-//   buddy_head* headAddress = (buddy_head*) baseBuddyHead + (idx - 1) * sizeof(buddy_head);
-//   if(ptr == baseBuddy && headAddress -> status == 2){
-//     if()
-//     return;
-//   }
-//   if(headAddress -> status == 2) return;
-// }
+//递归调用， 释放空间, 成功则返回1
+int searchFull(void* ptr, void* baseBuddy, void *baseBuddyHead, int idx, size_t curSize){
+  buddy_head* headAddress = (buddy_head*) baseBuddyHead + (idx - 1) * sizeof(buddy_head);
+  if(ptr == baseBuddy && headAddress -> status == 2){
+    printf("free :%p\n", headAddress);
+    //释放空间
+    headAddress->status = 0;
+    return 1;
+  }
+  int res = 0;
+  //search
+  if(ptr < baseBuddy + (curSize << 1)){
+    res = searchFull(ptr, baseBuddy, baseBuddyHead, idx >> 1, curSize >> 1);
+  }else{
+    res = searchFull(ptr, baseBuddy, baseBuddyHead + (curSize >> 1), (idx >> 1) + 1, curSize >> 1);
+  }
+  // if(res){
+  //   headAddress->status = ;
+  // }
+  return res;
+}
 //对应实验要求中的 kfree。
 static void kfree(void *ptr) {
-  // searchFull(ptr, ptr - ((ptr - BUDDY_START) % MAX_BUDDY_BLOCK_SIZE), BUDDY_HEAD_START + ((ptr - BUDDY_START) / MAX_BUDDY_BLOCK_SIZE) * BUDDY_HEAD_SIZE * sizeof(buddy_head),1, MAX_BUDDY_BLOCK_SIZE);
+  searchFull(ptr, ptr - (((uintptr_t)ptr - BUDDY_START) % MAX_BUDDY_BLOCK_SIZE), (void*)((BUDDY_HEAD_START + (((uintptr_t)ptr - BUDDY_START)) / MAX_BUDDY_BLOCK_SIZE) * BUDDY_HEAD_SIZE * sizeof(buddy_head)),1, MAX_BUDDY_BLOCK_SIZE);
 }
 static void buddy_sys_init(uintptr_t start, uintptr_t end){
   //伙伴数组的个数
