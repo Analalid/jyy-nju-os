@@ -129,7 +129,7 @@ static void buddy_sys_init(uintptr_t start, uintptr_t end){
   BUDDY_START = (uintptr_t)start;
   BUDDY_END = (uintptr_t)start + BUDDY_SIZE * MAX_BUDDY_BLOCK_SIZE;
   //计算出伙伴头数组
-  BUDDY_HEAD_START = (uintptr_t)BUDDY_END + MAX_BUDDY_BLOCK_SIZE;
+  BUDDY_HEAD_START = (uintptr_t)BUDDY_END;
   BUDDY_HEAD_END = (uintptr_t)BUDDY_HEAD_START + BUDDY_HEAD_SIZE * sizeof(buddy_head);
   #ifdef TESTHEAP
   int idx = 0;
@@ -161,6 +161,8 @@ static void pmm_init() {
   buddy_sys_init((uintptr_t)heap.start, (uintptr_t)heap.end);
   // printf("%p", (uintptr_t)kalloc(100));
   printf("BUDDY_END: %p\n", BUDDY_END);
+  printf("BUDDY_HEAD_START: %p\n", BUDDY_HEAD_START);
+  printf("BUDDY_HEAD_END: %p\n", BUDDY_HEAD_END);
 }
 #endif
 //1 
