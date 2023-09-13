@@ -71,7 +71,7 @@ static uintptr_t dfs(size_t size, size_t curSize, void* baseAddr, buddy_head* bu
   //找到了合适大小的内存块
   if(size == curSize){
     if(status == 0){
-      node->status = 2;
+      node->status = 3;
       return idx;
     }
     return -1;
