@@ -96,7 +96,6 @@ static void* balloc(size_t size, size_t idx){
 }
 //对应实验要求中的 kalloc；
 static void *kalloc(size_t size) {
-  printf("init\n");
   // return (void*)HEAP_START;
   //超过MAXSIZE的是不合法的申请
   if(size >= MAXSIZE || size < 0) return NULL;
@@ -105,13 +104,11 @@ static void *kalloc(size_t size) {
   size = size > MIN_BUDDY_BLOCK_SIZE ? size : MIN_BUDDY_BLOCK_SIZE;
   //向上对齐
   size = get2PowSize(size);
-  int xxxx = 1825;
-  printf("%d\n", xxxx);
   //通过伙伴系统分配
   for(int i = 0; i < BUDDY_SIZE; i++){
     void* res = balloc(size, i);
     if(res != (void*)-1){
-      printf("find!%p\n", res);
+      printf("init in !%p\n", res);
       return (void*)res;
     }
   }
