@@ -99,7 +99,7 @@ static void* balloc(size_t size, size_t idx){
 //对应实验要求中的 kalloc；
 static void *kalloc(size_t size) {
   //超过MAXSIZE的是不合法的申请
-  if(size >= MAXSIZE || size < 0) return NULL;
+  if(size > MAXSIZE || size < 0) return NULL;
   //TODO
   //尚未完成slab时的代替方案
   size = size > MIN_BUDDY_BLOCK_SIZE ? size : MIN_BUDDY_BLOCK_SIZE;
