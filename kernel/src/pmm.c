@@ -160,7 +160,7 @@ static void pmm_init() {
   //伙伴系统的初始化
   buddy_sys_init((uintptr_t)heap.start, (uintptr_t)heap.end);
   // printf("%p", (uintptr_t)kalloc(100));
-  // printf("end\n");
+  printf("BUDDY_END\n", BUDDY_END);
 }
 #endif
 //1 
