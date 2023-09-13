@@ -127,7 +127,7 @@ int searchFull(void* ptr, void* baseBuddy, void *baseBuddyHead, int idx, size_t 
   // }else{
   //   printf("asdfasd\n======\n");
   // }
-  panic("as\n");
+  // panic("as\n");
   // printf("ptr:%p, baseBuddy:%p   status:%p\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n ", ptr, baseBuddy, (void*)headAddress->status);
   if(ptr == baseBuddy && headAddress->status == 2){
     printf("free :%p\n", headAddress);
