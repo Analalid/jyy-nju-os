@@ -9,6 +9,7 @@
 void alloc_and_free() {
 	void *a;
   a = alloc(MAXSIZE); free(a);
+  a = alloc(MAXSIZE); free(a);
 	a = alloc(1);		free(a);
 	a = alloc(128);				free(a);
 	// a = alloc(MAXSIZE / 2);			free(a);
