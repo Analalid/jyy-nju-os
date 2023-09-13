@@ -58,12 +58,11 @@ static uintptr_t dfs(size_t size, size_t curSize, void* baseAddr, buddy_head* bu
     return -1;
   }
   buddy_head* node = (buddy_head*)(buddy_head_base + (idx - 1) * sizeof(buddy_head) * BUDDY_HEAD_SIZE);
-  int status = node->status;
   //内存块完全被占用
-  if(status == 2) return -1;
+  if(node->status == 2) return -1;
   //找到了合适大小的内存块
   if(size == curSize){
-    if(status == 0){
+    if(node->status == 0){
       node->status = 2;
       printf("head in: %p\n", node);
       return idx;
