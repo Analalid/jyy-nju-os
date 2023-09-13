@@ -163,6 +163,7 @@ static void pmm_init() {
   printf("BUDDY_END: %p\n", BUDDY_END);
   printf("BUDDY_HEAD_START: %p\n", BUDDY_HEAD_START);
   printf("BUDDY_HEAD_END: %p\n", BUDDY_HEAD_END);
+  printf("===================================================\n");
 }
 #endif
 //1 
