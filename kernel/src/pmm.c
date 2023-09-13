@@ -13,7 +13,7 @@
 // 伙伴头:记录使用情况
 typedef struct buddy_head{
   void* content;//指向伙伴系统的地址
-  int status;
+  uintptr_t status;
             //0代表完全空闲
             //1代表存在空闲
             //2代表全满
@@ -119,7 +119,8 @@ static void buddy_Block_Init(void* block, int size){
 //递归调用， 释放空间, 成功则返回1
 int searchFull(void* ptr, void* baseBuddy, void *baseBuddyHead, int idx, size_t curSize){
   buddy_head* headAddress = (buddy_head*) baseBuddyHead + (idx - 1) * sizeof(buddy_head);
-  printf("%d", headAddress->status);
+  // printf("%lu", headAddress->status);
+  printf("%p", baseBuddyHead);
   panic("as\n");
   // printf("ptr:%p, baseBuddy:%p   status:%p\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n ", ptr, baseBuddy, (void*)headAddress->status);
   if(ptr == baseBuddy && headAddress->status == 2){
