@@ -123,9 +123,9 @@ int searchFull(void* ptr, void* baseBuddy, void *baseBuddyHead, int idx, size_t 
     printf("free :%p\n", headAddress);
     //释放空间
     headAddress->status = 0;
+  panic("a");
     return 1;
   }
-  panic("a");
   int res = 0;
   //search
   if(ptr < baseBuddy + (curSize << 1)){
