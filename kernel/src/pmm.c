@@ -122,11 +122,11 @@ int searchFull(void* ptr, void* baseBuddy, void *baseBuddyHead, int idx, size_t 
   // printf("%b", )
   // printf("%ld = = = = = =\n", headAddress->status == 2);
   // printf("sdjfioukdj:%p\n", baseBuddyHead);
-  if(headAddress->status == 2){
-    printf("2\n======\n");
-  }else{
-    printf("asdfasd\n======\n");
-  }
+  // if(headAddress->status == 2){
+  //   printf("2\n======\n");
+  // }else{
+  //   printf("asdfasd\n======\n");
+  // }
   panic("as\n");
   // printf("ptr:%p, baseBuddy:%p   status:%p\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n ", ptr, baseBuddy, (void*)headAddress->status);
   if(ptr == baseBuddy && headAddress->status == 2){
