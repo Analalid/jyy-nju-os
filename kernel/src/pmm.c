@@ -47,9 +47,9 @@ static uintptr_t get2PowSize(uintptr_t size){
 //维护二叉树节点
 static void setBuddyHead(uintptr_t idx, buddy_head* buddy_head_base){
   uintptr_t lIdx = idx << 1, rIdx = (idx << 1) + 1;
-  buddy_head* lS = buddy_head_base + lIdx * sizeof(buddy_head);
-  buddy_head* rS = buddy_head_base + rIdx * sizeof(buddy_head);
-  buddy_head* self = buddy_head_base + idx * sizeof(buddy_head);
+  buddy_head* lS = buddy_head_base + (lIdx - 1) * sizeof(buddy_head);
+  buddy_head* rS = buddy_head_base + (rIdx - 1) * sizeof(buddy_head);
+  buddy_head* self = buddy_head_base + (idx - 1) * sizeof(buddy_head);
   // if(lS->status == 0 && rS->status == 0) self->status = 0;
   if(lS->status == 2 && rS->status == 2) self->status = 2;
   else self->status = 1;
