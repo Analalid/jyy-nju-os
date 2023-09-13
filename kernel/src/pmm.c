@@ -56,7 +56,6 @@ static void setBuddyHead(uintptr_t idx, buddy_head* buddy_head_base){
 }
 //递归查找，详情看伙伴系统的实现, 无可用空间的时候返回-1, idx用于定位伙伴头数组的位置
 static uintptr_t dfs(size_t size, size_t curSize, void* baseAddr, buddy_head* buddy_head_base, uintptr_t idx){
-    printf("%d\n",idx);
   //找不到可分配的空间了
   if(curSize < size){
     #ifdef BUDDY_SYS_DEBUG
@@ -64,6 +63,7 @@ static uintptr_t dfs(size_t size, size_t curSize, void* baseAddr, buddy_head* bu
     #endif
     return 0;
   }
+  printf("%d\n",idx);
   buddy_head* node = (buddy_head*)(BUDDY_HEAD_START + (idx - 1) * sizeof(buddy_head));
   int status = node->status;
   //内存块完全被占用
