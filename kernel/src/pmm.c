@@ -103,7 +103,7 @@ static void *kalloc(size_t size) {
   for(int i = 0; i < BUDDY_SIZE; i++){
     void* res = balloc(size, i);
     if(res != (void*)-1){
-      // printf("init in address: %p\n", res);
+      printf("init in address: %p\n", res);
       return (void*)res;
     }
   }
