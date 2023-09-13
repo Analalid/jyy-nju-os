@@ -50,7 +50,7 @@ static void setBuddyHead(uintptr_t idx, buddy_head* buddy_head_base){
   buddy_head* lS = buddy_head_base + lIdx * sizeof(buddy_head);
   buddy_head* rS = buddy_head_base + rIdx * sizeof(buddy_head);
   buddy_head* self = buddy_head_base + idx * sizeof(buddy_head);
-  // if(lS->status == 0 && rS->status == 0) self->status =0;
+  // if(lS->status == 0 && rS->status == 0) self->status = 0;
   if(lS->status == 2 && rS->status == 2) self->status = 2;
   else self->status = 1;
 }
@@ -79,6 +79,7 @@ static uintptr_t dfs(size_t size, size_t curSize, void* baseAddr, buddy_head* bu
   uintptr_t lIdx = idx << 1, rIdx = (idx << 1) + 1;
   if((lIdx = dfs(size, curSize >> 1, baseAddr, buddy_head_base, lIdx))){
     setBuddyHead(idx, buddy_head_base);
+    printf("iniasdasasdasdsa\n");
     return lIdx;
   }else if((rIdx = dfs(size, curSize >> 1, baseAddr, buddy_head_base, rIdx))){
     setBuddyHead(idx, buddy_head_base);
