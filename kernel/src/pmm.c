@@ -134,7 +134,7 @@ static void buddy_sys_init(uintptr_t start, uintptr_t end){
   #ifdef TESTHEAP
   int idx = 0;
   #endif
-  for(uintptr_t i = BUDDY_START; i < end; i += MAX_BUDDY_BLOCK_SIZE){
+  for(uintptr_t i = BUDDY_START; i < BUDDY_END; i += MAX_BUDDY_BLOCK_SIZE){
     buddy_Block_Init((void*)i, MAX_BUDDY_BLOCK_SIZE);
   #ifdef TESTHEAP
     printf("%d       %p\n", idx, (uintptr_t)i);
