@@ -7,7 +7,6 @@
 void alloc_and_free() {
 	void *a;
 	a = alloc(1);		
-  printf("===================================\n");		
   printf("%p\n", a);
   	// free(a);
 	// a = alloc(128);				free(a);
@@ -17,7 +16,6 @@ void alloc_and_free() {
 }
 void pmm_test(){
   alloc_and_free();
-  printf("endl\n");
 }
 
 
