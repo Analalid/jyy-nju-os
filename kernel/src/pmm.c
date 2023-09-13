@@ -61,7 +61,7 @@ static uintptr_t dfs(size_t size, size_t curSize, void* baseAddr, buddy_head* bu
     #ifdef BUDDY_SYS_DEBUG
     printf("no more space error!!!");
     #endif
-    return 0;
+    return -1;
   }
   // printf("%d      %d      %d\n",idx, size, curSize);
   buddy_head* node = (buddy_head*)(BUDDY_HEAD_START + (idx - 1) * sizeof(buddy_head));
@@ -74,7 +74,7 @@ static uintptr_t dfs(size_t size, size_t curSize, void* baseAddr, buddy_head* bu
       node->status = 2;
       return idx;
     }
-    return 0;
+    return -1;
   }
   uintptr_t lIdx = idx << 1, rIdx = (idx << 1) + 1;
   if((lIdx = dfs(size, curSize >> 1, baseAddr, buddy_head_base, lIdx))){
@@ -84,7 +84,7 @@ static uintptr_t dfs(size_t size, size_t curSize, void* baseAddr, buddy_head* bu
     setBuddyHead(idx, buddy_head_base);
     return rIdx;
   }
-  return 0;
+  return -1;
 }
 //伙伴系统分配
 static void* balloc(size_t size, size_t idx){
@@ -92,7 +92,7 @@ static void* balloc(size_t size, size_t idx){
   uintptr_t res = dfs(size, MAX_BUDDY_BLOCK_SIZE, (void*)BUDDY_START + idx * MAX_BUDDY_BLOCK_SIZE, (buddy_head*)(BUDDY_HEAD_START), 1);
   //BUDDY_START + size * res - (BUDDY_END - BUDDY_START)位置是算出来
   printf("分配到第 %d 的 %d 处\n", idx, res);
-  return res == 0 ? (void*)0 : (void*)BUDDY_START + size * res - (BUDDY_END - BUDDY_START) + idx * MAX_BUDDY_BLOCK_SIZE;
+  return res == -1 ? (void*)-1 : (void*)BUDDY_START + size * res - (BUDDY_END - BUDDY_START) + idx * MAX_BUDDY_BLOCK_SIZE;
 }
 //对应实验要求中的 kalloc；
 static void *kalloc(size_t size) {
@@ -109,10 +109,13 @@ static void *kalloc(size_t size) {
   printf("%d\n", xxxx);
   //通过伙伴系统分配
   for(int i = 0; i < BUDDY_SIZE; i++){
-    balloc(size, i);
-    // if(res != (void*)0) return (void*)res;
+    void* res = balloc(size, i);
+    if(res != (void*)-1){
+      printf("find!%p", res);
+      return (void*)res;
+    }
   }
-  return (void*)0;
+  return (void*)-1;
 }
 static void buddy_Block_Init(void* block, int size){
   memset(block, 0, size);
