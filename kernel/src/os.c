@@ -13,7 +13,7 @@ void alloc_and_free() {
   // a = alloc(MAXSIZE); free(a);
 	// a = alloc(1);
 	a = alloc(128);				free(a);
-	a = alloc(MAXSIZE / 2);			free(a);
+	a = alloc(MAXSIZE / 2);			
   // a = alloc(4096);			free(a);
 	// a = alloc(1 << 16);		free(a);
   // a = alloc(1 << 16);		free(a);
