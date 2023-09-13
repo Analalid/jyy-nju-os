@@ -130,9 +130,9 @@ int searchFull(void* ptr, void* baseBuddy, void *baseBuddyHead, int idx, size_t 
   if(ptr < baseBuddy + (curSize << 1)){
     res = searchFull(ptr, baseBuddy, baseBuddyHead, idx >> 1, curSize >> 1);
   }else{
-  panic("a");
     res = searchFull(ptr, baseBuddy + (curSize >> 1), baseBuddyHead, (idx >> 1) + 1, curSize >> 1);
   }
+  panic("a");
   if(res){
     uintptr_t lStatus = getBuddyHead(baseBuddyHead, idx >> 1)->status;
     uintptr_t rStatus = getBuddyHead(baseBuddyHead, (idx >> 1) + 1)->status;
