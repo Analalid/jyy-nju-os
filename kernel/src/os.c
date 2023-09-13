@@ -34,7 +34,7 @@ static void os_run() {
     putch(*s == '*' ? '0' + cpu_current() : *s);
   }
   int v =sizeof(uintptr_t); 
-  printf("%d\n==========================++======================\n", &v);
+  printf("%d\n==========================++======================\n", v);
    pmm_test();
 
   while (1) ;
