@@ -39,15 +39,15 @@ static uintptr_t get2PowSize(uintptr_t size){
   return newSize;
 }
 //维护二叉树节点
-// static void setBuddyHead(uintptr_t idx, buddy_head* buddy_head_base){
-//   uintptr_t lIdx = idx << 1, rIdx = (idx << 1) + 1;
-//   buddy_head* lS = buddy_head_base + (lIdx - 1) * sizeof(buddy_head);
-//   buddy_head* rS = buddy_head_base + (rIdx - 1) * sizeof(buddy_head);
-//   buddy_head* self = buddy_head_base + (idx - 1) * sizeof(buddy_head);
-//   // if(lS->status == 0 && rS->status == 0) self->status = 0;
-//   if(lS->status == 2 || rS->status == 2) self->status = 1;
-//   // printf("%d        %d           %d\n", self->status, lS ->status, rS->status);
-// }
+static void setBuddyHead(uintptr_t idx, buddy_head* buddy_head_base){
+  uintptr_t lIdx = idx << 1, rIdx = (idx << 1) + 1;
+  buddy_head* lS = buddy_head_base + (lIdx - 1) * sizeof(buddy_head);
+  buddy_head* rS = buddy_head_base + (rIdx - 1) * sizeof(buddy_head);
+  buddy_head* self = buddy_head_base + (idx - 1) * sizeof(buddy_head);
+  // if(lS->status == 0 && rS->status == 0) self->status = 0;
+  if(lS->status == 2 || rS->status == 2) self->status = 1;
+  // printf("%d        %d           %d\n", self->status, lS ->status, rS->status);
+}
 //递归查找，详情看伙伴系统的实现, 无可用空间的时候返回-1, idx用于定位伙伴头数组的位置
 static uintptr_t dfs(size_t size, size_t curSize, void* baseAddr, buddy_head* buddy_head_base, uintptr_t idx){
   //找不到可分配的空间了
@@ -71,12 +71,12 @@ static uintptr_t dfs(size_t size, size_t curSize, void* baseAddr, buddy_head* bu
   }
   uintptr_t lIdx = idx << 1, rIdx = (idx << 1) + 1;
   if((lIdx = dfs(size, curSize >> 1, baseAddr, buddy_head_base, lIdx)) != -1){
-    node->status = 1;
-    // setBuddyHead(idx, buddy_head_base);
+    // node->status = 1;
+    setBuddyHead(idx, buddy_head_base);
     return lIdx;
   }else if((rIdx = dfs(size, curSize >> 1, baseAddr, buddy_head_base, rIdx)) != -1){
-    node->status = 1;
-    // setBuddyHead(idx, buddy_head_base);
+    // node->status = 1;
+    setBuddyHead(idx, buddy_head_base);
     return rIdx;
   }
   return -1;
