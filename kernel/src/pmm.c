@@ -129,7 +129,7 @@ int searchFull(void* ptr, void* baseBuddy, void *baseBuddyHead, int idx, size_t 
   // }
   // panic("as\n");
   // printf("ptr:%p, baseBuddy:%p   status:%p\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n ", ptr, baseBuddy, (void*)headAddress->status);
-  printf("curSize:%d  idx:%d\n", curSize, idx);
+  // printf("curSize:%d  idx:%d\n", curSize, idx);
   if(ptr == baseBuddy && headAddress->status == 2){
     // printf("free :%p\n", headAddress);
     //释放空间
@@ -195,6 +195,7 @@ static void pmm_init() {
   printf("BUDDY_HEAD_START: %p\n", BUDDY_HEAD_START);
   printf("BUDDY_HEAD_END: %p\n", BUDDY_HEAD_END);
   printf("===================================================\n");
+  printf("%d          asiohdoaus", MAX_BUDDY_BLOCK_SIZE);
 }
 MODULE_DEF(pmm) = {
   .init  = pmm_init,
