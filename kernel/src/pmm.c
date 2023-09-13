@@ -63,7 +63,7 @@ static uintptr_t dfs(size_t size, size_t curSize, void* baseAddr, buddy_head* bu
     #endif
     return 0;
   }
-  printf("%d      %d      %d\n",idx, size, curSize);
+  // printf("%d      %d      %d\n",idx, size, curSize);
   buddy_head* node = (buddy_head*)(BUDDY_HEAD_START + (idx - 1) * sizeof(buddy_head));
   int status = node->status;
   //内存块完全被占用
@@ -91,7 +91,8 @@ static void* balloc(size_t size, int idx){
   //递归查找
   uintptr_t res = dfs(size, MAX_BUDDY_BLOCK_SIZE, (void*)BUDDY_START + idx * MAX_BUDDY_BLOCK_SIZE, (buddy_head*)(BUDDY_HEAD_START), 1);
   //BUDDY_START + size * res - (BUDDY_END - BUDDY_START)位置是算出来
-  return res == 0 ? (void*)0 : (void*)BUDDY_START + size * res - (BUDDY_END - BUDDY_START);
+  printf("%d", res);
+  return res == 0 ? (void*)0 : (void*)BUDDY_START + size * res - (BUDDY_END - BUDDY_START) + idx * MAX_BUDDY_BLOCK_SIZE;
 }
 //对应实验要求中的 kalloc；
 static void *kalloc(size_t size) {
