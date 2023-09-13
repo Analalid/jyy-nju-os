@@ -8,6 +8,8 @@
 #define free(addr) pmm->free(addr)
 void alloc_and_free() {
 	void *a;
+  a = alloc(MAXSIZE / 2);
+  a = alloc(MAXSIZE / 2);
   a = alloc(MAXSIZE); free(a);
   a = alloc(MAXSIZE); free(a);
 	a = alloc(1);		free(a);
