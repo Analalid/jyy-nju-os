@@ -129,7 +129,7 @@ int searchFull(void* ptr, void* baseBuddy, void *baseBuddyHead, int idx, uintptr
   // }
   // panic("as\n");
   // printf("ptr:%p, baseBuddy:%p   status:%p\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n ", ptr, baseBuddy, (void*)headAddress->status);
-  // printf("curSize:%d  idx:%d\n", curSize, idx);
+  printf("curSize:%d  idx:%d\n", curSize, idx);
   if(ptr == baseBuddy && headAddress->status == 2){
     // printf("free :%p\n", headAddress);
     //释放空间
