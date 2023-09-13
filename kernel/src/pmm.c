@@ -125,7 +125,7 @@ int searchFull(void* ptr, void* baseBuddy, void *baseBuddyHead, int idx, size_t 
     headAddress->status = 0;
     return 1;
   }
-  panic("a");
+  printf("askjdhasd==============================\n");
   int res = 0;
   //search
   if(ptr < baseBuddy + (curSize << 1)){
