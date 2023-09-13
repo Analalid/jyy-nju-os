@@ -94,9 +94,6 @@ static void* balloc(size_t size, size_t idx){
   printf("分配到第 %d 的 %d 处\n", idx, res);
   return res == 0 ? (void*)0 : (void*)BUDDY_START + size * res - (BUDDY_END - BUDDY_START) + idx * MAX_BUDDY_BLOCK_SIZE;
 }
-void change(int x){
-  printf("%d   here!!!!!!!!\n", x);
-}
 //对应实验要求中的 kalloc；
 static void *kalloc(size_t size) {
   printf("init\n");
@@ -112,9 +109,8 @@ static void *kalloc(size_t size) {
   printf("%d\n", xxxx);
   //通过伙伴系统分配
   for(int i = 0; i < BUDDY_SIZE; i++){
-    change(i);
-    void* res = balloc(size, i);
-    if(res != (void*)0) return (void*)res;
+    balloc(size, i);
+    // if(res != (void*)0) return (void*)res;
   }
   return (void*)0;
 }
