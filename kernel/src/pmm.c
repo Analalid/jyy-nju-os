@@ -79,10 +79,10 @@ static uintptr_t dfs(size_t size, size_t curSize, void* baseAddr, buddy_head* bu
     return -1;
   }
   uintptr_t lIdx = idx << 1, rIdx = (idx << 1) + 1;
-  if((lIdx = dfs(size, curSize >> 1, baseAddr, buddy_head_base, lIdx))){
+  if((lIdx = dfs(size, curSize >> 1, baseAddr, buddy_head_base, lIdx)) != -1){
     setBuddyHead(idx, buddy_head_base);
     return lIdx;
-  }else if((rIdx = dfs(size, curSize >> 1, baseAddr, buddy_head_base, rIdx))){
+  }else if((rIdx = dfs(size, curSize >> 1, baseAddr, buddy_head_base, rIdx)) != -1){
     setBuddyHead(idx, buddy_head_base);
     return rIdx;
   }
