@@ -5,7 +5,6 @@
 #define MAX_BUDDY_BLOCK_SIZE (16 * MB)//伙伴系统最大块
 #define MIN_BUDDY_BLOCK_SIZE (1 << 12)//伙伴系统最小块
 #define BUDDY_HEAD_SIZE ((MAX_BUDDY_BLOCK_SIZE / MIN_BUDDY_BLOCK_SIZE) * 2 - 1)//每个组的伙伴头节点的个数
-  
 //testDefine
 #define TESTHEAP 
 #define BUDDY_SYS_DEBUG
@@ -33,11 +32,6 @@ static uintptr_t BUDDY_HEAD_START;
 //伙伴头数组的结尾
 static uintptr_t BUDDY_HEAD_END;
 
-/*
-函数声明
-*/
-//伙伴系统数组
-
 //向上对齐到最接近的幂, tips:(之后替换为二分解法)
 static uintptr_t get2PowSize(uintptr_t size){
   uintptr_t newSize = 1;
@@ -45,16 +39,15 @@ static uintptr_t get2PowSize(uintptr_t size){
   return newSize;
 }
 //维护二叉树节点
-static void setBuddyHead(uintptr_t idx, buddy_head* buddy_head_base){
-  uintptr_t lIdx = idx << 1, rIdx = (idx << 1) + 1;
-  buddy_head* lS = buddy_head_base + (lIdx - 1) * sizeof(buddy_head);
-  buddy_head* rS = buddy_head_base + (rIdx - 1) * sizeof(buddy_head);
-  buddy_head* self = buddy_head_base + (idx - 1) * sizeof(buddy_head);
-  // if(lS->status == 0 && rS->status == 0) self->status = 0;
-  if(lS->status == 2 && rS->status == 2) self->status = 2;
-  else self->status = 1;
-  // printf("%d        %d           %d\n", self->status, lS ->status, rS->status);
-}
+// static void setBuddyHead(uintptr_t idx, buddy_head* buddy_head_base){
+//   uintptr_t lIdx = idx << 1, rIdx = (idx << 1) + 1;
+//   buddy_head* lS = buddy_head_base + (lIdx - 1) * sizeof(buddy_head);
+//   buddy_head* rS = buddy_head_base + (rIdx - 1) * sizeof(buddy_head);
+//   buddy_head* self = buddy_head_base + (idx - 1) * sizeof(buddy_head);
+//   // if(lS->status == 0 && rS->status == 0) self->status = 0;
+//   if(lS->status == 2 || rS->status == 2) self->status = 1;
+//   // printf("%d        %d           %d\n", self->status, lS ->status, rS->status);
+// }
 //递归查找，详情看伙伴系统的实现, 无可用空间的时候返回-1, idx用于定位伙伴头数组的位置
 static uintptr_t dfs(size_t size, size_t curSize, void* baseAddr, buddy_head* buddy_head_base, uintptr_t idx){
   //找不到可分配的空间了
@@ -64,26 +57,27 @@ static uintptr_t dfs(size_t size, size_t curSize, void* baseAddr, buddy_head* bu
     #endif
     return -1;
   }
-  // printf("%d      %d      %d\n",idx, size, curSize);
   buddy_head* node = (buddy_head*)(buddy_head_base + (idx - 1) * sizeof(buddy_head) * BUDDY_HEAD_SIZE);
   int status = node->status;
   //内存块完全被占用
   if(status == 2) return -1;
   //找到了合适大小的内存块
   if(size == curSize){
-    printf("head in: %p\n", node);
     if(status == 0){
       node->status = 2;
+      printf("head in: %p\n", node);
       return idx;
     }
     return -1;
   }
   uintptr_t lIdx = idx << 1, rIdx = (idx << 1) + 1;
   if((lIdx = dfs(size, curSize >> 1, baseAddr, buddy_head_base, lIdx)) != -1){
-    setBuddyHead(idx, buddy_head_base);
+    node->status = 1;
+    // setBuddyHead(idx, buddy_head_base);
     return lIdx;
   }else if((rIdx = dfs(size, curSize >> 1, baseAddr, buddy_head_base, rIdx)) != -1){
-    setBuddyHead(idx, buddy_head_base);
+    node->status = 1;
+    // setBuddyHead(idx, buddy_head_base);
     return rIdx;
   }
   return -1;
@@ -119,8 +113,17 @@ static void *kalloc(size_t size) {
 static void buddy_Block_Init(void* block, int size){
   memset(block, 0, size);
 }
+// void searchFull(void* ptr, void* baseBuddy, void *baseBuddyHead, int idx, size_t curSize){
+//   buddy_head* headAddress = (buddy_head*) baseBuddyHead + (idx - 1) * sizeof(buddy_head);
+//   if(ptr == baseBuddy && headAddress -> status == 2){
+//     if()
+//     return;
+//   }
+//   if(headAddress -> status == 2) return;
+// }
 //对应实验要求中的 kfree。
 static void kfree(void *ptr) {
+  // searchFull(ptr, ptr - ((ptr - BUDDY_START) % MAX_BUDDY_BLOCK_SIZE), BUDDY_HEAD_START + ((ptr - BUDDY_START) / MAX_BUDDY_BLOCK_SIZE) * BUDDY_HEAD_SIZE * sizeof(buddy_head),1, MAX_BUDDY_BLOCK_SIZE);
 }
 static void buddy_sys_init(uintptr_t start, uintptr_t end){
   //伙伴数组的个数
