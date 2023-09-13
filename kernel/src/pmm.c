@@ -105,8 +105,8 @@ static void *kalloc(size_t size) {
   size = size > MIN_BUDDY_BLOCK_SIZE ? size : MIN_BUDDY_BLOCK_SIZE;
   //向上对齐
   size = get2PowSize(size);
-  // int xxxx = 1;
-  // printf("%d\n", xxxx);
+  int xxxx = 1825;
+  printf("%d\n", xxxx);
   //通过伙伴系统分配
   for(int i = 0; i < BUDDY_SIZE; i++){
     printf("%d===dfghxcfuhg=\n", i);
