@@ -131,7 +131,7 @@ int searchFull(void* ptr, void* baseBuddy, void *baseBuddyHead, int idx, uintptr
   // printf("ptr:%p, baseBuddy:%p   status:%p\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n ", ptr, baseBuddy, (void*)headAddress->status);
   // printf("curSize:%d  idx:%d\n", curSize, idx);
   // panic("sa");
-  if(curSize == MAX_BUDDY_BLOCK_SIZE) printf("baseBuddy++_+_)+_)+_+ %p\n", baseBuddy);
+  if(curSize == MAX_BUDDY_BLOCK_SIZE >> 1) printf("baseBuddy++_+_)+_)+_+ %p\n", baseBuddy);
   if(ptr == baseBuddy && headAddress->status == 2){
     // printf("free :%p\n", headAddress);
     //释放空间
