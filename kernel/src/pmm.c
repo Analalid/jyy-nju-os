@@ -47,13 +47,13 @@ static uintptr_t get2PowSize(uintptr_t size){
 //维护二叉树节点
 static void setBuddyHead(uintptr_t idx, buddy_head* buddy_head_base){
   uintptr_t lIdx = idx << 1, rIdx = (idx << 1) + 1;
-  printf("iLLlLldx: %d\n", rIdx);
   buddy_head* lS = buddy_head_base + lIdx * sizeof(buddy_head);
   buddy_head* rS = buddy_head_base + rIdx * sizeof(buddy_head);
   buddy_head* self = buddy_head_base + idx * sizeof(buddy_head);
   // if(lS->status == 0 && rS->status == 0) self->status = 0;
   if(lS->status == 2 && rS->status == 2) self->status = 2;
   else self->status = 1;
+  printf("%d", self->status);
 }
 //递归查找，详情看伙伴系统的实现, 无可用空间的时候返回-1, idx用于定位伙伴头数组的位置
 static uintptr_t dfs(size_t size, size_t curSize, void* baseAddr, buddy_head* buddy_head_base, uintptr_t idx){
