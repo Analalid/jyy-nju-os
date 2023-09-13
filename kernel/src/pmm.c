@@ -113,9 +113,6 @@ static void *kalloc(size_t size) {
       // printf("init in address: %p\n", res);
       return (void*)res;
     }
-    // else{
-    //   printf("try init in block %d fail!\n", i);
-    // }
   }
   return (void*)-1;
 }
@@ -145,11 +142,7 @@ static void buddy_sys_init(uintptr_t start, uintptr_t end){
   #endif
   }
 }
-#ifdef TEST
-static void pmm_init() {
-  printf("go to TEST");
-}
-#else
+
 //初始化 pmm 模块，它应当在多处理器启动前 (os->init() 中) 调用。你会在这里完成数据结构、锁的初始化等
 static void pmm_init() {
   uintptr_t pmsize = ((uintptr_t)heap.end - (uintptr_t)heap.start);
@@ -168,11 +161,6 @@ static void pmm_init() {
   printf("BUDDY_HEAD_END: %p\n", BUDDY_HEAD_END);
   printf("===================================================\n");
 }
-#endif
-//1 
-//2 3 
-//4 5 6 7
-//8 9 10 11 12 13 14 15
 MODULE_DEF(pmm) = {
   .init  = pmm_init,
   .alloc = kalloc,
