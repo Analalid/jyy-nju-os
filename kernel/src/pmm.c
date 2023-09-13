@@ -119,7 +119,7 @@ static void buddy_Block_Init(void* block, int size){
 //递归调用， 释放空间, 成功则返回1
 int searchFull(void* ptr, void* baseBuddy, void *baseBuddyHead, int idx, size_t curSize){
   buddy_head* headAddress = getBuddyHead(baseBuddyHead, idx);
-  printf("baseBuddyHead:%p\n", baseBuddyHead);
+  printf("baseBuddyHead:  %p\n", baseBuddyHead);
   // printf("%b", )
   // printf("%ld = = = = = =\n", headAddress->status == 2);
   // if(headAddress->status == 2){
@@ -153,7 +153,7 @@ int searchFull(void* ptr, void* baseBuddy, void *baseBuddyHead, int idx, size_t 
 //对应实验要求中的 kfree。
 static void kfree(void *ptr) {
   printf("try free:  %p\n", ptr);
-  searchFull(ptr, ptr - (((uintptr_t)ptr - BUDDY_START) % MAX_BUDDY_BLOCK_SIZE), (void*)((BUDDY_HEAD_START + (((uintptr_t)ptr - BUDDY_START)) / MAX_BUDDY_BLOCK_SIZE) * BUDDY_HEAD_SIZE * sizeof(buddy_head)),1, MAX_BUDDY_BLOCK_SIZE);
+  searchFull(ptr, ptr - (((uintptr_t)ptr - BUDDY_START) % MAX_BUDDY_BLOCK_SIZE), (void*)(BUDDY_HEAD_START + ((uintptr_t)ptr - BUDDY_START) / MAX_BUDDY_BLOCK_SIZE * BUDDY_HEAD_SIZE * sizeof(buddy_head)),1, MAX_BUDDY_BLOCK_SIZE);
 }
 static void buddy_sys_init(uintptr_t start, uintptr_t end){
   //伙伴数组的个数
