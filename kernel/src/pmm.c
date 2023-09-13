@@ -63,7 +63,7 @@ static uintptr_t dfs(size_t size, size_t curSize, void* baseAddr, buddy_head* bu
     #endif
     return 0;
   }
-  printf("%d    %d\n",idx, curSize);
+  printf("%d      %d      %d\n",idx, size, curSize);
   buddy_head* node = (buddy_head*)(BUDDY_HEAD_START + (idx - 1) * sizeof(buddy_head));
   int status = node->status;
   //内存块完全被占用
