@@ -119,7 +119,7 @@ static void buddy_Block_Init(void* block, int size){
 //递归调用， 释放空间, 成功则返回1
 int searchFull(void* ptr, void* baseBuddy, void *baseBuddyHead, int idx, size_t curSize){
   buddy_head* headAddress = (buddy_head*) baseBuddyHead + (idx - 1) * sizeof(buddy_head);
-  printf("%p, %p ", ptr, baseBuddy);
+  printf("ptr:%p, baseBuddy%p ", ptr, baseBuddy);
   if(ptr == baseBuddy && headAddress->status == 2){
     printf("free :%p\n", headAddress);
     //释放空间
@@ -143,7 +143,7 @@ int searchFull(void* ptr, void* baseBuddy, void *baseBuddyHead, int idx, size_t 
 }
 //对应实验要求中的 kfree。
 static void kfree(void *ptr) {
-  printf("try free:  %p\n\n\n\n\n", ptr);
+  printf("try free:  %p", ptr);
   searchFull(ptr, ptr - (((uintptr_t)ptr - BUDDY_START) % MAX_BUDDY_BLOCK_SIZE), (void*)((BUDDY_HEAD_START + (((uintptr_t)ptr - BUDDY_START)) / MAX_BUDDY_BLOCK_SIZE) * BUDDY_HEAD_SIZE * sizeof(buddy_head)),1, MAX_BUDDY_BLOCK_SIZE);
 }
 static void buddy_sys_init(uintptr_t start, uintptr_t end){
