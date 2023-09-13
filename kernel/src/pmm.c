@@ -112,7 +112,7 @@ static void *kalloc(size_t size) {
     if(res != (void*)-1){
       printf("init in: %p\n", res);
       return (void*)res;
-    }
+    }else panic("as");
   }
   return (void*)-1;
 }
