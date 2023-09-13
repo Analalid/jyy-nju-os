@@ -107,12 +107,15 @@ static void *kalloc(size_t size) {
   size = get2PowSize(size);
   int xxxx = 1825;
   printf("%d\n", xxxx);
+  int tmp = 0;
   //通过伙伴系统分配
   for(int i = 0; i < BUDDY_SIZE; i++){
     printf("====%d===dfghxcfuhg=\n", i);
     void* res = balloc(size, i);
     if(res != (void*)0) return (void*)res;
+    tmp += i;
   }
+  printf("%d", tmp);
   return (void*)0;
 }
 static void buddy_Block_Init(void* block, int size){
