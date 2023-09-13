@@ -125,9 +125,9 @@ int searchFull(void* ptr, void* baseBuddy, void *baseBuddyHead, int idx, size_t 
     headAddress->status = 0;
     return 1;
   }
+  panic("a");
   int res = 0;
   //search
-  panic("a");
   if(ptr < baseBuddy + (curSize << 1)){
     res = searchFull(ptr, baseBuddy, baseBuddyHead, idx >> 1, curSize >> 1);
   }else{
