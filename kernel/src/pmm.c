@@ -53,7 +53,7 @@ static void setBuddyHead(uintptr_t idx, buddy_head* buddy_head_base){
   // if(lS->status == 0 && rS->status == 0) self->status = 0;
   if(lS->status == 2 && rS->status == 2) self->status = 2;
   else self->status = 1;
-  printf("%d", self->status);
+  printf("%d\n", self->status);
 }
 //递归查找，详情看伙伴系统的实现, 无可用空间的时候返回-1, idx用于定位伙伴头数组的位置
 static uintptr_t dfs(size_t size, size_t curSize, void* baseAddr, buddy_head* buddy_head_base, uintptr_t idx){
