@@ -91,7 +91,7 @@ static void* balloc(size_t size, size_t idx){
   //递归查找
   uintptr_t res = dfs(size, MAX_BUDDY_BLOCK_SIZE, (void*)BUDDY_START + idx * MAX_BUDDY_BLOCK_SIZE, (buddy_head*)(BUDDY_HEAD_START), 1);
   //BUDDY_START + size * res - (BUDDY_END - BUDDY_START)位置是算出来
-  printf("分配到第 %d 的 %d 处\n", idx, res);
+  printf("init in block: %d , section: %d \n", idx, res);
   return res == -1 ? (void*)-1 : (void*)BUDDY_START + size * res - (BUDDY_END - BUDDY_START) + idx * MAX_BUDDY_BLOCK_SIZE;
 }
 //对应实验要求中的 kalloc；
