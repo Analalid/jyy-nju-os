@@ -10,5 +10,6 @@ int main(int argc, char *argv[]) {
   execve("/bin/strace",     exec_argv, exec_envp);
   execve("/usr/bin/strace", exec_argv, exec_envp);
   perror(argv[0]);
+  printf("%d",p);
   exit(EXIT_FAILURE);
 }
