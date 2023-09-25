@@ -5,7 +5,7 @@
 #include <sys/wait.h>
 #include <fcntl.h>
 int main(int argc, char *argv[]) {
-  char *exec_argv[] = {  "wc","sperf.c",NULL, };
+  char *exec_argv[] = {  "strace","-T","wc","sperf.c",NULL, };
   char *pathVal = getenv("PATH");
   char *path;
   path = (char*)malloc(strlen("PATH=") + strlen(pathVal) + 1);
@@ -23,12 +23,11 @@ int main(int argc, char *argv[]) {
     perror("create child process error!\n");
   }else if(p > 0){
     wait(NULL);
-
+    
   }else{
     // close(STDOUT_FILENO);
     close(2);
     open("./sperf_tmp.output", O_CREAT|O_WRONLY|O_TRUNC,S_IRWXU);
-    printf("Hello, I am son\n");
     execve("/bin/strace",     exec_argv, exec_envp);
     perror(argv[0]);
   }
