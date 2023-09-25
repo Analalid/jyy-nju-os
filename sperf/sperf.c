@@ -19,6 +19,11 @@ int main(int argc, char *argv[]) {
   }else if(p > 0){
     wait(NULL);
     printf("father process begin!\n");
+    regex_t regex;
+    int ret;
+
+    // 编译正则表达式
+    ret = regcomp(&regex, "hello", 0);
     
   }else{
     execve("/bin/strace",     exec_argv, exec_envp);
