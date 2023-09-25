@@ -5,7 +5,7 @@
        #define ARRAY_SIZE(arr) (sizeof((arr)) / sizeof((arr)[0]))
        static const char *const str =
                "1) John Driverhacker;\n2) John Doe;\n3) John Foo;\n";
-       static const char *const re = "John.*o";
+       static const char *const re = "<**>";
        int main(void)
        {
            static const char *s = str;
