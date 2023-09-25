@@ -36,6 +36,7 @@ void readTmpOutFile(int fd){
     ssize_t bytesRead;
     int index = 0;
       printf("ashdgafjsgdfasj\n================================================\n\n\n");
+      printf("%ld\n",(bytesRead = read(fd, &ch, 1)));
     while ((bytesRead = read(fd, &ch, 1)) > 0) {
       if (ch == '\n') {
           line[index] = '\0';  // 添加字符串结尾标志
