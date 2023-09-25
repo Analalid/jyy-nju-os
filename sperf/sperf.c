@@ -25,6 +25,7 @@ int main(int argc, char *argv[]) {
     wait(NULL);
   }else{
     close(STDOUT_FILENO);
+    open("./sperf_tmp.output", O_CREAT|O_WRONLY|O_TRUNC,S_IRWXU);
     printf("Hello, I am son\n");
     execve("/bin/ls",     exec_argv, exec_envp);
     perror(argv[0]);
