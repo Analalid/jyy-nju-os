@@ -30,6 +30,7 @@ void insertString(char *str){
   }
 }
 void readTmpOutFile(int fd){
+    printf("ashdgafjsgdfasj\n================================================\n\n\n");
     char line[4096];  // 用于存储读取的行数据
     char ch;
     ssize_t bytesRead;
@@ -65,7 +66,6 @@ int main(int argc, char *argv[]) {
     wait(NULL);
     printf("father process begin!\n");
     readTmpOutFile(fd);
-    printf("ashdgafjsgdfasj\n================================================\n\n\n");
     close(fd);
   }else{
     execve("/bin/strace",     exec_argv, exec_envp);
