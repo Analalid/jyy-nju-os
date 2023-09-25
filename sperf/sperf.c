@@ -60,8 +60,8 @@ void readTmpOutFile(int fd){
 //       printf("=asdas=da=sd=as%d\n", xxx);
 
       printf("ashdgafjsgdfasj\n================================================\n\n\n");
-      printf("%ld\n",(long)(bytesRead = read(fd, &ch, 1)));
-      fprintf(stdout, "Error reading file: %d\n", errno);
+      // printf("%ld\n",(long)(bytesRead = read(fd, &ch, 1)));
+      // fprintf(stdout, "Error reading file: %d\n", errno);
 
 
     while ((bytesRead = read(fd, &ch, 1)) > 0) {
