@@ -63,8 +63,9 @@ void readTmpOutFile(int fd){
       // fprintf(stdout, "Error reading file: %d\n", errno);
 
 
-    while ((bytesRead = read(fd, &ch, 1)) > 0) {
       printf("ashdgafjsgdfasj\n================================================\n\n\n");
+      fflush(fdopen(fd, O_RDWR));
+    while ((bytesRead = read(fd, &ch, 1)) > 0) {
       if (ch == '\n') {
           line[index] = '\0';  // 添加字符串结尾标志
           printf("读取的行数据: %s\n", line);
