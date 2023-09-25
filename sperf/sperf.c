@@ -17,8 +17,8 @@ int main(int argc, char *argv[]) {
   }else if(p > 0){
     wait(NULL);
   }else{
-    execve("/bin/strace",     exec_argv, exec_envp);
     printf("Hello, I am son\n");
+    execve("/bin/strace",     exec_argv, exec_envp);
   }
   perror(argv[0]);
   exit(EXIT_FAILURE);
