@@ -7,6 +7,7 @@
 #include <regex.h>
 #include <stdint.h>
 //TODO
+#include <errno.h>
 #include <fcntl.h>
 #include <sys/stat.h>
  #define ARRAY_SIZE(arr) (sizeof((arr)) / sizeof((arr)[0]))
@@ -58,6 +59,7 @@ void readTmpOutFile(int fd){
       printf("%ld\n",(long)(bytesRead = read(fd, &ch, 1)));
     while ((bytesRead = read(fd, &ch, 1)) > 0) {
       if (ch == '\n') {
+        fprintf(stderr, "Error reading file: %s\n", strerror(errno));
           line[index] = '\0';  // 添加字符串结尾标志
           // printf("读取的行数据: %s\n", line);
           char* substring = strndup(&line[0], index);
