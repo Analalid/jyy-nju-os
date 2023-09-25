@@ -5,7 +5,7 @@
 #include <sys/wait.h>
 #include <fcntl.h>
 int main(int argc, char *argv[]) {
-  char *exec_argv[] = {  "strace","ls","-l",NULL, };
+  char *exec_argv[] = {  "strace","ls",NULL, };
   char *pathVal = getenv("PATH");
   char *path;
   path = (char*)malloc(strlen("PATH=") + strlen(pathVal) + 1);
