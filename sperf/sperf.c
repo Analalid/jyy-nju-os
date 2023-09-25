@@ -4,8 +4,9 @@
 #include <sys/wait.h>
 #include <fcntl.h>
 int main(int argc, char *argv[]) {
-  char *exec_argv[] = { "strace","-T", "pwd", ">","p4.output",NULL, };
+  char *exec_argv[] = { "strace","-T", "pwd", NULL, };
   char *exec_envp[] = { "PATH=/bin", NULL, };
+  printf("%s\n", getenv("PATH"));
   // execve("strace",          exec_argv, exec_envp);
   // execve("/usr/bin/strace", exec_argv, exec_envp);
   setbuf(stdout, NULL);
