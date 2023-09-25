@@ -6,12 +6,15 @@
 #include <fcntl.h>
 int main(int argc, char *argv[]) {
   char *exec_argv[] = { "strace","-T", argv[1],NULL, };
-  // char *pathVal = getenv("PATH");
-  // char *path;
-  // path = (char*)malloc(strlen("PATH=") + strlen(pathVal) + 1);
-  // strcpy(path, "PATH=");
-  // strcat(path, pathVal);
-  char *exec_envp[] = { "PATH=/bin", NULL, };
+  char *pathVal = getenv("PATH");
+  char *path;
+  path = (char*)malloc(strlen("PATH=") + strlen(pathVal) + 1);
+  strcpy(path, "PATH=");
+  strcat(path, pathVal);
+  char *exec_envp[] = { path, NULL, };
+  printf("%s\n====================\n", path);
+  // execve("strace",          exec_argv, exec_envp);
+  // execve("/usr/bin/strace", exec_argv, exec_envp);
   setbuf(stdout, NULL);
   int fd = open("./sperf_tmp.output", O_CREAT|O_WRONLY|O_TRUNC,S_IRWXU);  
   if(fd < 0) perror("open file faild!\n");
