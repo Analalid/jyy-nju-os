@@ -57,7 +57,7 @@ void readTmpOutFile(int fd){
     int index = 0;
       printf("ashdgafjsgdfasj\n================================================\n\n\n");
       printf("%ld\n",(long)(bytesRead = read(fd, &ch, 1)));
-        fprintf(stderr, "Error reading file: %s\n", strerror(errno));
+      fprintf(stdout, "Error reading file: %s\n", strerror(errno));
 
 
     while ((bytesRead = read(fd, &ch, 1)) > 0) {
