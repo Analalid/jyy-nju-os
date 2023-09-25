@@ -9,6 +9,7 @@ int main(int argc, char *argv[]) {
   // execve("strace",          exec_argv, exec_envp);
   // execve("/usr/bin/strace", exec_argv, exec_envp);
   int fd = open("./sperf_tmp.output", O_CREAT|O_WRONLY|O_TRUNC,S_IRWXU);  
+  if(fd < 0) perror("open file faild!\n");
   int p = fork();
   if(p < 0){
     perror("create child process error!\n");
