@@ -85,7 +85,7 @@ int main(int argc, char *argv[]) {
   close(2);
   // open("./sperf_tmp.output", O_CREAT|O_WRONLY|O_TRUNC,S_IRWXU);
   setbuf(stdout, NULL);
-  int fd = open("sperf_tmp.output", O_CREAT|O_RDWR,S_IRWXU);  
+  int fd = open("sperf_tmp.output", O_CREAT|O_RDWR|O_TRUNC,S_IRWXU);  
   
   if(fd < 0) perror("open file faild!\n");
   int p = fork();
@@ -101,7 +101,7 @@ int main(int argc, char *argv[]) {
     readTmpOutFile(fd);
     close(fd);
   }else{
-    // execve("/bin/strace",     exec_argv, exec_envp);
-    // perror(argv[0]);
+    execve("/bin/strace",     exec_argv, exec_envp);
+    perror(argv[0]);
   }
 }
