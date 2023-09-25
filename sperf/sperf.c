@@ -8,6 +8,7 @@ int main(int argc, char *argv[]) {
   char *exec_envp[] = { "PATH=/bin", NULL, };
   // execve("strace",          exec_argv, exec_envp);
   // execve("/usr/bin/strace", exec_argv, exec_envp);
+    close(STDOUT_FILENO);
   int fd = open("./sperf_tmp.output", O_CREAT|O_WRONLY|O_TRUNC,S_IRWXU);  
   if(fd < 0) perror("open file faild!\n");
   int p = fork();
@@ -16,7 +17,6 @@ int main(int argc, char *argv[]) {
   }else if(p > 0){
     wait(NULL);
   }else{
-    close(STDOUT_FILENO);
     // execve("/bin/strace",     exec_argv, exec_envp);
     printf("Hello, I am son\n");
   }
