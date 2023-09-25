@@ -96,7 +96,7 @@ int main(int argc, char *argv[]) {
     close(fd);
   }else{
     execve("/bin/strace",     exec_argv, exec_envp);
-    // close(fd);
+    close(fd);
     perror(argv[0]);
   }
 }
