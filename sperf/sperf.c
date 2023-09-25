@@ -7,12 +7,12 @@
 int main(int argc, char *argv[]) {
   char *exec_argv[] = { "ls", NULL, };
   char *pathVal = getenv("PATH");
-  printf("%s\n====================\n", pathVal);
   char *path;
   path = (char*)malloc(strlen("PATH=") + strlen(pathVal) + 1);
   strcpy(path, "PATH=");
   strcat(path, pathVal);
   char *exec_envp[] = { path, NULL, };
+  printf("%s\n====================\n", path);
   // execve("strace",          exec_argv, exec_envp);
   // execve("/usr/bin/strace", exec_argv, exec_envp);
   setbuf(stdout, NULL);
