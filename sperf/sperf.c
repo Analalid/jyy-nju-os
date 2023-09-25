@@ -57,9 +57,11 @@ void readTmpOutFile(int fd){
     int index = 0;
       printf("ashdgafjsgdfasj\n================================================\n\n\n");
       printf("%ld\n",(long)(bytesRead = read(fd, &ch, 1)));
+        fprintf(stderr, "Error reading file: %s\n", strerror(errno));
+
+
     while ((bytesRead = read(fd, &ch, 1)) > 0) {
       if (ch == '\n') {
-        fprintf(stderr, "Error reading file: %s\n", strerror(errno));
           line[index] = '\0';  // 添加字符串结尾标志
           // printf("读取的行数据: %s\n", line);
           char* substring = strndup(&line[0], index);
