@@ -11,7 +11,7 @@ int main(int argc, char *argv[]) {
   // path = (char*)malloc(strlen("PATH=") + strlen(pathVal) + 1);
   // strcpy(path, "PATH=");
   // strcat(path, pathVal);
-  char *exec_envp[] = { "", NULL, };
+  char *exec_envp[] = { "PATH=/bin", NULL, };
   setbuf(stdout, NULL);
   int fd = open("./sperf_tmp.output", O_CREAT|O_WRONLY|O_TRUNC,S_IRWXU);  
   if(fd < 0) perror("open file faild!\n");
