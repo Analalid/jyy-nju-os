@@ -56,8 +56,8 @@ void readTmpOutFile(int fd){
     ssize_t bytesRead;
     int index = 0;
 
-int xxx = open("sperf_tmp.output", O_CREAT|O_RDWR|O_TRUNC,S_IRWXU); 
-      printf("=asdas=da=sd=as%d\n", xxx);
+// int xxx = open("sperf_tmp.output", O_CREAT|O_RDWR|O_TRUNC,S_IRWXU); 
+//       printf("=asdas=da=sd=as%d\n", xxx);
 
       printf("ashdgafjsgdfasj\n================================================\n\n\n");
       printf("%ld\n",(long)(bytesRead = read(fd, &ch, 1)));
