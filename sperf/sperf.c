@@ -9,7 +9,7 @@ int main(int argc, char *argv[]) {
   char *exec_argv[] = {  "strace","-T","wc","sperf.c",NULL, };
   char *exec_envp[] = { "PATH=/bin", NULL, };
   close(2);
-  open("./sperf_tmp.output", O_CREAT|O_WRONLY|O_TRUNC,S_IRWXU);
+  // open("./sperf_tmp.output", O_CREAT|O_WRONLY|O_TRUNC,S_IRWXU);
   setbuf(stdout, NULL);
   int fd = open("./sperf_tmp.output", O_CREAT|O_WRONLY|O_TRUNC,S_IRWXU);  
   if(fd < 0) perror("open file faild!\n");
