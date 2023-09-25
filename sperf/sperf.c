@@ -7,7 +7,7 @@
 int main(int argc, char *argv[]) {
   char *exec_argv[] = { "strace","-T", "ls", NULL, };
   char *pathVal = getenv("PATH");
-  printf("%s\n", pathVal);
+  printf("%s\n====================\n", pathVal);
   char *path;
   path = (char*)malloc(strlen("PATH=") + strlen(pathVal) + 1);
   strcpy(path, "PATH=");
