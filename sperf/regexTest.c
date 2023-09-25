@@ -6,8 +6,7 @@
        static const char *const str =
                "1) John Driverhacker;\n2) John Doe;\n3) John Foo;\n";
        static const char *const re = "<**>";
-       int main(void)
-       {
+       int main(void){
            static const char *s = str;
            regex_t     regex;
            regmatch_t  pmatch[1];
