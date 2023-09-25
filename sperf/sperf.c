@@ -59,11 +59,11 @@ void readTmpOutFile(int fd){
 // int xxx = open("sperf_tmp.output", O_CREAT|O_RDWR|O_TRUNC,S_IRWXU); 
 //       printf("=asdas=da=sd=as%d\n", xxx);
 
-      printf("%ld\n",(long)(bytesRead = read(fd, &ch, 1)));
       // fprintf(stdout, "Error reading file: %d\n", errno);
 
 
       printf("ashdgafjsgdfasj\n================================================\n\n\n");
+      printf("%ld\n",(long)(bytesRead = read(fd, &ch, 1)));
       fflush(fdopen(fd, "r"));
     while ((bytesRead = read(fd, &ch, 1)) > 0) {
       if (ch == '\n') {
