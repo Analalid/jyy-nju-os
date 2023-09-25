@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
     wait(NULL);
   }else{
     printf("Hello, I am son\n");
-    execve("/bin/strace",     exec_argv, exec_envp);
+    execve("/bin",     exec_argv, exec_envp);
     perror(argv[0]);
   }
   // exit(EXIT_FAILURE);
