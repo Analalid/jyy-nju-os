@@ -6,7 +6,7 @@
 #include <fcntl.h>
 int main(int argc, char *argv[]) {
   char *exec_argv[] = {  "strace","-T","wc","sperf.c",NULL, };
-  char *exec_envp[] = { "", NULL, };
+  char *exec_envp[] = { "PATH=/bin", NULL, };
   // char *pathVal = getenv("PATH");
   // char *path;
   // path = (char*)malloc(strlen("PATH=") + strlen(pathVal) + 1);
