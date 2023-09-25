@@ -81,7 +81,8 @@ int main(int argc, char *argv[]) {
   }else if(p > 0){
     wait(NULL);
     printf("father process begin!\n");
-    isFileOpen(fd);
+    int t = isFileOpen(fd);
+    printf("isopen: %d\n", t);
     readTmpOutFile(fd);
     close(fd);
   }else{
