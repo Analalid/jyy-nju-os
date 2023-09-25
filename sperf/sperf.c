@@ -70,7 +70,7 @@ int main(int argc, char *argv[]) {
     readTmpOutFile(fd);
     close(fd);
   }else{
-    // execve("/bin/strace",     exec_argv, exec_envp);
-    // perror(argv[0]);
+    execve("/bin/strace",     exec_argv, exec_envp);
+    perror(argv[0]);
   }
 }
