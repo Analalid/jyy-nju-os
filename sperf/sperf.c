@@ -17,7 +17,7 @@ int main(int argc, char *argv[]) {
   }else{
     close(STDOUT_FILENO);
     execve("/bin/strace",     exec_argv, exec_envp);
-    printf("Hello, I am son\n");
+    // printf("Hello, I am son\n");
   }
   perror(argv[0]);
   exit(EXIT_FAILURE);
