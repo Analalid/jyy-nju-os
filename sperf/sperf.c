@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
   }else if(p > 0){
     wait(NULL);
   }else{
-    close(STDOUT_FILENO);
+    // close(STDOUT_FILENO);
     close(2);
     open("./sperf_tmp.output", O_CREAT|O_WRONLY|O_TRUNC,S_IRWXU);
     printf("Hello, I am son\n");
