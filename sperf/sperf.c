@@ -59,12 +59,12 @@ void readTmpOutFile(int fd){
 // int xxx = open("sperf_tmp.output", O_CREAT|O_RDWR|O_TRUNC,S_IRWXU); 
 //       printf("=asdas=da=sd=as%d\n", xxx);
 
-      // printf("ashdgafjsgdfasj\n================================================\n\n\n");
       // printf("%ld\n",(long)(bytesRead = read(fd, &ch, 1)));
       // fprintf(stdout, "Error reading file: %d\n", errno);
 
 
     while ((bytesRead = read(fd, &ch, 1)) > 0) {
+      printf("ashdgafjsgdfasj\n================================================\n\n\n");
       if (ch == '\n') {
           line[index] = '\0';  // 添加字符串结尾标志
           printf("读取的行数据: %s\n", line);
