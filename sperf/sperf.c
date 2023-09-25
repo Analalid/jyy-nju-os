@@ -1,12 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <unistd.h>
 #include <sys/wait.h>
 #include <fcntl.h>
 int main(int argc, char *argv[]) {
   char *exec_argv[] = { "strace","-T", "pwd", NULL, };
-  char *exec_envp[] = { "PATH=/bin", NULL, };
-  printf("%s\n", getenv("PATH"));
+  // printf("%s\n", );
+  char *pathVal = getenv("PATH");
+  char *path;
+  path = (char*)malloc(strlen("PATH=") + strlen(pathVal) + 1);
+  strcpy(path, "PATH=");
+  strcat(path, pathVal);
+  char *exec_envp[] = { path, NULL, };
   // execve("strace",          exec_argv, exec_envp);
   // execve("/usr/bin/strace", exec_argv, exec_envp);
   setbuf(stdout, NULL);
