@@ -28,9 +28,9 @@ void insertString(char *str){
     printf("substring = \"%.*s\"\n", len, s + pmatch[0].rm_so);
     s += pmatch[0].rm_eo;
   }
+    printf("ashdgafjsgdfasj\n================================================\n\n\n");
 }
 void readTmpOutFile(int fd){
-    printf("ashdgafjsgdfasj\n================================================\n\n\n");
     char line[4096];  // 用于存储读取的行数据
     char ch;
     ssize_t bytesRead;
