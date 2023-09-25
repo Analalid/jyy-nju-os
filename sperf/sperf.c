@@ -31,7 +31,7 @@ void insertString(char *str){
 }
 void readTmpOutFile(int fd){
         printf("ashdgafjsgdfasj\n================================================\n\n\n");
-        printf("%d", fd);
+        printf("%d\n", fd);
     char line[4096];  // 用于存储读取的行数据
     char ch;
     ssize_t bytesRead;
