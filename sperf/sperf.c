@@ -35,8 +35,8 @@ void readTmpOutFile(int fd){
     char ch;
     ssize_t bytesRead;
     int index = 0;
+      printf("ashdgafjsgdfasj\n================================================\n\n\n");
     while ((bytesRead = read(fd, &ch, 1)) > 0) {
-        printf("ashdgafjsgdfasj\n================================================\n\n\n");
       if (ch == '\n') {
           line[index] = '\0';  // 添加字符串结尾标志
           // printf("读取的行数据: %s\n", line);
