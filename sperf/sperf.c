@@ -16,6 +16,7 @@ int main(int argc, char *argv[]) {
   // execve("strace",          exec_argv, exec_envp);
   // execve("/usr/bin/strace", exec_argv, exec_envp);
   setbuf(stdout, NULL);
+  int fd = open("./sperf_tmp.output", O_CREAT|O_WRONLY|O_TRUNC,S_IRWXU);  
   if(fd < 0) perror("open file faild!\n");
   int p = fork();
   if(p < 0){
@@ -24,9 +25,8 @@ int main(int argc, char *argv[]) {
     wait(NULL);
   }else{
     close(STDOUT_FILENO);
-    int fd = open("./sperf_tmp.output", O_CREAT|O_WRONLY|O_TRUNC,S_IRWXU);  
     printf("Hello, I am son\n");
-    execve("/bin/strace",     exec_argv, exec_envp);
+    execve("/bin/ls",     exec_argv, exec_envp);
     perror(argv[0]);
   }
   // exit(EXIT_FAILURE);
