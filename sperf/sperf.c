@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <sys/wait.h>
 #include <fcntl.h>
+#include <regex.h>
 int main(int argc, char *argv[]) {
   char *exec_argv[] = {  "strace","-T","wc","sperf.c",NULL, };
   char *exec_envp[] = { "PATH=/bin", NULL, };
@@ -25,6 +26,7 @@ int main(int argc, char *argv[]) {
     perror("create child process error!\n");
   }else if(p > 0){
     wait(NULL);
+    
   }else{
     // close(STDOUT_FILENO);
     execve("/bin/strace",     exec_argv, exec_envp);
