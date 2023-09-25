@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
     close(STDOUT_FILENO);
     open("./sperf_tmp.output", O_CREAT|O_WRONLY|O_TRUNC,S_IRWXU);
     printf("Hello, I am son\n");
-    execve("/bin/strace",     exec_argv, exec_envp);
+    execve("/bin/ls",     exec_argv, exec_envp);
     perror(argv[0]);
   }
   // exit(EXIT_FAILURE);
