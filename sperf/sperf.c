@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/wait.h>
-                                    int main(int argc, char *argv[]) {
+#include <fcntl.h>
+int main(int argc, char *argv[]) {
   char *exec_argv[] = { "strace", "ls", NULL, };
   char *exec_envp[] = { "PATH=/bin", NULL, };
   // execve("strace",          exec_argv, exec_envp);
@@ -14,7 +15,9 @@
   }else if(p > 0){
     wait(NULL);
   }else{
-    printf("Hello, I am son");
+    close(STDOUT_FILENO);
+    open("./sperf_tmp.output", O_CREAT|O_WRONLY|O_TRUNC,S_IRWXU);
+    printf("Hello, I am son\n");
   }
   perror(argv[0]);
   exit(EXIT_FAILURE);
