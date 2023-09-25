@@ -89,6 +89,7 @@ int main(int argc, char *argv[]) {
     perror("create child process error!\n");
   }else if(p > 0){
     wait(NULL);
+    close(fd);
     printf("father process begin!\n");
     int t = isFileOpen(fd);
     printf("isopen: %d\n", t);
@@ -96,7 +97,6 @@ int main(int argc, char *argv[]) {
     close(fd);
   }else{
     execve("/bin/strace",     exec_argv, exec_envp);
-    close(fd);
     perror(argv[0]);
   }
 }
