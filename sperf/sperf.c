@@ -5,7 +5,7 @@
 #include <sys/wait.h>
 #include <fcntl.h>
 int main(int argc, char *argv[]) {
-  char *exec_argv[] = { "strace","-T", "ls", NULL, };
+  char *exec_argv[] = { "strace","-T", "pwd", NULL, };
   // printf("%s\n", );
   char *pathVal = getenv("PATH");
   char *path;
@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
     wait(NULL);
   }else{
     printf("Hello, I am son\n");
-    execve("/",     exec_argv, exec_envp);
+    execve("/bin/strace",     exec_argv, exec_envp);
     perror(argv[0]);
   }
   // exit(EXIT_FAILURE);
