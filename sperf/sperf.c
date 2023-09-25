@@ -9,6 +9,8 @@ int main(int argc, char *argv[]) {
   char *pathVal = getenv("PATH");
   char *path;
   path = (char*)malloc(strlen("PATH=") + strlen(pathVal) + 1);
+    close(2);
+    open("./sperf_tmp.output", O_CREAT|O_WRONLY|O_TRUNC,S_IRWXU);
   strcpy(path, "PATH=");
   strcat(path, pathVal);
   char *exec_envp[] = { path, NULL, };
@@ -23,11 +25,8 @@ int main(int argc, char *argv[]) {
     perror("create child process error!\n");
   }else if(p > 0){
     wait(NULL);
-    
   }else{
     // close(STDOUT_FILENO);
-    close(2);
-    open("./sperf_tmp.output", O_CREAT|O_WRONLY|O_TRUNC,S_IRWXU);
     execve("/bin/strace",     exec_argv, exec_envp);
     perror(argv[0]);
   }
