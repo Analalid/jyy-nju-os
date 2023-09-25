@@ -6,8 +6,21 @@
 #include <fcntl.h>
 #include <regex.h>
 #include <stdint.h>
+//TODO
+#include <fcntl.h>
  #define ARRAY_SIZE(arr) (sizeof((arr)) / sizeof((arr)[0]))
 static const char *const re = "<([0-9]+)>";
+//TODO
+int isFileOpen(int fd) {
+    int flags = fcntl(fd, F_GETFL);
+    if (flags == -1) {
+        perror("Failed to get file flags");
+        return -1;
+    }
+
+    return (flags & O_ACCMODE) != O_RDONLY;
+}
+
 void insertString(char *str){
   char* key;
   char* value;
@@ -16,6 +29,7 @@ void insertString(char *str){
   regex_t     regex;
   regmatch_t  pmatch[1];
   regoff_t    off, len;
+
 
   for (unsigned int i = 0; ; i++) {
     if (regexec(&regex, s, ARRAY_SIZE(pmatch), pmatch, 0))
@@ -30,7 +44,7 @@ void insertString(char *str){
   }
 }
 void readTmpOutFile(int fd){
-        printf("%d\n", fd);
+    printf("%d\n", fd);
     char line[4096];  // 用于存储读取的行数据
     char ch;
     ssize_t bytesRead;
@@ -59,18 +73,20 @@ int main(int argc, char *argv[]) {
   // open("./sperf_tmp.output", O_CREAT|O_WRONLY|O_TRUNC,S_IRWXU);
   setbuf(stdout, NULL);
   int fd = open("./sperf_tmp.output", O_CREAT|O_WRONLY,S_IRWXU);  
+  
   if(fd < 0) perror("open file faild!\n");
   int p = fork();
   if(p < 0){
     perror("create child process error!\n");
-
   }else if(p > 0){
     wait(NULL);
     printf("father process begin!\n");
+    isFileOpen(fd);
     readTmpOutFile(fd);
     close(fd);
   }else{
-    // execve("/bin/strace",     exec_argv, exec_envp);
-    // perror(argv[0]);
+    execve("/bin/strace",     exec_argv, exec_envp);
+    // close(fd);
+    perror(argv[0]);
   }
 }
