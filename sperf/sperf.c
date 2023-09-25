@@ -8,6 +8,7 @@
 #include <stdint.h>
 //TODO
 #include <fcntl.h>
+#include <sys/stat.h>
  #define ARRAY_SIZE(arr) (sizeof((arr)) / sizeof((arr)[0]))
 static const char *const re = "<([0-9]+)>";
 //TODO
@@ -18,6 +19,10 @@ int isFileOpen(int fd) {
         return -1;
     }
 
+    struct stat fileStat;
+    fstat(fd, &fileStat);
+    off_t fileSize = fileStat.st_size;
+    printf("File size: %ld bytes\n", fileSize);
     return (flags & O_ACCMODE) != O_RDONLY;
 }
 
