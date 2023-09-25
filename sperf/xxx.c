@@ -1,19 +1,32 @@
-#include <stdio.h>
+//打开文件，读取文件的内容
  
-int main()
-{
-   FILE *fp = NULL;
-   char buff[255];
+#include<stdio.h>
  
-   fp = fopen("sperf_tmp.output", "r");
-   fscanf(fp, "%s", buff);
-   printf("1: %s\n", buff );
+// #include<io.h>
  
-   fgets(buff, 255, (FILE*)fp);
-   printf("2: %s\n", buff );
+#include<fcntl.h>
+#include <unistd.h>
+ 
+int main(void){
+ 
+   // int fd=open("sperf_tmo.out",O_RDONLY);
+   int fd=open("asdsasghdjashgduhjasdsdasa.txt",O_RDONLY);
+   if(fd==-1){
+ 
+      printf("can not open the file\n");
    
-   fgets(buff, 255, (FILE*)fp);
-   printf("3: %s\n", buff );
-   fclose(fp);
+      return 1;
+ 
+   }
+ 
+   char buf[1024]={"\0"};
+ 
+   int len=read(fd,buf,1024);
+ 
+   printf("%s\nlen=%d\n",buf,len);
+ 
+   close(fd);
+ 
+   return 0;
  
 }
