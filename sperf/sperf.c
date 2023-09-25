@@ -65,7 +65,7 @@ int main(int argc, char *argv[]) {
     wait(NULL);
     printf("father process begin!\n");
     readTmpOutFile(fd);
-    perror("asjkdas");
+    printf("ashdgafjsgdfasj\n================================================\n\n\n");
     close(fd);
   }else{
     execve("/bin/strace",     exec_argv, exec_envp);
