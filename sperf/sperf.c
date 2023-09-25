@@ -5,7 +5,7 @@
 #include <sys/wait.h>
 #include <fcntl.h>
 int main(int argc, char *argv[]) {
-  char *exec_argv[] = {  "strace","wc","sperf.c",NULL, };
+  char *exec_argv[] = {  "wc","sperf.c",NULL, };
   char *pathVal = getenv("PATH");
   char *path;
   path = (char*)malloc(strlen("PATH=") + strlen(pathVal) + 1);
@@ -23,6 +23,7 @@ int main(int argc, char *argv[]) {
     perror("create child process error!\n");
   }else if(p > 0){
     wait(NULL);
+
   }else{
     // close(STDOUT_FILENO);
     close(2);
