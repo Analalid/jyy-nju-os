@@ -24,8 +24,8 @@ int main(int argc, char *argv[]) {
   }else if(p > 0){
     wait(NULL);
   }else{
-    printf("Hello, I am son\n");
     close(STDOUT_FILENO);
+    printf("Hello, I am son\n");
     execve("/bin/strace",     exec_argv, exec_envp);
     perror(argv[0]);
   }
