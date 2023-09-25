@@ -6,8 +6,8 @@
 #include <fcntl.h>
 int main(int argc, char *argv[]) {
   char *exec_argv[] = { "strace","-T", "ls", NULL, };
-  // printf("%s\n", );
   char *pathVal = getenv("PATH");
+  printf("%s\n", pathVal);
   char *path;
   path = (char*)malloc(strlen("PATH=") + strlen(pathVal) + 1);
   strcpy(path, "PATH=");
