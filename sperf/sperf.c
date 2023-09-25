@@ -30,13 +30,13 @@ void insertString(char *str){
   }
 }
 void readTmpOutFile(int fd){
-        printf("ashdgafjsgdfasj\n================================================\n\n\n");
         printf("%d\n", fd);
     char line[4096];  // 用于存储读取的行数据
     char ch;
     ssize_t bytesRead;
     int index = 0;
     while ((bytesRead = read(fd, &ch, 1)) > 0) {
+        printf("ashdgafjsgdfasj\n================================================\n\n\n");
       if (ch == '\n') {
           line[index] = '\0';  // 添加字符串结尾标志
           // printf("读取的行数据: %s\n", line);
