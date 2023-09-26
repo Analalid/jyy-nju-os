@@ -76,11 +76,9 @@ int main(int argc, char *argv[]) {
   }else if(p > 0){
     wait(NULL);
     printf("father process begin!\n");
-    readTmpOutFile(2);
+    readTmpOutFile(pipefd[0]);
   }else{
-    printf("0:::%d\n\n",pipefd[0]);
-    printf("1:::%d\n\n",pipefd[1]);
-    while(1);
+    if(dup2(pipefd[1], stderr) < 0) perror("fail!\n");
     execve("/bin/strace",     exec_argv, exec_envp);
     perror(argv[0]);
   }
