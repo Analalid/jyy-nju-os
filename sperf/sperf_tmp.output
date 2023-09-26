@@ -1,47 +1,47 @@
-execve("/bin/wc", ["wc", "sperf.c"], 0x7fff072e47b0 /* 1 var */) = 0 <0.000136>
-brk(NULL)                               = 0x564315c3e000 <0.000041>
-arch_prctl(0x3001 /* ARCH_??? */, 0x7ffd721290a0) = -1 EINVAL (Invalid argument) <0.000037>
-mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7f1f1d5000 <0.000040>
-access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory) <0.000039>
-openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3 <0.000038>
-newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=50887, ...}, AT_EMPTY_PATH) = 0 <0.000090>
-mmap(NULL, 50887, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f7f1f1c8000 <0.000038>
-close(3)                                = 0 <0.000034>
-openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3 <0.000038>
-read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P\237\2\0\0\0\0\0"..., 832) = 832 <0.000035>
-pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784 <0.000035>
-pread64(3, "\4\0\0\0 \0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0"..., 48, 848) = 48 <0.000035>
-pread64(3, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0i8\235HZ\227\223\333\350s\360\352,\223\340."..., 68, 896) = 68 <0.000035>
-newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=2216304, ...}, AT_EMPTY_PATH) = 0 <0.000035>
-pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784 <0.000035>
-mmap(NULL, 2260560, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f7f1efa0000 <0.000036>
-mmap(0x7f7f1efc8000, 1658880, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x7f7f1efc8000 <0.000080>
-mmap(0x7f7f1f15d000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1bd000) = 0x7f7f1f15d000 <0.000078>
-mmap(0x7f7f1f1b5000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x214000) = 0x7f7f1f1b5000 <0.000043>
-mmap(0x7f7f1f1bb000, 52816, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f7f1f1bb000 <0.000038>
-close(3)                                = 0 <0.000036>
-mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f7f1ef9d000 <0.000037>
-arch_prctl(ARCH_SET_FS, 0x7f7f1ef9d740) = 0 <0.000035>
-set_tid_address(0x7f7f1ef9da10)         = 5109 <0.000035>
-set_robust_list(0x7f7f1ef9da20, 24)     = 0 <0.000035>
-rseq(0x7f7f1ef9e0e0, 0x20, 0, 0x53053053) = 0 <0.000035>
-mprotect(0x7f7f1f1b5000, 16384, PROT_READ) = 0 <0.000039>
-mprotect(0x564314236000, 4096, PROT_READ) = 0 <0.000038>
-mprotect(0x7f7f1f20f000, 8192, PROT_READ) = 0 <0.000040>
-prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0 <0.000057>
-munmap(0x7f7f1f1c8000, 50887)           = 0 <0.000082>
-getrandom("\x51\x42\x7e\x85\x29\x48\xcd\x35", 8, GRND_NONBLOCK) = 8 <0.000055>
-brk(NULL)                               = 0x564315c3e000 <0.000089>
-brk(0x564315c5f000)                     = 0x564315c5f000 <0.000107>
-newfstatat(AT_FDCWD, "sperf.c", {st_mode=S_IFREG|0644, st_size=775, ...}, 0) = 0 <0.000078>
-openat(AT_FDCWD, "sperf.c", O_RDONLY)   = 3 <0.000081>
-fadvise64(3, 0, 0, POSIX_FADV_SEQUENTIAL) = 0 <0.000058>
-read(3, "#include <stdio.h>\r\n#include <st"..., 16384) = 775 <0.000126>
-read(3, "", 16384)                      = 0 <0.000037>
-newfstatat(1, "", {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0x5), ...}, AT_EMPTY_PATH) = 0 <0.000095>
-write(1, " 27  76 775 sperf.c\n", 20)   = 20 <0.000059>
+execve("/bin/wc", ["wc", "sperf.c"], 0x7ffe316be9e0 /* 1 var */) = 0 <0.000228>
+brk(NULL)                               = 0x563e8759b000 <0.000046>
+arch_prctl(0x3001 /* ARCH_??? */, 0x7ffd29409290) = -1 EINVAL (Invalid argument) <0.000045>
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f38292a9000 <0.000049>
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory) <0.000049>
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3 <0.000107>
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=50887, ...}, AT_EMPTY_PATH) = 0 <0.000105>
+mmap(NULL, 50887, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f382929c000 <0.000052>
 close(3)                                = 0 <0.000048>
-close(1)                                = 0 <0.000084>
-close(2)                                = 0 <0.000057>
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3 <0.000053>
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P\237\2\0\0\0\0\0"..., 832) = 832 <0.000050>
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784 <0.000049>
+pread64(3, "\4\0\0\0 \0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0"..., 48, 848) = 48 <0.000049>
+pread64(3, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0i8\235HZ\227\223\333\350s\360\352,\223\340."..., 68, 896) = 68 <0.000049>
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=2216304, ...}, AT_EMPTY_PATH) = 0 <0.000146>
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784 <0.000074>
+mmap(NULL, 2260560, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f3829074000 <0.000133>
+mmap(0x7f382909c000, 1658880, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x7f382909c000 <0.000145>
+mmap(0x7f3829231000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1bd000) = 0x7f3829231000 <0.000142>
+mmap(0x7f3829289000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x214000) = 0x7f3829289000 <0.000091>
+mmap(0x7f382928f000, 52816, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f382928f000 <0.000072>
+close(3)                                = 0 <0.000169>
+mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f3829071000 <0.000067>
+arch_prctl(ARCH_SET_FS, 0x7f3829071740) = 0 <0.000051>
+set_tid_address(0x7f3829071a10)         = 11094 <0.000128>
+set_robust_list(0x7f3829071a20, 24)     = 0 <0.000062>
+rseq(0x7f38290720e0, 0x20, 0, 0x53053053) = 0 <0.000089>
+mprotect(0x7f3829289000, 16384, PROT_READ) = 0 <0.000099>
+mprotect(0x563e86172000, 4096, PROT_READ) = 0 <0.000072>
+mprotect(0x7f38292e3000, 8192, PROT_READ) = 0 <0.000091>
+prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0 <0.000151>
+munmap(0x7f382929c000, 50887)           = 0 <0.000091>
+getrandom("\x10\xf4\x4e\x06\xde\x15\xbc\x5b", 8, GRND_NONBLOCK) = 8 <0.000092>
+brk(NULL)                               = 0x563e8759b000 <0.000091>
+brk(0x563e875bc000)                     = 0x563e875bc000 <0.000068>
+newfstatat(AT_FDCWD, "sperf.c", {st_mode=S_IFREG|0644, st_size=3086, ...}, 0) = 0 <0.000073>
+openat(AT_FDCWD, "sperf.c", O_RDONLY)   = 3 <0.000069>
+fadvise64(3, 0, 0, POSIX_FADV_SEQUENTIAL) = 0 <0.000063>
+read(3, "#include <stdio.h>\r\n#include <st"..., 16384) = 3086 <0.000150>
+read(3, "", 16384)                      = 0 <0.000064>
+newfstatat(1, "", {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0x5), ...}, AT_EMPTY_PATH) = 0 <0.000065>
+write(1, " 110  318 3086 sperf.c\n", 23) = 23 <0.000090>
+close(3)                                = 0 <0.000065>
+close(1)                                = 0 <0.000059>
+close(2)                                = 0 <0.000061>
 exit_group(0)                           = ?
 +++ exited with 0 +++
