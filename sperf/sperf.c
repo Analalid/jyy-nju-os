@@ -26,9 +26,9 @@ for (unsigned int i = 0; ; i++) {
     len = pmatch[0].rm_eo - pmatch[0].rm_so;
     printf("offset = %jd; length = %jd\n", (intmax_t) off,
             (intmax_t) len);
-    char *output = NULL;
+    char *output = (char*)malloc((len + 1) * sizeof(char));
     sprintf(output, "%.*s", len, s + pmatch[0].rm_so);
-    // printf("substring = \"%.*s\"\n", len, s + pmatch[0].rm_so);
+    printf("substring = \"%.*s\"\n", len, s + pmatch[0].rm_so);
     printf("asas:%s\n", output);
     s += pmatch[0].rm_eo;
   }
