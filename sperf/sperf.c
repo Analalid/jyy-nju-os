@@ -68,14 +68,9 @@ for (unsigned int i = 0; ; i++) {
   if (regexec(&regex, s, ARRAY_SIZE(pmatch), pmatch, 0))  break;
     off = pmatch[0].rm_so + (s - str);
     len = pmatch[0].rm_eo - pmatch[0].rm_so;
-    printf("offset = %jd; length = %jd\n", (intmax_t) off,
-            (intmax_t) len);
     char *output = (char*)malloc((len + 1) * sizeof(char));
     sprintf(output, "%.*s", len, s + pmatch[0].rm_so);
     return output;
-    // printf("substring = \"%.*s\"\n", len, s + pmatch[0].rm_so);
-    // printf("asas:%s\n", output);
-    // s += pmatch[0].rm_eo;
   }
   exit(EXIT_SUCCESS);
 }
@@ -93,8 +88,6 @@ for (unsigned int i = 0; ; i++) {
   if (regexec(&regex, s, ARRAY_SIZE(pmatch), pmatch, 0))  break;
     off = pmatch[0].rm_so + (s - str);
     len = pmatch[0].rm_eo - pmatch[0].rm_so;
-    printf("offset = %jd; length = %jd\n", (intmax_t) off,
-            (intmax_t) len);
     char *output = (char*)malloc((len + 1) * sizeof(char));
     sprintf(output, "%.*s", len, s + pmatch[0].rm_so);
     return strtod(output, NULL) ;
@@ -106,6 +99,7 @@ void putMapByString(char* substring){
     double t = getTimeUsed(substring);
     int hash = hashFunction(syscallName);
     printf("====%s   %lf %d \n ",syscallName, t, hash);
+
 }
 void readTmpOutFile(int fd){
     printf("%d\n", fd);
@@ -116,7 +110,7 @@ void readTmpOutFile(int fd){
     while ((bytesRead = read(fd, &ch, 1)) > 0) {
       if (ch == '\n') {
           line[index] = '\0';  // 添加字符串结尾标志
-          printf("读取的行数据: %s\n", line);
+          // printf("读取的行数据: %s\n", line);
           char* substring = strndup(&line[0], index);
           putMapByString(substring);
           free(substring);
