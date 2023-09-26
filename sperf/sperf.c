@@ -102,8 +102,6 @@ void printfMap(){
         HashEntry* entry = map->entries[i];
         if (entry != NULL) {
             printf("key: %s   value: %lf\n", entry->key, entry->value);
-            // free(entry->key);
-            // free(entry);
         }
     }
 };
@@ -142,19 +140,23 @@ void readTmpOutFile(int fd){
         }
     }
     //计时器轮询
-    
-    // printfMap();
     unsigned int t = time(NULL);
     if(t > end_time){
       printfMap();
       end_time += 1;
     }
-
   }
 }
 int main(int argc, char *argv[]) {
   map = createHashTable();
-  char *exec_argv[] = {  "strace","-T","wc","sperf.c",NULL, };
+  char* exec_argv[argc + 2];
+  exec_argv[0] = "strace";
+  exec_argv[1] = "-T";
+  for(int i = 2; i < argc + 1; ++i){
+    exec_argv[i] = argv[i - 1];
+  }
+  exec_argv[argc + 1] = NULL;
+  // char *exec_argv[] = {  "strace","-T","wc","sperf.c",NULL, };
   char *exec_envp[] = { "PATH=/bin", NULL, };
   close(2);
   int pipefd[2];
