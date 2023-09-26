@@ -126,7 +126,6 @@ void readTmpOutFile(int fd){
           index = 0;  // 重置索引
       } else {
           line[index] = ch;
-          printfMap();
           index++;
       }
   }
@@ -146,6 +145,7 @@ int main(int argc, char *argv[]) {
     wait(NULL);
     printf("father process begin!\n");
     readTmpOutFile(pipefd[0]);
+          printfMap();
           
   }else{
     if(dup2(pipefd[1], STDERR_FILENO) < 0) perror("fail!\n");
