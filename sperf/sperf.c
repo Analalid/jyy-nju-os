@@ -94,12 +94,11 @@ int main(int argc, char *argv[]) {
     perror("create child process error!\n");
   }else if(p > 0){
     wait(NULL);
-    fflush(stderr);
     // close(fd);
     // fd = open("./sperf_tmp.output", O_CREAT|O_WRONLY,S_IRWXU);  
     printf("father process begin!\n");
-    int t = isFileOpen(fd);
-    printf("isopen: %d\n", t);
+    // int t = isFileOpen(fd);
+    // printf("isopen: %d\n", t);
     readTmpOutFile(fd);
     close(fd);
   }else{
