@@ -8,8 +8,8 @@
 #include <stdint.h>
 
  #define ARRAY_SIZE(arr) (sizeof((arr)) / sizeof((arr)[0]))
-static const char *const  re_key = ".*(";
-static const char *const re_value = "<.*";
+static const char *const  re_key = ".*?(?=\\()";
+static const char *const re_value = "<.*>";
 void insertString(char *str){
   char* key;
   char* value;
