@@ -114,6 +114,7 @@ void putMapByString(char* substring){
 }
 void readTmpOutFile(int fd){
     // printf("%d\n", fd);
+  printfMap();
     char line[4096];  // 用于存储读取的行数据
     char ch;
     ssize_t bytesRead;
@@ -131,7 +132,6 @@ void readTmpOutFile(int fd){
           index++;
       }
   }
-  printfMap();
 }
 int main(int argc, char *argv[]) {
   map = createHashTable();
