@@ -35,16 +35,6 @@ void readTmpOutFile(int fd){
     char ch;
     ssize_t bytesRead;
     int index = 0;
-
-// int xxx = open("sperf_tmp.output", O_CREAT|O_RDWR|O_TRUNC,S_IRWXU); 
-//       printf("=asdas=da=sd=as%d\n", xxx);
-
-      // fprintf(stdout, "Error reading file: %d\n", errno);
-
-
-      printf("ashdgafjsgdfasj\n================================================\n\n\n");
-      // fflush(fdopen(fd, "r"));
-      // printf("%ld\n",(long)(bytesRead = read(fd, &ch, 1)));
     while ((bytesRead = read(fd, &ch, 1)) > 0) {
       if (ch == '\n') {
           line[index] = '\0';  // 添加字符串结尾标志
@@ -66,9 +56,6 @@ int main(int argc, char *argv[]) {
   close(2);
   int pipefd[2];
   if(pipe(pipefd) == -1) perror("create file failed!\n");
-  // open("./sperf_tmp.output", O_CREAT|O_WRONLY|O_TRUNC,S_IRWXU);
-  // int fd = open("sperf_tmp.output", O_RDWR);
-  // if(fd < 0) perror("open file faild!\n");
   setbuf(stdout, NULL);
   int p = fork();
   if(p < 0){
