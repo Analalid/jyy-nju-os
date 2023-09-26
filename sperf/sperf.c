@@ -109,7 +109,7 @@ void putMapByString(char* substring){
     // int hash = hashFunction(syscallName);
     double v = get_HashMap(map, syscallName);
     put_HashMap(map, syscallName, t + v);
-    printf("====%s   %lf\n ",syscallName, v);
+    printf("====%s   %lf\n ",syscallName, t);
     totalTimeCost += t;
 }
 void readTmpOutFile(int fd){
