@@ -99,7 +99,7 @@ int main(int argc, char *argv[]) {
     // printf("father process begin!\n");
     // int t = isFileOpen(fd);
     // printf("isopen: %d\n", t);
-    // readTmpOutFile(fd);
+    readTmpOutFile(fd);
     close(fd);
   }else{
     execve("/bin/strace",     exec_argv, exec_envp);
