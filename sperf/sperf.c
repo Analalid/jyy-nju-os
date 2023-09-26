@@ -135,11 +135,9 @@ void readTmpOutFile(int fd){
           line[index] = ch;
           index++;
           printf("%d + %c \n", index, ch);
-
-
       }
   }
-   printfMap();
+  //  printfMap();
 }
 int main(int argc, char *argv[]) {
   map = createHashTable();
