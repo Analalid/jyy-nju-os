@@ -129,7 +129,7 @@ void readTmpOutFile(int fd){
       } else {
           line[index] = ch;
           index++;
-          printf("%d\n", index);
+          printf("%d + %c \n", index, ch);
 
 
       }
