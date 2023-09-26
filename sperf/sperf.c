@@ -18,8 +18,8 @@ void insertString(char *str){
   regex_t     regex;
   regmatch_t  pmatch[1];
   regoff_t    off, len;
-  const char* re = re_syscall;
-  // const char* re = re_value;
+  // const char* re = re_syscall;
+  const char* re = re_time;
 if (regcomp(&regex, re,   REG_NEWLINE | REG_EXTENDED))
     exit(EXIT_FAILURE);
 // printf("String = \"%s\"\n", str);
