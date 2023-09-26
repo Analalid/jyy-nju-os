@@ -113,11 +113,16 @@ void putMapByString(char* substring){
     totalTimeCost += t;
 }
 void readTmpOutFile(int fd){
+    // 将读取端设置为非阻塞模式
+    if (fcntl(fd, F_SETFL, O_NONBLOCK) == -1) {
+        perror("Failed to set read end to non-blocking");
+    }
     // printf("%d\n", fd);
     char line[4096];  // 用于存储读取的行数据
     char ch;
     ssize_t bytesRead;
     int index = 0;
+    // close(fd[1]);
     while ((bytesRead = read(fd, &ch, 1)) > 0) {
       if (ch == '\n') {
           line[index] = '\0';  // 添加字符串结尾标志
@@ -151,8 +156,6 @@ int main(int argc, char *argv[]) {
     wait(NULL);
     printf("father process begin!\n");
     readTmpOutFile(pipefd[0]);
-   
-          
   }else{
     if(dup2(pipefd[1], STDERR_FILENO) < 0) perror("fail!\n");
     execve("/bin/strace",     exec_argv, exec_envp);
