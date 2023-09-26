@@ -128,8 +128,8 @@ void readTmpOutFile(int fd){
           index = 0;  // 重置索引
       } else {
           line[index] = ch;
-          double x = 0.000036;
-          double y = 0.000021;
+          double x = 0.1;
+          double y = 0.2;
           double z = x + y;
           printf("%lf\n", z);
   //         printf("================================================\n");
