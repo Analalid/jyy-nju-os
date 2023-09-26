@@ -28,7 +28,7 @@ for (unsigned int i = 0; ; i++) {
             (intmax_t) len);
     char *output = NULL;
     sprintf(output, "%.*s", len, s + pmatch[0].rm_so);
-    // printf("substring = \"%.*s\"\n", len, s + pmatch[0].rm_so);
+    printf("substring = \"%.*s\"\n", len, s + pmatch[0].rm_so);
     printf("%s\n", output);
     s += pmatch[0].rm_eo;
   }
