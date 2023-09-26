@@ -128,6 +128,7 @@ void readTmpOutFile(int fd){
           index = 0;  // 重置索引
       } else {
           line[index] = ch;
+          printf("================================================\n");
   printfMap();
           index++;
       }
