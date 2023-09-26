@@ -13,7 +13,7 @@ static char* re_time = ("[0-9]+\\.[0-9]+[^>]");
 //简易哈希表
 typedef struct{
   char* key;
-  long value;
+  double value;
 }HashEntry;
 typedef struct{
   HashEntry** entries;
@@ -95,8 +95,10 @@ for (unsigned int i = 0; ; i++) {
 void putMapByString(char* substring){
     char * syscallName = getSyscall(substring);
     double t = getTimeUsed(substring);
-    int hash = hashFunction(syscallName);
-    printf("====%s   %lf %d \n ",syscallName, t, hash);
+    // int hash = hashFunction(syscallName);
+    int v = get(map, syscallName);
+    put(map, syscallName, t + (v == -1 ? 0 : v));
+    printf("====%s   %lf\n ",syscallName, t);
 
 }
 void readTmpOutFile(int fd){
