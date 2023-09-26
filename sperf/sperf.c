@@ -92,6 +92,17 @@ for (unsigned int i = 0; ; i++) {
   }
   exit(EXIT_SUCCESS);
 }
+void printfMap(){
+    int i;
+    for (i = 0; i < TABLE_SIZE; i++) {
+        HashEntry* entry = map->entries[i];
+        if (entry != NULL) {
+            printf("key: %s   value: %lf\n", entry->key, entry->value);
+            // free(entry->key);
+            // free(entry);
+        }
+    }
+};
 void putMapByString(char* substring){
     char * syscallName = getSyscall(substring);
     double t = getTimeUsed(substring);
@@ -120,7 +131,6 @@ void readTmpOutFile(int fd){
           index++;
       }
   }
-
 }
 int main(int argc, char *argv[]) {
   map = createHashTable();
