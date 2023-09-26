@@ -10,7 +10,7 @@
  #define ARRAY_SIZE(arr) (sizeof((arr)) / sizeof((arr)[0]))
 static char* re_syscall = ("^[^\\(]+");
 static char* re_time = ("[0-9]+\\.[0-9]+[^>]");
-void insertString(char *str){
+char* getSyscall(char *str){
   char* key;
   char* value;
 
@@ -18,20 +18,18 @@ void insertString(char *str){
   regex_t     regex;
   regmatch_t  pmatch[1];
   regoff_t    off, len;
-  // const char* re = re_syscall;
-  const char* re = re_time;
-if (regcomp(&regex, re,   REG_NEWLINE | REG_EXTENDED))
+if (regcomp(&regex, re_syscall,   REG_NEWLINE | REG_EXTENDED))
     exit(EXIT_FAILURE);
-// printf("String = \"%s\"\n", str);
-// printf("Matches:\n");
-
 for (unsigned int i = 0; ; i++) {
   if (regexec(&regex, s, ARRAY_SIZE(pmatch), pmatch, 0))  break;
     off = pmatch[0].rm_so + (s - str);
     len = pmatch[0].rm_eo - pmatch[0].rm_so;
     printf("offset = %jd; length = %jd\n", (intmax_t) off,
             (intmax_t) len);
-    printf("substring = \"%.*s\"\n", len, s + pmatch[0].rm_so);
+    char *output = NULL;
+    sprintf(output, "%.*s", len, s + pmatch[0].rm_so);
+    // printf("substring = \"%.*s\"\n", len, s + pmatch[0].rm_so);
+    printf("%s\n", output);
     s += pmatch[0].rm_eo;
   }
   exit(EXIT_SUCCESS);
