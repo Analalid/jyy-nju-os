@@ -8,7 +8,7 @@
 #include <stdint.h>
 
  #define ARRAY_SIZE(arr) (sizeof((arr)) / sizeof((arr)[0]))
-static const char *const  re_key = ".*(";
+static const char *const  re_key = ".*\(";
 static const char *const re_value = "<.*>";
 void insertString(char *str){
   char* key;
@@ -20,7 +20,7 @@ void insertString(char *str){
   regoff_t    off, len;
   const char* re = re_key;
   // const char* re = re_value;
-if (regcomp(&regex, re,  REG_NEWLINE  ))
+if (regcomp(&regex, re,  REG_EXTENDED | REG_NEWLINE  ))
     exit(EXIT_FAILURE);
 // printf("String = \"%s\"\n", str);
 // printf("Matches:\n");
