@@ -140,16 +140,16 @@ void readTmpOutFile(int fd){
             index++;
             printf("%d + %c \n", index, ch);
         }
-        unsigned int t = time(NULL);
-        if(t > end_time){
-          // printfMap();
-          printf("======================");
-          end_time += 1;
-        }
     }
     //计时器轮询
     
     // printfMap();
+    unsigned int t = time(NULL);
+    if(t > end_time){
+      // printfMap();
+      printf("======================");
+      end_time += 1;
+    }
 
   }
 }
