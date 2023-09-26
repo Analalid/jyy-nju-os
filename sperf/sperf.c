@@ -63,8 +63,8 @@ void readTmpOutFile(int fd){
 
 
       printf("ashdgafjsgdfasj\n================================================\n\n\n");
-      fflush(fdopen(fd, "r"));
-      printf("%ld\n",(long)(bytesRead = read(fd, &ch, 1)));
+      // fflush(fdopen(fd, "r"));
+      // printf("%ld\n",(long)(bytesRead = read(fd, &ch, 1)));
     while ((bytesRead = read(fd, &ch, 1)) > 0) {
       if (ch == '\n') {
           line[index] = '\0';  // 添加字符串结尾标志
@@ -94,6 +94,7 @@ int main(int argc, char *argv[]) {
     perror("create child process error!\n");
   }else if(p > 0){
     wait(NULL);
+    fflush(stderr);
     // close(fd);
     // fd = open("./sperf_tmp.output", O_CREAT|O_WRONLY,S_IRWXU);  
     printf("father process begin!\n");
