@@ -97,12 +97,12 @@ int main(int argc, char *argv[]) {
     // close(fd);
     // fd = open("./sperf_tmp.output", O_CREAT|O_WRONLY,S_IRWXU);  
     // printf("father process begin!\n");
-    // int t = isFileOpen(fd);
-    // printf("isopen: %d\n", t);
+    int t = isFileOpen(fd);
+    printf("isopen: %d\n", t);
     readTmpOutFile(fd);
     close(fd);
   }else{
-    execve("/bin/strace",     exec_argv, exec_envp);
-    perror(argv[0]);
+    // execve("/bin/strace",     exec_argv, exec_envp);
+    // perror(argv[0]);
   }
 }
