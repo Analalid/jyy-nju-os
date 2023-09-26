@@ -35,7 +35,7 @@ HashTable* createHashTable() {
     return table;
 }
 
-void put_HashMap(HashTable* table, const char* key, int value) {
+void put_HashMap(HashTable* table, const char* key, double value) {
     unsigned int hash = hashFunction(key);
     HashEntry* entry = (HashEntry*)malloc(sizeof(HashEntry));
     entry->key = strdup(key);
@@ -107,10 +107,9 @@ void putMapByString(char* substring){
     char * syscallName = getSyscall(substring);
     double t = getTimeUsed(substring);
     // int hash = hashFunction(syscallName);
-    // double v = get_HashMap(map, syscallName);
-    put_HashMap(map, syscallName, t);
-    double xxx = get_HashMap(map, syscallName);
-    printf("====%s   %lf\n ",syscallName, xxx);
+    double v = get_HashMap(map, syscallName);
+    put_HashMap(map, syscallName, t + v);
+    printf("====%s   %lf\n ",syscallName, v);
     totalTimeCost += t;
 }
 void readTmpOutFile(int fd){
