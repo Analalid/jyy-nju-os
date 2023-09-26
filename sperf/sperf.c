@@ -106,7 +106,7 @@ int compareHashEntry(const void* a, const void* b) {
 }
 void printfMap(){
    fflush(stdout);
-    printf("\033[2J\033[H");
+    // printf("\033[2J\033[H");
   printf("=======================\n");
     int i;
     HashEntry *dataArr[totalSysNum];
