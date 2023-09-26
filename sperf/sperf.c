@@ -18,7 +18,7 @@ void insertString(char *str){
   regex_t     regex;
   regmatch_t  pmatch[1];
   regoff_t    off, len;
-  const char* re = re_key;
+  const char* re = re_value;
 if (regcomp(&regex, re, REG_NEWLINE))
     exit(EXIT_FAILURE);
 // printf("String = \"%s\"\n", str);
