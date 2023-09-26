@@ -52,7 +52,7 @@ double get_HashMap(HashTable* table, const char* key) {
     if (entry != NULL && strcmp(entry->key, key) == 0) {
         return entry->value;
     }
-    return -1; // 未找到对应的值
+    return 0; // 未找到对应的值
 }
 char* getSyscall(char *str){
   char* key;
@@ -108,7 +108,7 @@ void putMapByString(char* substring){
     double t = getTimeUsed(substring);
     // int hash = hashFunction(syscallName);
     double v = get_HashMap(map, syscallName);
-    put_HashMap(map, syscallName, t + (v + 1 < 0.00000001? 0 : v));
+    put_HashMap(map, syscallName, t + v);
     printf("====%s   %lf\n ",syscallName, v);
     totalTimeCost += t;
 }
