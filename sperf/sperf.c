@@ -100,7 +100,7 @@ void printfMap(){
   printf("=======================\n");
     int i;
     HashEntry *dataArr[totalSysNum];
-    int idx;
+    int idx = 0;
     for (i = 0; i < TABLE_SIZE; i++) {
         HashEntry* entry = map->entries[i];
         if (entry != NULL) {
