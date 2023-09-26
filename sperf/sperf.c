@@ -18,6 +18,10 @@ void insertString(char *str){
   regmatch_t  pmatch[1];
   regoff_t    off, len;
 
+if (regcomp(&regex, re, REG_NEWLINE))
+    exit(EXIT_FAILURE);
+printf("String = \"%s\"\n", str);
+printf("Matches:\n");
 
 for (unsigned int i = 0; ; i++) {
   if (regexec(&regex, s, ARRAY_SIZE(pmatch), pmatch, 0))  break;
