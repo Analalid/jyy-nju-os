@@ -29,7 +29,7 @@ for (unsigned int i = 0; ; i++) {
     char *output = NULL;
     sprintf(output, "%.*s", len, s + pmatch[0].rm_so);
     printf("substring = \"%.*s\"\n", len, s + pmatch[0].rm_so);
-    printf("%s\n", output);
+    printf("res:: %s\n", output);
     s += pmatch[0].rm_eo;
   }
   exit(EXIT_SUCCESS);
