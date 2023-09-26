@@ -44,7 +44,7 @@ void put_HashMap(HashTable* table, const char* key, int value) {
     table->entries[hash] = entry;
 }
 
-int get_HashMap(HashTable* table, const char* key) {
+double get_HashMap(HashTable* table, const char* key) {
     unsigned int hash = hashFunction(key);
     HashEntry* entry = table->entries[hash];
 
@@ -107,9 +107,9 @@ void putMapByString(char* substring){
     char * syscallName = getSyscall(substring);
     double t = getTimeUsed(substring);
     // int hash = hashFunction(syscallName);
-    int v = get_HashMap(map, syscallName);
+    double v = get_HashMap(map, syscallName);
     put_HashMap(map, syscallName, t + (v == -1 ? 0 : v));
-    // printf("====%s   %lf\n ",syscallName, t);
+    printf("====%s   %lf\n ",syscallName, t);
     totalTimeCost += t;
 }
 void readTmpOutFile(int fd){
@@ -128,10 +128,6 @@ void readTmpOutFile(int fd){
           index = 0;  // 重置索引
       } else {
           line[index] = ch;
-          double x = 0.1;
-          double y = 0.2;
-          double z = x + y;
-          printf("%lf\n", z);
   //         printf("================================================\n");
   // printfMap();
           index++;
