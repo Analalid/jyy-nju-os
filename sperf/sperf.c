@@ -64,7 +64,7 @@ void readTmpOutFile(int fd){
 
       printf("ashdgafjsgdfasj\n================================================\n\n\n");
       // fflush(fdopen(fd, "r"));
-      printf("%ld\n",(long)(bytesRead = read(fd, &ch, 1)));
+      // printf("%ld\n",(long)(bytesRead = read(fd, &ch, 1)));
     while ((bytesRead = read(fd, &ch, 1)) > 0) {
       if (ch == '\n') {
           line[index] = '\0';  // 添加字符串结尾标志
@@ -96,11 +96,13 @@ int main(int argc, char *argv[]) {
     wait(NULL);
     // close(fd);
     // fd = open("./sperf_tmp.output", O_CREAT|O_WRONLY,S_IRWXU);  
-    // printf("father process begin!\n");
-    close(fd);
-    int t = isFileOpen(fd);
-    printf("isopen: %d\n", t);
-    readTmpOutFile(fd);
+    printf("father process begin!\n");
+    while(1);
+
+    // close(fd);
+    // int t = isFileOpen(fd);
+    // printf("isopen: %d\n", t);
+    // readTmpOutFile(fd);
   }else{
     execve("/bin/strace",     exec_argv, exec_envp);
     perror(argv[0]);
