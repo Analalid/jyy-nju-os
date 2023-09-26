@@ -65,12 +65,14 @@ char* getSyscall(char *str){
 if (regcomp(&regex, re_syscall,   REG_NEWLINE | REG_EXTENDED))
     exit(EXIT_FAILURE);
 for (unsigned int i = 0; ; i++) {
-  if (regexec(&regex, s, ARRAY_SIZE(pmatch), pmatch, 0))  return "null";
+  if (regexec(&regex, s, ARRAY_SIZE(pmatch), pmatch, 0))  break;
     len = pmatch[0].rm_eo - pmatch[0].rm_so;
     char *output = (char*)malloc((len + 1) * sizeof(char));
     sprintf(output, "%.*s", len, s + pmatch[0].rm_so);
     return output;
   }
+  // exit(EXIT_SUCCESS);
+  return 0;
 }
 double getTimeUsed(char* str){
   char* key;
@@ -83,12 +85,14 @@ double getTimeUsed(char* str){
 if (regcomp(&regex, re_time,   REG_NEWLINE | REG_EXTENDED))
     exit(EXIT_FAILURE);
 for (unsigned int i = 0; ; i++) {
-  if (regexec(&regex, s, ARRAY_SIZE(pmatch), pmatch, 0))  return 0;
+  if (regexec(&regex, s, ARRAY_SIZE(pmatch), pmatch, 0))  break;
     len = pmatch[0].rm_eo - pmatch[0].rm_so;
     char *output = (char*)malloc((len + 1) * sizeof(char));
     sprintf(output, "%.*s", len, s + pmatch[0].rm_so);
     return strtod(output, NULL);
   }
+  // exit(EXIT_SUCCESS);
+  return 0;
 }
 void printfMap(){
     int i;
