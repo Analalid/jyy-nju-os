@@ -20,6 +20,7 @@ typedef struct{
 } HashTable;
 //预定义
 HashTable* map = NULL;
+double totalTimeCost = 0;
 unsigned int hashFunction(const char* key) {
     unsigned int hash = 0;
     int i;
@@ -34,7 +35,7 @@ HashTable* createHashTable() {
     return table;
 }
 
-void put(HashTable* table, const char* key, int value) {
+void put_HashMap(HashTable* table, const char* key, int value) {
     unsigned int hash = hashFunction(key);
     HashEntry* entry = (HashEntry*)malloc(sizeof(HashEntry));
     entry->key = strdup(key);
@@ -43,7 +44,7 @@ void put(HashTable* table, const char* key, int value) {
     table->entries[hash] = entry;
 }
 
-int get(HashTable* table, const char* key) {
+int get_HashMap(HashTable* table, const char* key) {
     unsigned int hash = hashFunction(key);
     HashEntry* entry = table->entries[hash];
 
@@ -53,7 +54,6 @@ int get(HashTable* table, const char* key) {
     }
     return -1; // 未找到对应的值
 }
-
 char* getSyscall(char *str){
   char* key;
   char* value;
@@ -88,7 +88,7 @@ for (unsigned int i = 0; ; i++) {
     len = pmatch[0].rm_eo - pmatch[0].rm_so;
     char *output = (char*)malloc((len + 1) * sizeof(char));
     sprintf(output, "%.*s", len, s + pmatch[0].rm_so);
-    return strtod(output, NULL) ;
+    return strtod(output, NULL);
   }
   exit(EXIT_SUCCESS);
 }
@@ -96,13 +96,13 @@ void putMapByString(char* substring){
     char * syscallName = getSyscall(substring);
     double t = getTimeUsed(substring);
     // int hash = hashFunction(syscallName);
-    int v = get(map, syscallName);
-    put(map, syscallName, t + (v == -1 ? 0 : v));
+    int v = get_HashMap(map, syscallName);
+    put_HashMap(map, syscallName, t + (v == -1 ? 0 : v));
     printf("====%s   %lf\n ",syscallName, t);
-
+    totalTimeCost += t;
 }
 void readTmpOutFile(int fd){
-    printf("%d\n", fd);
+    // printf("%d\n", fd);
     char line[4096];  // 用于存储读取的行数据
     char ch;
     ssize_t bytesRead;
