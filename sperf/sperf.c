@@ -96,6 +96,14 @@ for (unsigned int i = 0; ; i++) {
   // exit(EXIT_SUCCESS);
   return 0;
 }
+
+// 比较函数，用于排序
+int compareHashEntry(const void* a, const void* b) {
+    const HashEntry* entry1 = *(const HashEntry**)a;
+    const HashEntry* entry2 = *(const HashEntry**)b;
+    // 根据 key 进行升序排序
+    return entry1->value - entry2->value > 0 ? 1 : -1;
+}
 void printfMap(){
   printf("=======================\n");
     int i;
@@ -105,10 +113,12 @@ void printfMap(){
         HashEntry* entry = map->entries[i];
         if (entry != NULL) {
             dataArr[idx++] = entry;
-            printf("key: %s   value: %lf\n", dataArr[idx - 1]->key, dataArr[idx - 1]->value);
         }
     }
-
+    qsort(dataArr, idx, sizeof(HashEntry*), compareHashEntry);
+    for(int i = 0; i < idx; ++i){
+      printf("key: %s   value: %lf\n", dataArr[i]->key, dataArr[i]->value);
+    }
 };
 void putMapByString(char* substring){
     char * syscallName = getSyscall(substring);
