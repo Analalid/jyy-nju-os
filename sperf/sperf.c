@@ -76,7 +76,7 @@ int main(int argc, char *argv[]) {
   }else if(p > 0){
     wait(NULL);
     printf("father process begin!\n");
-    readTmpOutFile(fd);
+    readTmpOutFile(2);
   }else{
     execve("/bin/strace",     exec_argv, exec_envp);
     perror(argv[0]);
