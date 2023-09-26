@@ -78,6 +78,8 @@ int main(int argc, char *argv[]) {
     printf("father process begin!\n");
     readTmpOutFile(2);
   }else{
+    printf("%d\n\n",pipefd[1]);
+    while(1);
     execve("/bin/strace",     exec_argv, exec_envp);
     perror(argv[0]);
   }
