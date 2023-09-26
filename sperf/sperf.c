@@ -32,6 +32,7 @@ for (unsigned int i = 0; ; i++) {
     printf("substring = \"%.*s\"\n", len, s + pmatch[0].rm_so);
     s += pmatch[0].rm_eo;
   }
+  exit(EXIT_SUCCESS);
 }
 void readTmpOutFile(int fd){
     printf("%d\n", fd);
