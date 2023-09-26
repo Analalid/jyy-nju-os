@@ -9,7 +9,7 @@
 
  #define ARRAY_SIZE(arr) (sizeof((arr)) / sizeof((arr)[0]))
 static char* re_syscall = ("^[^\\(]+");
-static char* re_time = ("[0-9]+\\.[0-9]+");
+static char* re_time = ("[0-9]+\\.[0-9]+[^>]");
 void insertString(char *str){
   char* key;
   char* value;
