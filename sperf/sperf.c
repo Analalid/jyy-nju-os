@@ -124,7 +124,6 @@ void readTmpOutFile(int fd){
           // printf("读取的行数据: %s\n", line);
           char* substring = strndup(&line[0], index);
           putMapByString(substring);
-          printfMap();
           free(substring);
           index = 0;  // 重置索引
       } else {
@@ -148,6 +147,7 @@ int main(int argc, char *argv[]) {
     wait(NULL);
     printf("father process begin!\n");
     readTmpOutFile(pipefd[0]);
+          printfMap();
   }else{
     if(dup2(pipefd[1], STDERR_FILENO) < 0) perror("fail!\n");
     execve("/bin/strace",     exec_argv, exec_envp);
