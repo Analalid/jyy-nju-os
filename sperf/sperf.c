@@ -71,7 +71,8 @@ for (unsigned int i = 0; ; i++) {
     sprintf(output, "%.*s", len, s + pmatch[0].rm_so);
     return output;
   }
-  exit(EXIT_SUCCESS);
+  // exit(EXIT_SUCCESS);
+  return 0;
 }
 double getTimeUsed(char* str){
   char* key;
@@ -90,7 +91,8 @@ for (unsigned int i = 0; ; i++) {
     sprintf(output, "%.*s", len, s + pmatch[0].rm_so);
     return strtod(output, NULL);
   }
-  exit(EXIT_SUCCESS);
+  // exit(EXIT_SUCCESS);
+  return 0;
 }
 void printfMap(){
     int i;
@@ -109,6 +111,7 @@ void putMapByString(char* substring){
     double v = get_HashMap(map, syscallName);
     put_HashMap(map, syscallName, t + v);
     totalTimeCost += t;
+  
 }
 void readTmpOutFile(int fd){
     // printf("%d\n", fd);
@@ -129,8 +132,7 @@ void readTmpOutFile(int fd){
           index++;
       }
   }
-  printf("================================================\n");
-  
+
 }
 int main(int argc, char *argv[]) {
   map = createHashTable();
