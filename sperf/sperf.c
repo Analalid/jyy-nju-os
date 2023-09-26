@@ -6,11 +6,55 @@
 #include <fcntl.h>
 #include <regex.h>
 #include <stdint.h>
-
+#define TABLE_SIZE 2048 
  #define ARRAY_SIZE(arr) (sizeof((arr)) / sizeof((arr)[0]))
 static char* re_syscall = ("^[^\\(]+");
 static char* re_time = ("[0-9]+\\.[0-9]+[^>]");
-void getSyscall(char *str){
+//简易哈希表
+typedef struct{
+  char* key;
+  long value;
+}HashEntry;
+typedef struct{
+  HashEntry** entries;
+} HashTable;
+//预定义
+HashTable* map = NULL;
+unsigned int hashFunction(const char* key) {
+    unsigned int hash = 0;
+    int i;
+    for (i = 0; key[i] != '\0'; i++) {
+        hash = hash * 31 + key[i];
+    }
+    return hash % TABLE_SIZE; // 使用除留余数法计算哈希值
+}
+HashTable* createHashTable() {
+    HashTable* table = (HashTable*)malloc(sizeof(HashTable));
+    table->entries = (HashEntry**)calloc(TABLE_SIZE, sizeof(HashEntry*));
+    return table;
+}
+
+void put(HashTable* table, const char* key, int value) {
+    unsigned int hash = hashFunction(key);
+    HashEntry* entry = (HashEntry*)malloc(sizeof(HashEntry));
+    entry->key = strdup(key);
+    entry->value = value;
+    // 在哈希值对应的位置插入新的条目
+    table->entries[hash] = entry;
+}
+
+int get(HashTable* table, const char* key) {
+    unsigned int hash = hashFunction(key);
+    HashEntry* entry = table->entries[hash];
+
+    // 在哈希值对应的位置查找条目
+    if (entry != NULL && strcmp(entry->key, key) == 0) {
+        return entry->value;
+    }
+    return -1; // 未找到对应的值
+}
+
+char* getSyscall(char *str){
   char* key;
   char* value;
 
@@ -28,11 +72,40 @@ for (unsigned int i = 0; ; i++) {
             (intmax_t) len);
     char *output = (char*)malloc((len + 1) * sizeof(char));
     sprintf(output, "%.*s", len, s + pmatch[0].rm_so);
-    printf("substring = \"%.*s\"\n", len, s + pmatch[0].rm_so);
-    printf("asas:%s\n", output);
-    s += pmatch[0].rm_eo;
+    return output;
+    // printf("substring = \"%.*s\"\n", len, s + pmatch[0].rm_so);
+    // printf("asas:%s\n", output);
+    // s += pmatch[0].rm_eo;
   }
   exit(EXIT_SUCCESS);
+}
+double getTimeUsed(char* str){
+  char* key;
+  char* value;
+
+  char *s = str;
+  regex_t     regex;
+  regmatch_t  pmatch[1];
+  regoff_t    off, len;
+if (regcomp(&regex, re_time,   REG_NEWLINE | REG_EXTENDED))
+    exit(EXIT_FAILURE);
+for (unsigned int i = 0; ; i++) {
+  if (regexec(&regex, s, ARRAY_SIZE(pmatch), pmatch, 0))  break;
+    off = pmatch[0].rm_so + (s - str);
+    len = pmatch[0].rm_eo - pmatch[0].rm_so;
+    printf("offset = %jd; length = %jd\n", (intmax_t) off,
+            (intmax_t) len);
+    char *output = (char*)malloc((len + 1) * sizeof(char));
+    sprintf(output, "%.*s", len, s + pmatch[0].rm_so);
+    return strtod(output, NULL) ;
+  }
+  exit(EXIT_SUCCESS);
+}
+void putMapByString(char* substring){
+    char * syscallName = getSyscall(substring);
+    double t = getTimeUsed(substring);
+    int hash = hashFunction(syscallName);
+    printf("%s   %lf %d \n ",syscallName, t, hash);
 }
 void readTmpOutFile(int fd){
     printf("%d\n", fd);
@@ -45,7 +118,7 @@ void readTmpOutFile(int fd){
           line[index] = '\0';  // 添加字符串结尾标志
           // printf("读取的行数据: %s\n", line);
           char* substring = strndup(&line[0], index);
-          getSyscall(substring);
+          putMapByString(substring);
           free(substring);
           index = 0;  // 重置索引
       } else {
@@ -56,6 +129,7 @@ void readTmpOutFile(int fd){
 
 }
 int main(int argc, char *argv[]) {
+  map = createHashTable();
   char *exec_argv[] = {  "strace","-T","wc","sperf.c",NULL, };
   char *exec_envp[] = { "PATH=/bin", NULL, };
   close(2);
