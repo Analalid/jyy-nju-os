@@ -106,8 +106,8 @@ int compareHashEntry(const void* a, const void* b) {
 }
 void printfMap(){
    fflush(stdout);
-    printf("\033[2J\033[H");
-    // printf("=======================\n");
+    // printf("\033[2J\033[H");
+  printf("=======================\n");
     int i;
     HashEntry *dataArr[totalSysNum];
     int idx = 0;
@@ -118,7 +118,7 @@ void printfMap(){
         }
     }
     qsort(dataArr, idx, sizeof(HashEntry*), compareHashEntry);
-    for(int i = idx; i >= 0; --i){
+    for(int i = 0; i < idx; ++i){
       printf("key: %s   value: %lf\n", dataArr[i]->key, dataArr[i]->value);
     }
 };
