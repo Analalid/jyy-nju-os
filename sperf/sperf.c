@@ -166,9 +166,9 @@ int main(int argc, char *argv[]) {
   if(p < 0){
     perror("create child process error!\n");
   }else if(p > 0){
-    wait(NULL);
     printf("father process begin!\n");
     readTmpOutFile(pipefd[0]);
+    wait(NULL);
   }else{
     if(dup2(pipefd[1], STDERR_FILENO) < 0) perror("fail!\n");
     execve("/bin/strace",     exec_argv, exec_envp);
