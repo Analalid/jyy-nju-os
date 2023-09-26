@@ -22,6 +22,7 @@ typedef struct{
 //预定义
 HashTable* map = NULL;
 double totalTimeCost = 0;
+int totalSysNum = 0;
 unsigned int hashFunction(const char* key) {
     unsigned int hash = 0;
     int i;
@@ -98,17 +99,23 @@ for (unsigned int i = 0; ; i++) {
 void printfMap(){
   printf("=======================\n");
     int i;
+    HashEntry *dataArr[totalSysNum];
+    int idx;
     for (i = 0; i < TABLE_SIZE; i++) {
         HashEntry* entry = map->entries[i];
         if (entry != NULL) {
-            printf("key: %s   value: %lf\n", entry->key, entry->value);
+            dataArr[idx++] = entry;
+            printf("key: %s   value: %lf\n", dataArr[idx - 1]->key, dataArr[idx - 1]->value);
         }
     }
+
 };
 void putMapByString(char* substring){
     char * syscallName = getSyscall(substring);
-    double t = getTimeUsed(substring);
     double v = get_HashMap(map, syscallName);
+    //第一次的时候返回0
+    if(v == 0) ++totalSysNum;
+    double t = getTimeUsed(substring);
     put_HashMap(map, syscallName, t + v);
     totalTimeCost += t;
 }
