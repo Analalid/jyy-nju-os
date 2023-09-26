@@ -130,6 +130,7 @@ void readTmpOutFile(int fd){
           line[index] = ch;
           index++;
       }
+      printf("asjd");
   }
    printfMap();
 }
