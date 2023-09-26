@@ -131,7 +131,7 @@ void readTmpOutFile(int fd){
           printf("%d\n", t);
           }
   // printfMap();
-          printf("%d\n", 3&6&9);
+          // printf("%d\n", 3&6&9);
           index++;
       }
   }
