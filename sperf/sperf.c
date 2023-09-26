@@ -105,7 +105,7 @@ void putMapByString(char* substring){
     char * syscallName = getSyscall(substring);
     double t = getTimeUsed(substring);
     int hash = hashFunction(syscallName);
-    printf("%s   %lf %d \n ",syscallName, t, hash);
+    printf("====%s   %lf %d \n ",syscallName, t, hash);
 }
 void readTmpOutFile(int fd){
     printf("%d\n", fd);
