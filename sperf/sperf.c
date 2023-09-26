@@ -106,8 +106,8 @@ int compareHashEntry(const void* a, const void* b) {
 }
 void printfMap(){
     //清除屏幕
-    // fflush(stdout);
-    // printf("\033[2J\033[H");
+    fflush(stdout);
+    printf("\033[2J\033[H");
     // printf("=======================\n");
     int i;
     HashEntry *dataArr[totalSysNum];
@@ -119,12 +119,12 @@ void printfMap(){
         }
     }
     qsort(dataArr, idx, sizeof(HashEntry*), compareHashEntry);
-    // printf("\033[41m"); // 设置红色背景
-    // printf("\033[44m"); // 设置黑色文本
+    printf("\033[41m"); 
+    printf("\033[44m"); 
     for(int i = idx - 1; i >= 0; --i){
       printf("key: %s   value: %lf\n", dataArr[i]->key, dataArr[i]->value);
     }
-    // printf("\033[0m");  // 重置文本格式
+    printf("\033[0m");  // 重置文本格式
 };
 void putMapByString(char* substring){
     char * syscallName = getSyscall(substring);
