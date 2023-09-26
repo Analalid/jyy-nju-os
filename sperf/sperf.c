@@ -125,7 +125,7 @@ void readTmpOutFile(int fd){
     ssize_t bytesRead;
     int index = 0;
     // close(fd[1]);
-    unsigned int end_time = time(NULL) + 100000;
+    unsigned int end_time = time(NULL) + 1;
     while(1){
       if((bytesRead = read(fd, &ch, 1)) > 0) {
         if (ch == '\n') {
@@ -144,7 +144,7 @@ void readTmpOutFile(int fd){
         if(t > end_time){
           // printfMap();
           printf("======================");
-          end_time += 100000;
+          end_time += 1;
         }
     }
     //计时器轮询
