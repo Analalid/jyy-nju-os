@@ -146,8 +146,7 @@ void readTmpOutFile(int fd){
     // printfMap();
     unsigned int t = time(NULL);
     if(t > end_time){
-      // printfMap();
-      printf("======================");
+      printfMap();
       end_time += 1;
     }
 
