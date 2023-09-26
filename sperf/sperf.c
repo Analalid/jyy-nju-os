@@ -155,7 +155,7 @@ void readTmpOutFile(int fd){
   }
 }
 int main(int argc, char *argv[]) {
-  if(argc < 2) return -1;
+  if(argc < 2) perror("argc too small!\n");
   map = createHashTable();
   char* exec_argv[argc + 2];
   exec_argv[0] = "strace";
