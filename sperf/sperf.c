@@ -96,7 +96,7 @@ for (unsigned int i = 0; ; i++) {
   return 0;
 }
 void printfMap(){
-  printfMap("=======================\n");
+  printf("=======================\n");
     int i;
     for (i = 0; i < TABLE_SIZE; i++) {
         HashEntry* entry = map->entries[i];
