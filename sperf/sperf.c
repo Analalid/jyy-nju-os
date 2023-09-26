@@ -43,7 +43,7 @@ void readTmpOutFile(int fd){
     while ((bytesRead = read(fd, &ch, 1)) > 0) {
       if (ch == '\n') {
           line[index] = '\0';  // 添加字符串结尾标志
-          // printf("读取的行数据: %s\n", line);
+          printf("读取的行数据: %s\n", line);
           char* substring = strndup(&line[0], index);
           insertString(substring);
           free(substring);
