@@ -45,7 +45,7 @@ void readTmpOutFile(int fd){
           line[index] = '\0';  // 添加字符串结尾标志
           // printf("读取的行数据: %s\n", line);
           char* substring = strndup(&line[0], index);
-          insertString(substring);
+          getSyscall(substring);
           free(substring);
           index = 0;  // 重置索引
       } else {
