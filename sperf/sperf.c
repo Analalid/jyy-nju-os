@@ -86,7 +86,7 @@ int main(int argc, char *argv[]) {
   close(2);
   // open("./sperf_tmp.output", O_CREAT|O_WRONLY|O_TRUNC,S_IRWXU);
   setbuf(stdout, NULL);
-  int fd = open("sperf_tmp.txt", O_CREAT|O_RDWR|O_TRUNC,S_IRWXU);  
+  int fd = open("sperf_tmp.output", O_CREAT|O_RDWR|O_TRUNC,S_IRWXU);  
   
   if(fd < 0) perror("open file faild!\n");
   int p = fork();
