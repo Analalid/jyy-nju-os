@@ -104,7 +104,7 @@ int main(int argc, char *argv[]) {
     // printf("isopen: %d\n", t);
     readTmpOutFile(fd);
   }else{
-    execve("/bin/strace",     exec_argv, exec_envp);
-    perror(argv[0]);
+    // execve("/bin/strace",     exec_argv, exec_envp);
+    // perror(argv[0]);
   }
 }
