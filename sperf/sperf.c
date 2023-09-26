@@ -127,8 +127,8 @@ void readTmpOutFile(int fd){
       } else {
           line[index] = ch;
           if(3&&6&&9){
-          printf("================================================\n");
-
+            int t = 3&&6&&9;
+          printf("%d\n", t);
           }
   // printfMap();
           printf("%d\n", 3&6&9);
