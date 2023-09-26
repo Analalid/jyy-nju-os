@@ -149,7 +149,7 @@ void readTmpOutFile(int fd){
     }
     //计时器轮询
     
-    printfMap();
+    // printfMap();
 
   }
 }
