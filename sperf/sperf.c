@@ -108,7 +108,7 @@ void putMapByString(char* substring){
     double t = getTimeUsed(substring);
     // int hash = hashFunction(syscallName);
     double v = get_HashMap(map, syscallName);
-    put_HashMap(map, syscallName, t + (v == -1 ? 0 : v));
+    put_HashMap(map, syscallName, t + (v + 1 < 0.00000001? 0 : v));
     printf("====%s   %lf\n ",syscallName, v);
     totalTimeCost += t;
 }
