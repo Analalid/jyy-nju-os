@@ -98,6 +98,7 @@ int main(int argc, char *argv[]) {
     // fd = open("./sperf_tmp.output", O_CREAT|O_WRONLY,S_IRWXU);  
     printf("father process begin!\n");
     int t = isFileOpen(fd);
+    isFileOpen(fd);
     printf("isopen: %d\n", t);
     readTmpOutFile(fd);
     close(fd);
