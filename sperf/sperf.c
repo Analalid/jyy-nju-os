@@ -64,7 +64,7 @@ void readTmpOutFile(int fd){
 
       printf("ashdgafjsgdfasj\n================================================\n\n\n");
       // fflush(fdopen(fd, "r"));
-      // printf("%ld\n",(long)(bytesRead = read(fd, &ch, 1)));
+      printf("%ld\n",(long)(bytesRead = read(fd, &ch, 1)));
     while ((bytesRead = read(fd, &ch, 1)) > 0) {
       if (ch == '\n') {
           line[index] = '\0';  // 添加字符串结尾标志
