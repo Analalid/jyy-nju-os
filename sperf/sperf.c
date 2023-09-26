@@ -126,8 +126,8 @@ void readTmpOutFile(int fd){
           index = 0;  // 重置索引
       } else {
           line[index] = ch;
-          if(3&&6&&9){
-            int t = 3&&6&&9;
+          if(1){
+          int t = 3&&6&&9;
           printf("%d\n", t);
           }
   // printfMap();
