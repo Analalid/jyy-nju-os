@@ -114,7 +114,6 @@ void putMapByString(char* substring){
 }
 void readTmpOutFile(int fd){
     // printf("%d\n", fd);
-  printfMap();
     char line[4096];  // 用于存储读取的行数据
     char ch;
     ssize_t bytesRead;
@@ -129,6 +128,7 @@ void readTmpOutFile(int fd){
           index = 0;  // 重置索引
       } else {
           line[index] = ch;
+  printfMap();
           index++;
       }
   }
