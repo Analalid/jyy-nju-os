@@ -129,9 +129,9 @@ void readTmpOutFile(int fd){
       } else {
           line[index] = ch;
           index++;
-          printf("asd");
+          printf("%d", index);
 
-          
+
       }
   }
    printfMap();
