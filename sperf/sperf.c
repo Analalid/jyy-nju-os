@@ -8,7 +8,7 @@
 #include <stdint.h>
 
  #define ARRAY_SIZE(arr) (sizeof((arr)) / sizeof((arr)[0]))
-static const char *const re = "<**>";
+static const char *const re = "<([0-9]+)>$";
 void insertString(char *str){
   char* key;
   char* value;
