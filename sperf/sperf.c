@@ -124,6 +124,7 @@ void readTmpOutFile(int fd){
           // printf("读取的行数据: %s\n", line);
           char* substring = strndup(&line[0], index);
           putMapByString(substring);
+          printfMap();
           free(substring);
           index = 0;  // 重置索引
       } else {
