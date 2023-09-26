@@ -65,14 +65,12 @@ char* getSyscall(char *str){
 if (regcomp(&regex, re_syscall,   REG_NEWLINE | REG_EXTENDED))
     exit(EXIT_FAILURE);
 for (unsigned int i = 0; ; i++) {
-  if (regexec(&regex, s, ARRAY_SIZE(pmatch), pmatch, 0))  break;
+  if (regexec(&regex, s, ARRAY_SIZE(pmatch), pmatch, 0))  return "null";
     len = pmatch[0].rm_eo - pmatch[0].rm_so;
     char *output = (char*)malloc((len + 1) * sizeof(char));
     sprintf(output, "%.*s", len, s + pmatch[0].rm_so);
     return output;
   }
-  // exit(EXIT_SUCCESS);
-  return 0;
 }
 double getTimeUsed(char* str){
   char* key;
@@ -85,14 +83,12 @@ double getTimeUsed(char* str){
 if (regcomp(&regex, re_time,   REG_NEWLINE | REG_EXTENDED))
     exit(EXIT_FAILURE);
 for (unsigned int i = 0; ; i++) {
-  if (regexec(&regex, s, ARRAY_SIZE(pmatch), pmatch, 0))  break;
+  if (regexec(&regex, s, ARRAY_SIZE(pmatch), pmatch, 0))  return 0;
     len = pmatch[0].rm_eo - pmatch[0].rm_so;
     char *output = (char*)malloc((len + 1) * sizeof(char));
     sprintf(output, "%.*s", len, s + pmatch[0].rm_so);
     return strtod(output, NULL);
   }
-  // exit(EXIT_SUCCESS);
-  return 0;
 }
 void printfMap(){
     int i;
@@ -111,7 +107,6 @@ void putMapByString(char* substring){
     double v = get_HashMap(map, syscallName);
     put_HashMap(map, syscallName, t + v);
     totalTimeCost += t;
-  
 }
 void readTmpOutFile(int fd){
     // printf("%d\n", fd);
