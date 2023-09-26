@@ -105,6 +105,7 @@ int compareHashEntry(const void* a, const void* b) {
     return entry1->value - entry2->value > 0 ? 1 : -1;
 }
 void printfMap(){
+   fflush(stdout);
   printf("=======================\n");
     int i;
     HashEntry *dataArr[totalSysNum];
