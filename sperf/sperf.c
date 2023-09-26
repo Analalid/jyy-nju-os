@@ -131,6 +131,7 @@ void readTmpOutFile(int fd){
           index++;
       }
   }
+  printfMap();
 }
 int main(int argc, char *argv[]) {
   map = createHashTable();
@@ -147,7 +148,7 @@ int main(int argc, char *argv[]) {
     wait(NULL);
     printf("father process begin!\n");
     readTmpOutFile(pipefd[0]);
-          printfMap();
+          
   }else{
     if(dup2(pipefd[1], STDERR_FILENO) < 0) perror("fail!\n");
     execve("/bin/strace",     exec_argv, exec_envp);
