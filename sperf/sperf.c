@@ -120,7 +120,7 @@ void printfMap(){
     }
     qsort(dataArr, idx, sizeof(HashEntry*), compareHashEntry);
     printf("\033[41m"); // 设置红色背景
-    printf("\033[30m"); // 设置黑色文本
+    printf("\033[44m"); // 设置黑色文本
     for(int i = idx; i >= 0; --i){
       printf("key: %s   value: %lf\n", dataArr[i]->key, dataArr[i]->value);
     }
