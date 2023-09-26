@@ -131,7 +131,7 @@ void readTmpOutFile(int fd){
           double x = 0.000036;
           double y = 0.000021;
           double z = x + y;
-          printf("%lf", z);
+          printf("%lf\n", z);
   //         printf("================================================\n");
   // printfMap();
           index++;
