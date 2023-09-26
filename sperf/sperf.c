@@ -61,12 +61,12 @@ char* getSyscall(char *str){
   char *s = str;
   regex_t     regex;
   regmatch_t  pmatch[1];
-  regoff_t    off, len;
+  regoff_t    len;
 if (regcomp(&regex, re_syscall,   REG_NEWLINE | REG_EXTENDED))
     exit(EXIT_FAILURE);
 for (unsigned int i = 0; ; i++) {
   if (regexec(&regex, s, ARRAY_SIZE(pmatch), pmatch, 0))  break;
-    off = pmatch[0].rm_so + (s - str);
+    // off = pmatch[0].rm_so + (s - str);
     len = pmatch[0].rm_eo - pmatch[0].rm_so;
     char *output = (char*)malloc((len + 1) * sizeof(char));
     sprintf(output, "%.*s", len, s + pmatch[0].rm_so);
@@ -81,12 +81,12 @@ double getTimeUsed(char* str){
   char *s = str;
   regex_t     regex;
   regmatch_t  pmatch[1];
-  regoff_t    off, len;
+  regoff_t    len;
 if (regcomp(&regex, re_time,   REG_NEWLINE | REG_EXTENDED))
     exit(EXIT_FAILURE);
 for (unsigned int i = 0; ; i++) {
   if (regexec(&regex, s, ARRAY_SIZE(pmatch), pmatch, 0))  break;
-    off = pmatch[0].rm_so + (s - str);
+    // off = pmatch[0].rm_so + (s - str);
     len = pmatch[0].rm_eo - pmatch[0].rm_so;
     char *output = (char*)malloc((len + 1) * sizeof(char));
     sprintf(output, "%.*s", len, s + pmatch[0].rm_so);
