@@ -10,7 +10,7 @@
 int main(void){
  
    // int fd=open("sperf_tmo.out",O_RDONLY);
-   int fd=open("asdsasghdjashgduhjasdsdasa.txt",O_RDONLY);
+   int fd=open("sperf_tmp.output",O_RDONLY);
    if(fd==-1){
  
       printf("can not open the file\n");
