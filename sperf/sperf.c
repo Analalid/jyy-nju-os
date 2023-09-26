@@ -6,6 +6,7 @@
 #include <fcntl.h>
 #include <regex.h>
 #include <stdint.h>
+#include <time.h>
 #define TABLE_SIZE 2048 
  #define ARRAY_SIZE(arr) (sizeof((arr)) / sizeof((arr)[0]))
 static char* re_syscall = ("^[^\\(]+");
@@ -123,21 +124,32 @@ void readTmpOutFile(int fd){
     ssize_t bytesRead;
     int index = 0;
     // close(fd[1]);
-    while ((bytesRead = read(fd, &ch, 1)) > 0) {
-      if (ch == '\n') {
-          line[index] = '\0';  // 添加字符串结尾标志
-          // printf("读取的行数据: %s\n", line);
-          char* substring = strndup(&line[0], index);
-          putMapByString(substring);
-          free(substring);
-          index = 0;  // 重置索引
-      } else {
-          line[index] = ch;
-          index++;
-          printf("%d + %c \n", index, ch);
-      }
+    unsigned int end_time = time(NULL) + 1;
+    while(1){
+      if((bytesRead = read(fd, &ch, 1)) > 0) {
+        if (ch == '\n') {
+            line[index] = '\0';  // 添加字符串结尾标志
+            // printf("读取的行数据: %s\n", line);
+            char* substring = strndup(&line[0], index);
+            putMapByString(substring);
+            free(substring);
+            index = 0;  // 重置索引
+        } else {
+            line[index] = ch;
+            index++;
+            printf("%d + %c \n", index, ch);
+        }
+        unsigned int t = time(NULL);
+        if(t > end_time){
+          printfMap();
+          end_time += 1;
+        }
+    }
+    //计时器轮询
+    
+    printfMap();
+
   }
-  //  printfMap();
 }
 int main(int argc, char *argv[]) {
   map = createHashTable();
