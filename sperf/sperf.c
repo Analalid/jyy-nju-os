@@ -10,7 +10,7 @@
 #define TABLE_SIZE 2048 
 #define ARRAY_SIZE(arr) (sizeof((arr)) / sizeof((arr)[0]))
 //画图的宏定义
-#define SYSCALL_INFO_MAX (4)
+#define SYSCALL_INFO_MAX (5)
 //设置终端展示时候的窗口高
 #define SYSCALL_INFO_WINDOW_HEIGHT (40)
 //设置终端展示时候的窗口高
@@ -191,7 +191,9 @@ void printfMap(){
       // drawBlock(dataArr[i]->key, 100, idx - 1 - i, x_1, y_1, x_2, y_2);
       // if(i != idx - 1){
 
-      drawBlock(dataArr[i]->key, percent * 100, idx - 1 - i, x_1, y_1, endX, endY);
+      if(i == 0 && i == idx - 1 - SYSCALL_INFO_MAX){
+        drawBlock(dataArr[i]->key, percent * 100, idx - 1 - i, x_1, y_1, x_2, y_2);
+      }else drawBlock(dataArr[i]->key, percent * 100, idx - 1 - i, x_1, y_1, endX, endY);
       // }
       if(i & 1){
         y_1 = endY;
