@@ -192,10 +192,10 @@ void printfMap(){
       }else{
         x_1 = endX;
       }
-      // break;
+      break;
       // if(i == idx - 2) break;
     }
-    printf("\033[0m");  // 重置文本格式
+    // printf("\033[0m");  // 重置文本格式
 };
 void putMapByString(char* substring){
     char * syscallName = getSyscall(substring);
