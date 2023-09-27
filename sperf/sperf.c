@@ -12,9 +12,9 @@
 //画图的宏定义
 #define SYSCALL_INFO_MAX (12)
 //设置终端展示时候的窗口高
-#define SYSCALL_INFO_WINDOW_HEIGHT (60)
+#define SYSCALL_INFO_WINDOW_HEIGHT (40)
 //设置终端展示时候的窗口高
-#define SYSCALL_INFO_WINDOW_WIDTH (180)
+#define SYSCALL_INFO_WINDOW_WIDTH (120)
 
 #define syscall_info_show_format(color) ("\e["#color";37m%s\e[0m")
 const char *syscall_info_show_formats[SYSCALL_INFO_MAX] = {syscall_info_show_format(42), syscall_info_show_format(45), syscall_info_show_format(43), syscall_info_show_format(44), syscall_info_show_format(46)};
@@ -172,7 +172,7 @@ void printfMap(){
     syscall_info_show_position_init();
     int area = SYSCALL_INFO_WINDOW_WIDTH * SYSCALL_INFO_WINDOW_HEIGHT;
     int x_1 = 0, y_1 = 0, x_2 = SYSCALL_INFO_WINDOW_HEIGHT, y_2 = SYSCALL_INFO_WINDOW_WIDTH; 
-    for(int i = idx - 1; i >= 0; --i){
+    for(int i = idx - 1; i >= 0 && i >= idx - 1 - ; --i){
       // printf("%d\n ================== \n", i);
       double percent = dataArr[i]->value / totalTimeCost;
       int endX = -1;
