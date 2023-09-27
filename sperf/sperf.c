@@ -150,6 +150,7 @@ void drawBlock(char* key, double percent, int idx, int left_top_row, int left_to
 
     // 释放动态分配的内存
     syscall_info_show(idx, result);
+    syscall_info_show_move_left(strlen(result));
     for(int i = left_top_row; i < right_end_row; ++i){
       for(int j = left_top_col; j < right_end_col; ++j){
         syscall_info_show(idx, " ");
