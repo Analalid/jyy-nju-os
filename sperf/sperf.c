@@ -176,9 +176,11 @@ void printfMap(){
     syscall_info_show_position_init();
     int area = SYSCALL_INFO_WINDOW_WIDTH * SYSCALL_INFO_WINDOW_HEIGHT;
     int x_1 = 0, y_1 = 0, x_2 = SYSCALL_INFO_WINDOW_HEIGHT, y_2 = SYSCALL_INFO_WINDOW_WIDTH; 
+    double left = 1.0;
     for(int i = idx - 1; i >= 0 && i >= idx - 1 - SYSCALL_INFO_MAX; --i){
       // printf("%d\n ================== \n", i);
       double percent = dataArr[i]->value / totalTimeCost;
+      left -= percent;
       int endX = -1;
       int endY = -1;
       if(i & 1){
@@ -193,7 +195,7 @@ void printfMap(){
       // if(i != idx - 1){
 
       if(i == 0 || i == idx - 1 - SYSCALL_INFO_MAX + 1){
-        drawBlock("else", 100, idx - 1 - i, x_1, y_1, x_2, y_2);
+        drawBlock("else",left * 100, idx - 1 - i, x_1, y_1, x_2, y_2);
         break;
       }else drawBlock(dataArr[i]->key, percent * 100, idx - 1 - i, x_1, y_1, endX, endY);
       if(i & 1){
