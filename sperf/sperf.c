@@ -136,9 +136,9 @@ int compareHashEntry(const void* a, const void* b) {
     return entry1->value - entry2->value > 0 ? 1 : -1;
 }
 void drawBlock(char* key, double percent, int idx, int left_top_row, int left_top_col, int right_end_row, int right_end_col){
-  printf("\033[46;33m");
+  printf("\033[45;33m");
   for(int i = left_top_row; i < right_end_row; ++i){
-    for(int j = left_top_col; j < right_end_col; ++j){syscall_info_show_move_right(5); printf(" ");}
+    for(int j = left_top_col; j < right_end_col; ++j){ syscall_info_show(idx, " ");syscall_info_show_move_right(1); printf(" a");}
     // syscall_info_show_move_down(1);
     // syscall_info_show_move_left(right_end_col - left_top_col);
   }
@@ -163,7 +163,7 @@ void printfMap(){
     fflush(stdout);
     // int x = ;
     for(int i = idx - 1; i >= 0 && i > idx - 1 - SYSCALL_INFO_MAX; --i){
-      drawBlock(dataArr[i]->key, dataArr[i]->value / totalTimeCost, i -idx + 1, 0, 0, 1, 50);
+      drawBlock(dataArr[i]->key, dataArr[i]->value / totalTimeCost, i -idx + 1, 1, 0, 0, 50);
       break;
       // printf("key: %s   value: %lf\n", dataArr[i]->key, dataArr[i]->value);
     }
