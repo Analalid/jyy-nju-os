@@ -168,7 +168,7 @@ void printfMap(){
     }
     qsort(dataArr, idx, sizeof(HashEntry*), compareHashEntry);
     //初始化光标
-    syscall_info_show_position_init();
+    // syscall_info_show_position_init();
     fflush(stdout);
     int area = SYSCALL_INFO_WINDOW_WIDTH * SYSCALL_INFO_WINDOW_HEIGHT;
     int x_1 = 0, y_1 = 0, x_2 = SYSCALL_INFO_WINDOW_WIDTH, y_2 = SYSCALL_INFO_WINDOW_HEIGHT; 
