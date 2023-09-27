@@ -163,7 +163,7 @@ void printfMap(){
     fflush(stdout);
     // int x = ;
     for(int i = idx - 1; i >= 0 && i > idx - 1 - SYSCALL_INFO_MAX; --i){
-      drawBlock(dataArr[i]->key, dataArr[i]->value / totalTimeCost, i -idx + 1, 1, 0, 0, 50);
+      drawBlock(dataArr[i]->key, dataArr[i]->value / totalTimeCost, i -idx + 1, 0, 0, 2, 50);
       break;
       // printf("key: %s   value: %lf\n", dataArr[i]->key, dataArr[i]->value);
     }
