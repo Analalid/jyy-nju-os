@@ -10,7 +10,7 @@
 #define TABLE_SIZE 2048 
 #define ARRAY_SIZE(arr) (sizeof((arr)) / sizeof((arr)[0]))
 //画图的宏定义
-#define SYSCALL_INFO_MAX (12)
+#define SYSCALL_INFO_MAX (5)
 //设置终端展示时候的窗口高
 #define SYSCALL_INFO_WINDOW_HEIGHT (40)
 //设置终端展示时候的窗口高
@@ -147,6 +147,10 @@ void drawBlock(char* key, double percent, int idx, int left_top_row, int left_to
     syscall_info_show(idx, result);
     for(int i = left_top_row; i < right_end_row; ++i){
       for(int j = left_top_col; j < right_end_col; ++j){
+        if(strlen(result) > right_end_col - left_top_col){
+          syscall_info_show_move_left(strlen(result) - (right_end_col - left_top_col));
+          break;
+        }
         if(i == left_top_row && j < left_top_col + strlen(result)) continue;
         syscall_info_show(idx, " ");
       }
