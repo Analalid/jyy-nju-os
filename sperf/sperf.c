@@ -188,7 +188,7 @@ void printfMap(){
       // drawBlock(dataArr[i]->key, 100, idx - 1 - i, x_1, y_1, x_2, y_2);
       // if(i != idx - 1){
 
-      drawBlock(dataArr[i]->key, (percent - 0.05) * 100, idx - 1 - i, x_1, y_1, endX, endY);
+      drawBlock(dataArr[i]->key, percent * 100, idx - 1 - i, x_1, y_1, endX, endY);
       // }
       if(i & 1){
         y_1 = endY;
