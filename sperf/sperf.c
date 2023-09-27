@@ -179,10 +179,10 @@ void printfMap(){
       int endY = -1;
       if(i & 1){
         endX = x_2;
-        endY = area * (percent + 0.5) / (endX - x_1) + y_1;
+        endY = area * (percent + 0.05) / (endX - x_1) + y_1;
       }else{
         endY = y_2;
-        endX = area * (percent + 0.5) / (endY - y_1) + x_1;
+        endX = area * (percent + 0.05) / (endY - y_1) + x_1;
       }
       // printf("x_1 = %d, y_1 = %d, x_2 = %d, y_2 = %d, endX = %d, endY = %d       percent = %lf\n", x_1,y_1,x_2, y_2,endX, endY,  percent * 100);
       // drawBlock(dataArr[i]->key, 100, idx - 1 - i, x_1, y_1, x_2, y_2);
