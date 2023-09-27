@@ -188,13 +188,13 @@ void printfMap(){
       // drawBlock(dataArr[i]->key, 100, idx - 1 - i, x_1, y_1, x_2, y_2);
       drawBlock(dataArr[i]->key, percent * 100, idx - 1 - i, x_1, y_1, endX, endY);
       syscall_info_show_position_init();
-      syscall_info_show_move_right(10);
-      syscall_info_show_move_down(1);
       if(i & 1){
         y_1 = endY;
       }else{
         x_1 = endX;
       }
+      syscall_info_show_move_right(x_1);
+      syscall_info_show_move_down(y_1);
       break;
       // if(i == idx - 2) break;
     }
