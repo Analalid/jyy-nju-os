@@ -172,11 +172,9 @@ void printfMap(){
     syscall_info_show_position_init();
     int area = SYSCALL_INFO_WINDOW_WIDTH * SYSCALL_INFO_WINDOW_HEIGHT;
     int x_1 = 0, y_1 = 0, x_2 = SYSCALL_INFO_WINDOW_HEIGHT, y_2 = SYSCALL_INFO_WINDOW_WIDTH; 
-    double xxx = 0;
     for(int i = idx - 1; i >= 0; --i){
       // printf("%d\n ================== \n", i);
       double percent = dataArr[i]->value / totalTimeCost;
-      xxx += percent * 100;
       int endX = -1;
       int endY = -1;
       if(i & 1){
@@ -205,7 +203,6 @@ void printfMap(){
       // break;
       // if(i == idx - 2) break;
     }
-    printf("%lf", xxx);
     while(1);
     // printf("\033[0m");  // 重置文本格式
 };
