@@ -144,7 +144,7 @@ void drawBlock(char* key, double percent, int idx, int left_top_row, int left_to
     char *result = (char*)malloc(size + 1);
 
     // 拼接 double 和 char* 字符串
-    snprintf(result, size + 1, "%.5f%s", percent, key);
+    snprintf(result, size + 1, "%.1f%s", percent, key);
 
     printf("拼接结果：%s\n", result);
 
