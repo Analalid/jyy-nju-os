@@ -208,6 +208,7 @@ void readTmpOutFile(int fd){
     unsigned int t = time(NULL);
     if(t > end_time){
       printfMap();
+      return;
       end_time += 1;
     }
   }
