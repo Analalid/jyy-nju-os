@@ -170,6 +170,7 @@ void printfMap(){
     //初始化光标
     syscall_info_show_position_init();
     fflush(stdout);
+    int area = SYSCALL_INFO_WINDOW_WIDTH * SYSCALL_INFO_WINDOW_HEIGHT;
     int x_1 = 0, y_1 = 0, x_2 = SYSCALL_INFO_WINDOW_WIDTH, y_2 = SYSCALL_INFO_WINDOW_HEIGHT; 
     for(int i = idx - 1; i >= 0 && i > idx - 1 - SYSCALL_INFO_MAX; --i){
       double percent = 20 * dataArr[i]->value / totalTimeCost;
@@ -177,11 +178,17 @@ void printfMap(){
       int endY = -1;
       if(i & 1){
         endX = x_2;
-        endY = (x_2 - x_1); 
+        endY = area * percent / (endX - x_1) + y_1;
       }else{
         endY = y_2;
+        endX = area * percent / (endY - y_1) + x_1;
       }
-      drawBlock(dataArr[i]->key,percent, i -idx + 1, x_1, y_1, , );
+      drawBlock(dataArr[i]->key,percent, i -idx + 1, x_1, y_1, endX, endY);
+      if(i & 1){
+        y_1 = endY;
+      }else{
+        x_1 = endX;
+      }
       break;
     }
     printf("\033[0m");  // 重置文本格式
