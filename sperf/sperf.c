@@ -169,7 +169,7 @@ void printfMap(){
     qsort(dataArr, idx, sizeof(HashEntry*), compareHashEntry);
     //初始化光标
     syscall_info_show_position_init();
-    // fflush(stdout);
+    fflush(stdout);
     for(int i = idx - 1; i >= 0 && i > idx - 1 - SYSCALL_INFO_MAX; --i){
       drawBlock(dataArr[i]->key, dataArr[i]->value / totalTimeCost, i -idx + 1, 0, 0, 2, 50);
       // break;
