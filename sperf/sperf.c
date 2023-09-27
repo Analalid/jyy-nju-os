@@ -209,7 +209,7 @@ void printfMap(){
       // break;
       // if(i == idx - 2) break;
     }
-    while(1);
+    // while(1);
     // printf("\033[0m");  // 重置文本格式
 };
 void putMapByString(char* substring){
