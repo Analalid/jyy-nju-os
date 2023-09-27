@@ -193,8 +193,8 @@ void printfMap(){
       }else{
         x_1 = endX;
       }
-      syscall_info_show_move_right(x_1);
-      // syscall_info_show_move_down(y_1);
+      // syscall_info_show_move_right(x_1);
+      syscall_info_show_move_down(y_1);
       break;
       // if(i == idx - 2) break;
     }
