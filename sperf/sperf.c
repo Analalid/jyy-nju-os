@@ -185,14 +185,14 @@ void printfMap(){
       }
       drawBlock(dataArr[i]->key, percent * 100, i -idx + 1, x_1, y_1, endX, endY);
       syscall_info_show_position_init();
-      syscall_info_show_move_right(x_1);
-      syscall_info_show_move_down(y_1);
+      // syscall_info_show_move_right(x_1);
+      // syscall_info_show_move_down(y_1);
       if(i & 1){
         y_1 = endY;
       }else{
         x_1 = endX;
       }
-      break;
+      // break;
       // if(i == idx - 2) break;
     }
     printf("\033[0m");  // 重置文本格式
