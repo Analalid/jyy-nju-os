@@ -136,17 +136,17 @@ int compareHashEntry(const void* a, const void* b) {
     return entry1->value - entry2->value > 0 ? 1 : -1;
 }
 void drawBlock(char* key, double percent, int idx, int left_top_row, int left_top_col, int right_end_row, int right_end_col){
+    printf("\033[2J");    // 清除屏幕
   // printf("\033[45;33m");
   // for(int i = left_top_row; i < right_end_row; ++i){
   //   for(int j = left_top_col; j < right_end_col; ++j){ syscall_info_show(idx, " ");syscall_info_show_move_right(1);}
   //   syscall_info_show_move_down(1);
   //   syscall_info_show_move_left(right_end_col - left_top_col);
   // }
-    printf("\033[2J");    // 清除屏幕
     printf("\033[1;1H");  // 将光标移动到第一行第一列
     printf("Hello\n");
     printf("\033[2B");    // 光标下移两行
-    printf("\033[10C");   // 光标右移十列
+    for(int i = 0; i < 10; ++i) syscall_info_show_move_right(1);   // 光标右移十列
     printf("World\n");
 }
 void printfMap(){
