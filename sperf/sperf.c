@@ -173,7 +173,7 @@ void printfMap(){
     int area = SYSCALL_INFO_WINDOW_WIDTH * SYSCALL_INFO_WINDOW_HEIGHT;
     int x_1 = 0, y_1 = 0, x_2 = SYSCALL_INFO_WINDOW_WIDTH, y_2 = SYSCALL_INFO_WINDOW_HEIGHT; 
     for(int i = idx - 1; i >= 0 && i > idx - 1 - SYSCALL_INFO_MAX; --i){
-      double percent = 20 * dataArr[i]->value / totalTimeCost;
+      double percent = 100 * dataArr[i]->value / totalTimeCost;
       int endX = -1;
       int endY = -1;
       if(i & 1){
