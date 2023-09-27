@@ -20,7 +20,7 @@
 const char *syscall_info_show_formats[SYSCALL_INFO_MAX] = {syscall_info_show_format(42), syscall_info_show_format(45), syscall_info_show_format(43), syscall_info_show_format(44), syscall_info_show_format(46)};
 #define syscall_info_show(idx, str) (fprintf(stderr, syscall_info_show_formats[(idx)], (str)))
 
-#define syscall_info_show_move(opcode) (fprintf(stderr, "\e[1"#opcode))
+#define syscall_info_show_move(opcode) (printf(stderr, "\e[1"#opcode))
 //将当前光标上移n行，列数不变
 void syscall_info_show_move_up(int idx) {
 	for(int i = 0; i < idx; ++i) { syscall_info_show_move(A); }
