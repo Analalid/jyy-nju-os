@@ -8,7 +8,38 @@
 #include <stdint.h>
 #include <time.h>
 #define TABLE_SIZE 2048 
- #define ARRAY_SIZE(arr) (sizeof((arr)) / sizeof((arr)[0]))
+#define ARRAY_SIZE(arr) (sizeof((arr)) / sizeof((arr)[0]))
+//画图的宏定义
+#define SYSCALL_INFO_MAX (5)
+//设置终端展示时候的窗口高
+#define SYSCALL_INFO_WINDOW_HEIGHT (20)
+//设置终端展示时候的窗口高
+#define SYSCALL_INFO_WINDOW_WIDTH (40)
+
+#define syscall_info_show_format(color) ("\e["#color";37m%s\e[0m")
+const char *syscall_info_show_formats[SYSCALL_INFO_MAX] = {syscall_info_show_format(42), syscall_info_show_format(45), syscall_info_show_format(43), syscall_info_show_format(44), syscall_info_show_format(46)};
+#define syscall_info_show(idx, str) (fprintf(stderr, syscall_info_show_formats[(idx)], (str)))
+
+#define syscall_info_show_move(opcode) (fprintf(stderr, "\e[1"#opcode))
+//将当前光标上移n行，列数不变
+void syscall_info_show_move_up(int idx) {
+	for(int i = 0; i < idx; ++i) { syscall_info_show_move(A); }
+}
+//将当前光标下移n行，列数不变
+void syscall_info_show_move_down(int idx) {
+	for(int i = 0; i < idx; ++i) { syscall_info_show_move(B); }
+}
+//将当前光标左移n列，行数不变
+void syscall_info_show_move_left(int idx) {
+	for(int i = 0; i < idx; ++i) { syscall_info_show_move(D); }
+}
+//将当前光标右移n列，行数不变
+void syscall_info_show_move_right(int idx) {
+	for(int i = 0; i < idx; ++i) { syscall_info_show_move(C); }
+}
+//将光标默认移动到第0行，第0列
+#define syscall_info_show_position_init() (fprintf(stderr, "\e[0;0H"))
+
 static char* re_syscall = ("^[^\\(]+");
 static char* re_time = ("[0-9]+\\.[0-9]+[^>]");
 //简易哈希表
@@ -104,11 +135,17 @@ int compareHashEntry(const void* a, const void* b) {
     // 根据 key 进行升序排序
     return entry1->value - entry2->value > 0 ? 1 : -1;
 }
+void drawBlock(char* key, double percent, int idx, int left_top_row, int left_top_col, int right_end_row, int right_end_col){
+  printf("\033[32mHelloWorld\r\n");
+  for(int i = left_top_row; i < right_end_row; ++i){
+    for(int j = left_top_col; j < right_end_col; ++j){ syscall_info_show(idx, " "); }
+    syscall_info_show_move_down(1);
+    syscall_info_show_move_left(right_end_col - left_top_col);
+  }
+}
 void printfMap(){
     //清除屏幕
-    fflush(stdout);
-    printf("\033[2J\033[H");
-    // printf("=======================\n");
+    // printf("\033[2J\033[H");
     int i;
     HashEntry *dataArr[totalSysNum];
     int idx = 0;
@@ -119,10 +156,16 @@ void printfMap(){
         }
     }
     qsort(dataArr, idx, sizeof(HashEntry*), compareHashEntry);
-    printf("\033[41m"); 
-    printf("\033[44m"); 
-    for(int i = idx - 1; i >= 0; --i){
-      printf("key: %s   value: %lf\n", dataArr[i]->key, dataArr[i]->value);
+    // printf("\033[41m"); 
+    // printf("\033[44m"); 
+    //初始化光标
+    syscall_info_show_position_init();
+    fflush(stdout);
+    int x = ;
+    for(int i = idx - 1; i >= 0 && i > idx - 1 - SYSCALL_INFO_MAX; --i){
+      drawBlock(dataArr[i]->key, dataArr[i]->value / totalTimeCost, i, 0, 0, 100, 100);
+      break;
+      // printf("key: %s   value: %lf\n", dataArr[i]->key, dataArr[i]->value);
     }
     printf("\033[0m");  // 重置文本格式
 };
@@ -159,7 +202,6 @@ void readTmpOutFile(int fd){
         } else {
             line[index] = ch;
             index++;
-            // printf("%d + %c \n", index, ch);
         }
     }
     //计时器轮询
