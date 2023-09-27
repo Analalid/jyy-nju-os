@@ -12,9 +12,9 @@
 //画图的宏定义
 #define SYSCALL_INFO_MAX (5)
 //设置终端展示时候的窗口高
-#define SYSCALL_INFO_WINDOW_HEIGHT (50)
+#define SYSCALL_INFO_WINDOW_HEIGHT (20)
 //设置终端展示时候的窗口高
-#define SYSCALL_INFO_WINDOW_WIDTH (100)
+#define SYSCALL_INFO_WINDOW_WIDTH (40)
 
 #define syscall_info_show_format(color) ("\e["#color";37m%s\e[0m")
 const char *syscall_info_show_formats[SYSCALL_INFO_MAX] = {syscall_info_show_format(42), syscall_info_show_format(45), syscall_info_show_format(43), syscall_info_show_format(44), syscall_info_show_format(46)};
