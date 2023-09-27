@@ -146,7 +146,7 @@ void drawBlock(char* key, double percent, int idx, int left_top_row, int left_to
     printf("\033[1;1H");  // 将光标移动到第一行第一列
     printf("Hello\n");
     printf("\033[2B");    // 光标下移两行
-    for(int i = 0; i < 10; ++i) syscall_info_show_move_right(1);   // 光标右移十列
+    for(int i = 0; i < 10; ++i) syscall_info_show_move_right(10);   // 光标右移十列
     printf("World\n");
 }
 void printfMap(){
