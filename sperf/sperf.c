@@ -173,7 +173,7 @@ void printfMap(){
     int area = SYSCALL_INFO_WINDOW_WIDTH * SYSCALL_INFO_WINDOW_HEIGHT;
     int x_1 = 0, y_1 = 0, x_2 = SYSCALL_INFO_WINDOW_HEIGHT, y_2 = SYSCALL_INFO_WINDOW_WIDTH; 
     double xxx = 0;
-    for(int i = idx - 1; i >= 0 && i > idx - 1 - SYSCALL_INFO_MAX; --i){
+    for(int i = idx - 1; i >= 0; --i){
       // printf("%d\n ================== \n", i);
       double percent = dataArr[i]->value / totalTimeCost;
       xxx += percent * 100;
