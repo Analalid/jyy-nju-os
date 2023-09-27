@@ -201,7 +201,7 @@ void printfMap(){
       // drawBlock(dataArr[i]->key, percent * 100, idx - 1 - i + 1 , endX,endY, x_2, y_2);
       // printf("d\n");
       // break;
-      // if(i == idx - 2) break;
+      if(i == idx - 2) break;
     }
     while(1);
     // printf("\033[0m");  // 重置文本格式
