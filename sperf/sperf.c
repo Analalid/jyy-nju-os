@@ -170,8 +170,9 @@ void printfMap(){
     //初始化光标
     syscall_info_show_position_init();
     fflush(stdout);
+    int x_1 = 0, y_1 = 0, x_2 = SYSCALL_INFO_WINDOW_WIDTH, y_2 = SYSCALL_INFO_WINDOW_HEIGHT; 
     for(int i = idx - 1; i >= 0 && i > idx - 1 - SYSCALL_INFO_MAX; --i){
-      drawBlock(dataArr[i]->key, dataArr[i]->value / totalTimeCost, i -idx + 1, 1, 0, 2, 50);
+      drawBlock(dataArr[i]->key, dataArr[i]->value / totalTimeCost, i -idx + 1, 1, 0, x_2, y_2);
       break;
     }
     printf("\033[0m");  // 重置文本格式
