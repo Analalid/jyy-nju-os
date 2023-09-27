@@ -124,7 +124,6 @@ for (unsigned int i = 0; ; i++) {
     sprintf(output, "%.*s", len, s + pmatch[0].rm_so);
     return strtod(output, NULL);
   }
-  // exit(EXIT_SUCCESS);
   return 0;
 }
 
@@ -139,15 +138,11 @@ void drawBlock(char* key, double percent, int idx, int left_top_row, int left_to
     printf("\033[2J");    // 清除屏幕
     // 计算所需的缓冲区大小
     int size = snprintf(NULL, 0, "%s(%.1f%%)", key, percent);
-
     // 分配足够大小的缓冲区
     char *result = (char*)malloc(size + 1);
-
     // 拼接 double 和 char* 字符串
     snprintf(result, size + 1, "%s(%.1f%%)", key, percent);
-
-    printf("拼接结果：%s\n", result);
-
+    // printf("拼接结果：%s\n", result);
     // 释放动态分配的内存
     syscall_info_show(idx, result);
     for(int i = left_top_row; i < right_end_row; ++i){
@@ -159,18 +154,9 @@ void drawBlock(char* key, double percent, int idx, int left_top_row, int left_to
       syscall_info_show_move_left(right_end_col - left_top_col);
     }
     free(result);
-    // syscall_info_show(2, " ");
-    // syscall_info_show_position_init();
-    // printf("\033[45;33m");
-    // printf("\033[1;1H");  // 将光标移动到第一行第一列
-    // printf("Hello\n");
-    // printf("\033[2B");    // 光标下移两行
-    // syscall_info_show_move_right(10);   // 光标右移十列
-    // printf("World\n");
 }
 void printfMap(){
     //清除屏幕
-    // printf("\033[2J\033[H");
     int i;
     HashEntry *dataArr[totalSysNum];
     int idx = 0;
@@ -181,8 +167,6 @@ void printfMap(){
         }
     }
     qsort(dataArr, idx, sizeof(HashEntry*), compareHashEntry);
-    // printf("\033[41m"); 
-    // printf("\033[44m"); 
     //初始化光标
     syscall_info_show_position_init();
     fflush(stdout);
@@ -190,7 +174,6 @@ void printfMap(){
     for(int i = idx - 1; i >= 0 && i > idx - 1 - SYSCALL_INFO_MAX; --i){
       drawBlock(dataArr[i]->key, dataArr[i]->value / totalTimeCost, i -idx + 1, 0, 0, 2, 50);
       break;
-      // printf("key: %s   value: %lf\n", dataArr[i]->key, dataArr[i]->value);
     }
     printf("\033[0m");  // 重置文本格式
 };
