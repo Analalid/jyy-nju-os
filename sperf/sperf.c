@@ -12,9 +12,9 @@
 //画图的宏定义
 #define SYSCALL_INFO_MAX (5)
 //设置终端展示时候的窗口高
-#define SYSCALL_INFO_WINDOW_HEIGHT (20)
+#define SYSCALL_INFO_WINDOW_HEIGHT (50)
 //设置终端展示时候的窗口高
-#define SYSCALL_INFO_WINDOW_WIDTH (40)
+#define SYSCALL_INFO_WINDOW_WIDTH (100)
 
 #define syscall_info_show_format(color) ("\e["#color";37m%s\e[0m")
 const char *syscall_info_show_formats[SYSCALL_INFO_MAX] = {syscall_info_show_format(42), syscall_info_show_format(45), syscall_info_show_format(43), syscall_info_show_format(44), syscall_info_show_format(46)};
@@ -169,11 +169,10 @@ void printfMap(){
     qsort(dataArr, idx, sizeof(HashEntry*), compareHashEntry);
     //初始化光标
     syscall_info_show_position_init();
-    fflush(stdout);
-    // int x = ;
+    // fflush(stdout);
     for(int i = idx - 1; i >= 0 && i > idx - 1 - SYSCALL_INFO_MAX; --i){
       drawBlock(dataArr[i]->key, dataArr[i]->value / totalTimeCost, i -idx + 1, 0, 0, 2, 50);
-      break;
+      // break;
     }
     printf("\033[0m");  // 重置文本格式
 };
