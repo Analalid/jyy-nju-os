@@ -192,12 +192,11 @@ void printfMap(){
       // drawBlock(dataArr[i]->key, 100, idx - 1 - i, x_1, y_1, x_2, y_2);
       // if(i != idx - 1){
 
-      // if(i == 0 && i == idx - 1 - SYSCALL_INFO_MAX - 2){
-      //   // while(1) printf("a\n");
-      //   drawBlock("else", 100, 4, x_1, y_1, x_2, y_2);
-      // }else 
+      if(i == 0 && i == idx - 1 - SYSCALL_INFO_MAX){
+        drawBlock("else", 100, 4, x_1, y_1, x_2, y_2);
+      }else 
       drawBlock(dataArr[i]->key, percent * 100, idx - 1 - i, x_1, y_1, endX, endY);
-      // }
+      }
       if(i & 1){
         y_1 = endY;
       }else{
