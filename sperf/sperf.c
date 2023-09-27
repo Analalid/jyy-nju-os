@@ -199,8 +199,8 @@ void printfMap(){
       syscall_info_show_move_right(y_1);
       syscall_info_show_move_down(x_1 + 1);
       printf("d\n");
-      break;
-      // if(i == idx - 2) break;
+      // break;
+      if(i == idx - 2) break;
     }
     while(1);
     // printf("\033[0m");  // 重置文本格式
