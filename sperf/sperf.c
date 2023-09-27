@@ -190,11 +190,7 @@ void printfMap(){
       // printf("x_1 = %d, y_1 = %d, x_2 = %d, y_2 = %d, endX = %d, endY = %d       percent = %lf\n", x_1,y_1,x_2, y_2,endX, endY,  percent * 100);
       // drawBlock(dataArr[i]->key, 100, idx - 1 - i, x_1, y_1, x_2, y_2);
       // if(i != idx - 1){
-
-      if(i == 0 && i == idx - 1 - SYSCALL_INFO_MAX - 2){
-        // while(1) printf("a\n");
-        drawBlock("else", 100, 4, x_1, y_1, x_2, y_2);
-      }else drawBlock(dataArr[i]->key, percent * 100, idx - 1 - i, x_1, y_1, endX, endY);
+drawBlock(dataArr[i]->key, percent * 100, idx - 1 - i, x_1, y_1, endX, endY);
       // }
       if(i & 1){
         y_1 = endY;
