@@ -184,7 +184,7 @@ void printfMap(){
         endY = y_2;
         endX = area * percent / (endY - y_1) + x_1;
       }
-      printf("x_1 = %d, y_1 = %d, x_2 = %d, y_2 = %d, endX = %d, endY = %d       percent = %lf\n", x_1,y_1,x_2, y_2,endX, endY,  percent * 100);
+      // printf("x_1 = %d, y_1 = %d, x_2 = %d, y_2 = %d, endX = %d, endY = %d       percent = %lf\n", x_1,y_1,x_2, y_2,endX, endY,  percent * 100);
       // drawBlock(dataArr[i]->key, 100, idx - 1 - i, x_1, y_1, x_2, y_2);
       drawBlock(dataArr[i]->key, percent * 100, idx - 1 - i, x_1, y_1, endX, endY);
       if(i & 1){
@@ -196,7 +196,7 @@ void printfMap(){
       syscall_info_show_move_right(y_1);
       syscall_info_show_move_down(x_1);
       // break;
-      // if(i == idx - 2) break;
+      if(i == idx - 2) break;
     }
     // printf("\033[0m");  // 重置文本格式
 };
