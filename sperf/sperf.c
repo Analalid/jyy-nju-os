@@ -135,7 +135,6 @@ int compareHashEntry(const void* a, const void* b) {
     return entry1->value - entry2->value > 0 ? 1 : -1;
 }
 void drawBlock(char* key, double percent, int idx, int left_top_row, int left_top_col, int right_end_row, int right_end_col){
-    // printf("\033[2J");    // 清除屏幕
     // 计算所需的缓冲区大小
     int size = snprintf(NULL, 0, "%s(%.1f%%)", key, percent);
     // 分配足够大小的缓冲区
@@ -190,9 +189,6 @@ void printfMap(){
         endY = y_2;
         endX = area * (percent + 0.0005) / (endY - y_1) + x_1;
       }
-      // printf("x_1 = %d, y_1 = %d, x_2 = %d, y_2 = %d, endX = %d, endY = %d       percent = %lf\n", x_1,y_1,x_2, y_2,endX, endY,  percent * 100);
-      // drawBlock(dataArr[i]->key, 100, idx - 1 - i, x_1, y_1, x_2, y_2);
-      // if(i != idx - 1){
 
       if(i == 0 || i == idx - 1 - SYSCALL_INFO_MAX + 1){
         drawBlock("else",left * 100, idx - 1 - i, x_1, y_1, x_2, y_2);
@@ -206,13 +202,7 @@ void printfMap(){
       syscall_info_show_position_init();
       syscall_info_show_move_right(y_1);
       syscall_info_show_move_down(x_1);
-      // drawBlock(dataArr[i]->key, percent * 100, idx - 1 - i + 1 , endX,endY, x_2, y_2);
-      // printf("d\n");
-      // break;
-      // if(i == idx - 2) break;
     }
-    // while(1);
-    // printf("\033[0m");  // 重置文本格式
 };
 void putMapByString(char* substring){
     char * syscallName = getSyscall(substring);
@@ -253,7 +243,7 @@ void readTmpOutFile(int fd){
     unsigned int t = time(NULL);
     if(t > end_time){
       printfMap();
-      return;
+      // return;
       end_time += 1;
     }
   }
@@ -271,7 +261,6 @@ int main(int argc, char *argv[]) {
     exec_argv[i] = argv[i - 1];
   }
   exec_argv[argc + 1] = NULL;
-  // char *exec_argv[] = {  "strace","-T","wc","sperf.c",NULL, };
   char *exec_envp[] = { "PATH=/bin", NULL, };
   close(2);
   int pipefd[2];
