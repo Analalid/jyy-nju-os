@@ -154,7 +154,8 @@ void drawBlock(char* key, double percent, int idx, int left_top_row, int left_to
       if(i == left_top_row && strlen(result) > right_end_col - left_top_col){
         syscall_info_show_move_left(strlen(result) - (right_end_col - left_top_col));
         // break;
-      }else syscall_info_show_move_left(right_end_col - left_top_col);
+      }
+      syscall_info_show_move_left(right_end_col - left_top_col);
     }
     free(result);
 }
