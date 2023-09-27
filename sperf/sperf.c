@@ -147,7 +147,7 @@ void drawBlock(char* key, double percent, int idx, int left_top_row, int left_to
     syscall_info_show(idx, result);
     for(int i = left_top_row; i < right_end_row; ++i){
       for(int j = left_top_col; j < right_end_col; ++j){
-        if(i == left_top_row && j == right_end_col - strlen(result)) break;
+        if(i == left_top_row && j <= left_top_col + strlen(result)) continue;
         syscall_info_show(idx, " ");
       }
       syscall_info_show_move_down(1);
