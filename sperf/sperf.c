@@ -171,7 +171,7 @@ void printfMap(){
     syscall_info_show_position_init();
     fflush(stdout);
     for(int i = idx - 1; i >= 0 && i > idx - 1 - SYSCALL_INFO_MAX; --i){
-      drawBlock(dataArr[i]->key, dataArr[i]->value / totalTimeCost, i -idx + 1, 1, 0, 2, 50);
+      drawBlock(dataArr[i]->key, dataArr[i]->value / totalTimeCost, i -idx + 1, 0, 0, 2, 50);
       break;
     }
     printf("\033[0m");  // 重置文本格式
