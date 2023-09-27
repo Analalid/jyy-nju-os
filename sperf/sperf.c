@@ -137,14 +137,27 @@ int compareHashEntry(const void* a, const void* b) {
 }
 void drawBlock(char* key, double percent, int idx, int left_top_row, int left_top_col, int right_end_row, int right_end_col){
     printf("\033[2J");    // 清除屏幕
-     syscall_info_show(idx, "hello");
-    for(int i = left_top_row; i < right_end_row; ++i){
+    // 计算所需的缓冲区大小
+    int size = snprintf(NULL, 0, "%.1f%s", percent, key);
+
+    // 分配足够大小的缓冲区
+    char *result = (char*)malloc(size + 1);
+
+    // 拼接 double 和 char* 字符串
+    snprintf(result, size + 1, "%.5f%s", percent, key);
+
+    // printf("拼接结果：%s\n", result);
+
+    // 释放动态分配的内存
+    syscall_info_show(idx, result);
+    for(int i = left_top_row - strlen(result); i < right_end_row; ++i){
       for(int j = left_top_col; j < right_end_col; ++j){
         syscall_info_show(idx, " ");
       }
       syscall_info_show_move_down(1);
       syscall_info_show_move_left(right_end_col - left_top_col);
     }
+    free(result);
     // syscall_info_show(2, " ");
     // syscall_info_show_position_init();
     // printf("\033[45;33m");
