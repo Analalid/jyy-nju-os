@@ -139,7 +139,7 @@ void drawBlock(char* key, double percent, int idx, int left_top_row, int left_to
   printf("\033[45;33m");
   for(int i = left_top_row; i < right_end_row; ++i){
     for(int j = left_top_col; j < right_end_col; ++j){ syscall_info_show(idx, " "); printf(" ");}
-    syscall_info_show_move_down(1);
+    // syscall_info_show_move_down(1);
     // syscall_info_show_move_left(right_end_col - left_top_col);
   }
 }
