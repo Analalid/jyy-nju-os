@@ -135,7 +135,7 @@ int compareHashEntry(const void* a, const void* b) {
     return entry1->value - entry2->value > 0 ? 1 : -1;
 }
 void drawBlock(char* key, double percent, int idx, int left_top_row, int left_top_col, int right_end_row, int right_end_col){
-    printf("\033[2J");    // 清除屏幕
+    // printf("\033[2J");    // 清除屏幕
     // 计算所需的缓冲区大小
     int size = snprintf(NULL, 0, "%s(%.1f%%)", key, percent);
     // 分配足够大小的缓冲区
