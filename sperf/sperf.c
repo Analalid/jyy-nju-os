@@ -38,7 +38,7 @@ void syscall_info_show_move_right(int idx) {
 	for(int i = 0; i < idx; ++i) { syscall_info_show_move(C); }
 }
 //将光标默认移动到第0行，第0列
-#define syscall_info_show_position_init() (fprintf(stderr, "\e[0;0H"))
+#define syscall_info_show_position_init() (fprintf(stdout, "\e[0;0H"))
 
 static char* re_syscall = ("^[^\\(]+");
 static char* re_time = ("[0-9]+\\.[0-9]+[^>]");
@@ -144,6 +144,7 @@ void drawBlock(char* key, double percent, int idx, int left_top_row, int left_to
   //   syscall_info_show_move_left(right_end_col - left_top_col);
   // }
     syscall_info_show(2, " ");
+    syscall_info_show_position_init();
     printf("\033[1;1H");  // 将光标移动到第一行第一列
     printf("Hello\n");
     printf("\033[2B");    // 光标下移两行
