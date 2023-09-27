@@ -184,6 +184,9 @@ void printfMap(){
         endX = area * percent / (endY - y_1) + x_1;
       }
       drawBlock(dataArr[i]->key,percent, i -idx + 1, x_1, y_1, endX, endY);
+      syscall_info_show_position_init();
+      syscall_info_show_move_right(x_1);
+      syscall_info_show_move_down(y_1);
       if(i & 1){
         y_1 = endY;
       }else{
