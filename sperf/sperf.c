@@ -10,7 +10,7 @@
 #define TABLE_SIZE 2048 
 #define ARRAY_SIZE(arr) (sizeof((arr)) / sizeof((arr)[0]))
 //画图的宏定义
-#define SYSCALL_INFO_MAX (5)
+#define SYSCALL_INFO_MAX (8)
 //设置终端展示时候的窗口高
 #define SYSCALL_INFO_WINDOW_HEIGHT (40)
 //设置终端展示时候的窗口高
