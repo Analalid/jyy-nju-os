@@ -172,7 +172,7 @@ void printfMap(){
     fflush(stdout);
     int area = SYSCALL_INFO_WINDOW_WIDTH * SYSCALL_INFO_WINDOW_HEIGHT;
     int x_1 = 0, y_1 = 0, x_2 = SYSCALL_INFO_WINDOW_WIDTH, y_2 = SYSCALL_INFO_WINDOW_HEIGHT; 
-    for(int i = idx - 1 - 1; i >= 0 && i > idx - 1 - SYSCALL_INFO_MAX; --i){
+    for(int i = idx - 1; i >= 0 && i > idx - 1 - SYSCALL_INFO_MAX; --i){
       double percent = dataArr[i]->value / totalTimeCost;
       int endX = -1;
       int endY = -1;
@@ -183,7 +183,7 @@ void printfMap(){
         endY = y_2;
         endX = area * percent / (endY - y_1) + x_1;
       }
-      drawBlock(dataArr[i]->key, percent * 100, i -idx + 1, x_1, y_1, endX, endY);
+      drawBlock(dataArr[i]->key, percent * 100, idx - 1 - i, x_1, y_1, endX, endY);
       syscall_info_show_position_init();
       // syscall_info_show_move_right(x_1);
       // syscall_info_show_move_down(y_1);
