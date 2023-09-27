@@ -138,13 +138,13 @@ int compareHashEntry(const void* a, const void* b) {
 void drawBlock(char* key, double percent, int idx, int left_top_row, int left_top_col, int right_end_row, int right_end_col){
     printf("\033[2J");    // 清除屏幕
     // 计算所需的缓冲区大小
-    int size = snprintf(NULL, 0, "%.1f%s", percent, key);
+    int size = snprintf(NULL, 0, "%s(%.1f)", key, percent);
 
     // 分配足够大小的缓冲区
     char *result = (char*)malloc(size + 1);
 
     // 拼接 double 和 char* 字符串
-    snprintf(result, size + 1, "%.1f%s", percent, key);
+    snprintf(result, size + 1, "%s(%.1f)", key, percent);
 
     printf("拼接结果：%s\n", result);
 
