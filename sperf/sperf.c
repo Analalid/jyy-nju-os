@@ -161,7 +161,7 @@ void printfMap(){
     //初始化光标
     syscall_info_show_position_init();
     fflush(stdout);
-    int x = ;
+    // int x = ;
     for(int i = idx - 1; i >= 0 && i > idx - 1 - SYSCALL_INFO_MAX; --i){
       drawBlock(dataArr[i]->key, dataArr[i]->value / totalTimeCost, i, 0, 0, 100, 100);
       break;
