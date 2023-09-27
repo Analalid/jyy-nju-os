@@ -195,9 +195,9 @@ void printfMap(){
       }else{
         x_1 = endX;
       }
-      syscall_info_show_position_init();
-      syscall_info_show_move_right(y_1);
-      syscall_info_show_move_down(x_1);
+      // syscall_info_show_position_init();
+      // syscall_info_show_move_right(y_1);
+      // syscall_info_show_move_down(x_1);
       drawBlock(dataArr[i]->key, percent * 100, idx - 1 - i, endX,endY, x_2, y_2);
       // printf("d\n");
       break;
