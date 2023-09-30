@@ -1,23 +1,69 @@
 #include "thread.h"
 #include "thread-sync.h"
+#include <pthread.h>
+#include <stdio.h>
+// #include <cstdio>
 
-long f(int x);
+#define MAX (100000)
+int buffer[MAX];
+int fill_ptr = 0;
+int use_ptr = 0;
+int count = 0;
 
-int main() {
+
+cond_t empty, fill;
+mutex_t mutex, result_mutex;
+int isOver = 0;
+
+void put(int value){
+  buffer[fill_ptr] = value;
+  fill_ptr = (fill_ptr + 1) % MAX;
+  count++;
+}
+
+int get(){
+  int tmp = buffer[use_ptr];
+  use_ptr = (use_ptr + 1) % MAX;
+  count--;
+  return tmp;
+}
+
+long result = 0;
+void producer(void *arg){
   int x;
-  long sum = 0;
   while (!feof(stdin) && scanf("%d", &x) == 1) {
-    sum += f(x); // 功能正确，但会 TLE
+    mutex_lock(&mutex);
+    while(count == MAX) pthread_cond_wait(&empty, &mutex);
+    put(x);
+    pthread_cond_signal(&fill);
+    mutex_unlock(&mutex);
   }
-  printf("%ld\n", sum);
+  isOver = 1;
+}
+void consumer(void *arg){
+  long res;
+  while(!isOver){
+    pthread_mutex_lock(&mutex);
+    while(count == 0) pthread_cond_wait(&fill, &mutex);
+    res += get();
+    pthread_cond_signal(&empty);
+    pthread_mutex_unlock(&mutex);
+  }
+  mutex_lock(&result_mutex);
+  result += res;
+  mutex_unlock(&result_mutex);
+}
+int main() {
+  // printf("ss");
+  create(producer);
+  create(consumer);
+  create(consumer);
+  create(consumer);
+  create(consumer);
+  join();
+  printf("%ld\n", result);
 }
 
 /* 
-T1.1 T1.2 T1.3
-T1.4 T1.5 T1.6
-T1.7 T1.8 T1.9
-T2.1 T2.2 T2.3
-T2.4 T2.5 T2.6
-T2.7 T2.8 T2.9
-对答案的解释 (100 字以内)
+答案是2
 */
