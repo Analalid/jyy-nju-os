@@ -6,7 +6,7 @@
 
 //支持STACK_SIZE
 // #define STACK_SIZE 1024 * 1024
-#define STACK_SIZE (1 << 15)
+#define STACK_SIZE (1 << 13)
 
 //支持unit_8
 typedef unsigned char uint8_t;
