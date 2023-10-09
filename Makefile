@@ -10,6 +10,9 @@ SRCS   := $(shell find . -maxdepth 1 -name "*.c")
 DEPS   := $(shell find . -maxdepth 1 -name "*.h") $(SRCS)
 CFLAGS += -O1 -std=gnu11 -ggdb -Wall -Werror -Wno-unused-result -Wno-unused-value -Wno-unused-variable
 
+#myDefine
+CFLAGS += -g
+
 .PHONY: all git test clean commit-and-make
 
 .DEFAULT_GOAL := commit-and-make

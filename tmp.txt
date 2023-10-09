@@ -1,0 +1,1000 @@
+ 1065  cd bin/
+ 1066  ls
+ 1067  find strace
+ 1068  find p4.output
+ 1069  echo $PATH
+ 1070  find ls
+ 1071  ./ls
+ 1072  ls
+ 1073  ./strace 
+ 1074  ./strace ls
+ 1075  ls
+ 1076  find pwd
+ 1077  strace ls
+ 1078  cd ..
+ 1079  ls
+ 1080  cd usr/
+ 1081  strace ls
+ 1082  ls
+ 1083  cd ..
+ 1084  ls
+ 1085  cd home/wsb/NJU_OS/os-workbench-2022/
+ 1086  ls
+ 1087  cd sperf/
+ 1088  strace strace wc sperf.c
+ 1089  sl
+ 1090  ls
+ 1091  cat sperf_tmp.txt 
+ 1092  ls
+ 1093  ./sperf-32 
+ 1094  ./sperf-32 ls
+ 1095  ./sperf-32 
+ 1096  ./sperf-32 ls
+ 1097  lsc
+ 1098  ls
+ 1099  cd ..
+ 1100  lsc
+ 1101  cd sperf/xzczcx
+ 1102  ./sperf-32 lszxczls
+ 1103  ls
+ 1104  display 16pic_5326745_b.jpg 
+ 1105  sudo apt install graphicsmagick-imagemagick-compat
+ 1106  sudo apt install imagemagick-6.q16
+ 1107  cd NJU_OS/os-workbench-2022/sperf
+ 1108  ls
+ 1109  ./sperf-32 
+ 1110  ./sperf-32 ls
+ 1111  ls
+ 1112  ;s
+ 1113  clear
+ 1114  ./sperf-32 ls
+ 1115  make
+ 1116  ./sperf-32 ls
+ 1117  clear
+ 1118  ./sperf-32 ls
+ 1119  clear
+ 1120  ./sperf-32 ls
+ 1121  ls
+ 1122  cd NJU_OS/nju/sperf/
+ 1123  ./sperf-32 ls
+ 1124  /bin/bash -c
+ 1125  /bin/bash -c env
+ 1126  ls
+ 1127  cd ..
+ 1128  ls
+ 1129  cd ..
+ 1130  ls
+ 1131  cd bin
+ 1132  ls
+ 1133  bash -c
+ 1134  bash -c env
+ 1135  env PATH="HELLO=WORLD" bash -c env
+ 1136  PATH="HELLO=WORLD" bash -c env
+ 1137  $PATH="HELLO=WORLD" bash -c env
+ 1138  bash -c env
+ 1139  cd ..
+ 1140  bash -c env
+ 1141  ls
+ 1142  cd usr/
+ 1143  ls
+ 1144  cd bin
+ 1145  ls
+ 1146  find strace
+ 1147  ./strace ls
+ 1148  ./strace
+ 1149  ./strace find strace
+ 1150  cd ..
+ 1151  ls
+ 1152  cd bin/
+ 1153  ls
+ 1154  find strace
+ 1155  cd ..
+ 1156  ls
+ 1157  ls -l /bin
+ 1158  pwd
+ 1159  ls
+ 1160  cd vub
+ 1161  cd bin
+ 1162  ls
+ 1163  find strace
+ 1164  strace
+ 1165  strace ls
+ 1166  strace strace ls
+ 1167  strace strace strace ls
+ 1168  ls
+ 1169  cd..
+ 1170  cd ..
+ 1171  ls
+ 1172  cd home/
+ 1173  cd wsb/NJU_OS/classTest/
+ 1174  ls
+ 1175  cat fork-printf.c 
+ 1176  ls
+ 1177  cd ..
+ 1178  ls
+ 1179  ls
+ 1180  cd sperf/
+ 1181  ls
+ 1182  ./sperf-32 ls
+ 1183  cd /NJU_OS/os-workbench-2022/sperf
+ 1184  cd NJU_OS/os-workbench-2022/sperf
+ 1185  ./sperf-32 ls
+ 1186  ls
+ 1187  cd os-workbench-2022/
+ 1188  ls
+ 1189  cd sperf/
+ 1190  ls
+ 1191  makee
+ 1192  make
+ 1193  ./sperf-32 
+ 1194  make
+ 1195  ./sperf-32 
+ 1196  make
+ 1197  ./sperf-32 
+ 1198  make
+ 1199  ./sperf-32 
+ 1200  make
+ 1201  ./sperf-32 
+ 1202  ./sperf-32 ls
+ 1203  make
+ 1204  ./sperf-32 ls
+ 1205  make
+ 1206  ./sperf-32 ls
+ 1207  make
+ 1208  ./sperf-32 ls
+ 1209  make
+ 1210  ./sperf-32 ls
+ 1211  make
+ 1212  ./sperf-32 ls
+ 1213  retext
+ 1214  ls
+ 1215  cd NJU_OS/
+ 1216  ls
+ 1217  cd classTest/
+ 1218  ;s
+ 1219  ls
+ 1220  code .
+ 1221  gcc fork-printf.c -o fork-printf.o
+ 1222  ls
+ 1223  ./fork-printf.o 
+ 1224  vim fork-printf.c 
+ 1225  gcc fork-printf.c -o fork-printf.o
+ 1226  ./fork-printf.o 
+ 1227  ./fork-printf.o | cat
+ 1228  vim fork-printf.c 
+ 1229  gcc fork-printf.c -o fork-printf.o
+ 1230  ./fork-printf.o
+ 1231  vim fork-printf.c 
+ 1232  gcc fork-printf.c -o fork-printf.o
+ 1233  vim fork-printf.c 
+ 1234  gcc fork-printf.c -o fork-printf.o
+ 1235  ./fork-printf.o
+ 1236  ./fork-printf.o | cat
+ 1237  ls
+ 1238  strace ls
+ 1239  LS
+ 1240  ls
+ 1241  strace cat exit-demo.c 
+ 1242  ls
+ 1243  wls
+ 1244  ls
+ 1245  strace cat exit-demo.c -e trace
+ 1246  strace cat exit-demo.c -e raw
+ 1247  strace cat exit-demo.c -e
+ 1248  strace cat exit-demo.c -e raw
+ 1249  strace cat exit-demo.c -e raw -r
+ 1250  strace cat exit-demo.c
+ 1251  strace cat exit-demo.c -r
+ 1252  strace ls -r
+ 1253  strace ls -t
+ 1254  strace ls -t -row
+ 1255  strace ls -t
+ 1256  strace ls -t row
+ 1257  strace ls -t -row
+ 1258  strace ls -row --absolute-timestamps
+ 1259  strace ls -row --absolute-timestamps | grep --color absolute-
+ 1260  strace ls -row --absolute-timestamps | grep --color absolute
+ 1261  strace ls -row --absolute-timestamps | grep --color=auto absolute
+ 1262  man grep
+ 1263  ls 
+ 1264  ls  | grep --color=auto fork
+ 1265  strace ls -row --absolute-timestamps |& grep --color=auto absolute
+ 1266  strace cat mmap-alloc.c  -row --absolute-timestamps |& grep --color=auto absolute
+ 1267  strace cat mmap-alloc.c  -row --absolute-timestamps | grep --color=auto absolute
+ 1268  strace cat mmap-alloc.c  -row --absolute-timestamps |& grep --color=auto absolute
+ 1269  strace ./execve-demo.o   -row --absolute-timestamps |& grep --color=auto absolute
+ 1270  strace ls  -row --absolute-timestamps |& grep --color=auto absolute
+ 1271  strace --r -row ls --absolute-timestamps |& grep --color=auto absolute
+ 1272  strace -r -row ls --absolute-timestamps | grep --color=auto absolute
+ 1273  strace -r -row ls
+ 1274  strace -r -row cat mmap-alloc.c 
+ 1275  strace cat mmap-alloc.c 
+ 1276  strace -r -row cat mmap-alloc.c 
+ 1277  strace -r cat mmap-alloc.c 
+ 1278  strace -t cat mmap-alloc.c 
+ 1279  strace -ttt cat mmap-alloc.c 
+ 1280  strace -tt cat mmap-alloc.c 
+ 1281  strace -4 cat mmap-alloc.c 
+ 1282  strace -r cat mmap-alloc.c 
+ 1283  strace --relative-timestamps ms cat mmap-alloc.c 
+ 1284  strace --relative-timestamps=ms cat mmap-alloc.c 
+ 1285  strace --relative-timestamps=us cat mmap-alloc.c 
+ 1286  strace --relative-timestamps=ns cat mmap-alloc.c 
+ 1287  strace --relative-timestamps=us cat mmap-alloc.c 
+ 1288  strace --relative-timestamps=us cat mmap-alloc.c ls
+ 1289  ls
+ 1290  cd ..
+ 1291  ls
+ 1292  cd os-workbench-2022/
+ 1293  ls
+ 1294  code .
+ 1295  ls
+ 1296  cd sperf/
+ 1297  ls
+ 1298  gdb ./sperf-32
+ 1299  ls
+ 1300  ./sperf-32 ls
+ 1301  clear
+ 1302  ./sperf-32 
+ 1303  ./sperf-32 ls
+ 1304  clear
+ 1305  ./sperf-32 ls
+ 1306  clear
+ 1307  ./sperf-32 ls
+ 1308  clear
+ 1309  ./sperf-32 ls
+ 1310  clear
+ 1311  ./sperf-32 ls
+ 1312  clear
+ 1313  ./sperf-32 ls
+ 1314  clear
+ 1315  ./sperf-32 ls
+ 1316  clear
+ 1317  ./sperf-32 ls
+ 1318  clear
+ 1319  ./sperf-32 ls
+ 1320  clear
+ 1321  ./sperf-32 ls
+ 1322  clean
+ 1323  clear
+ 1324  ./sperf-32 ls
+ 1325  clear
+ 1326  ./sperf-32 ls
+ 1327  clear
+ 1328  ./sperf-32 ls
+ 1329  clear
+ 1330  ./sperf-32 ls
+ 1331  clear
+ 1332  ./sperf-32 ls
+ 1333  clear
+ 1334  ./sperf-32 ls
+ 1335  clear
+ 1336  ./sperf-32 ls
+ 1337  clear
+ 1338  ./sperf-32 ls
+ 1339  clear
+ 1340  ./sperf-32 ls
+ 1341  clear
+ 1342  ./sperf-32 ls
+ 1343  clear
+ 1344  ./sperf-32 ls
+ 1345  clear
+ 1346  ./sperf-32 ls
+ 1347  clear
+ 1348  ./sperf-32 ls
+ 1349  clear
+ 1350  ./sperf-32 ls
+ 1351  clear
+ 1352  ./sperf-32 ls
+ 1353  clear
+ 1354  ./sperf-32 ls
+ 1355  clear
+ 1356  ./sperf-32 ls
+ 1357  clear
+ 1358  ./sperf-32 ls
+ 1359  clear
+ 1360  ./sperf-32 ls
+ 1361  clear
+ 1362  ./sperf-32 ls
+ 1363  clear
+ 1364  ./sperf-32 ls
+ 1365  clear
+ 1366  ./sperf-32 ls
+ 1367  clear
+ 1368  ./sperf-32 ls
+ 1369  clear
+ 1370  ./sperf-32 ls
+ 1371  clear
+ 1372  ./sperf-32 ls
+ 1373  clear
+ 1374  ./sperf-32 ls
+ 1375  clear
+ 1376  ./sperf-32 ls
+ 1377  clear
+ 1378  ./sperf-32 ls
+ 1379  clear
+ 1380  ./sperf-32 ls
+ 1381  clear
+ 1382  ./sperf-32 ls
+ 1383  clear
+ 1384  ./sperf-32 ls
+ 1385  clear
+ 1386  ./sperf-32 ls
+ 1387  clear
+ 1388  ./sperf-32 ls
+ 1389  clear
+ 1390  ./sperf-32 ls
+ 1391  clear
+ 1392  ./sperf-32 ls
+ 1393  clear
+ 1394  ./sperf-32 ls
+ 1395  clear
+ 1396  ./sperf-32 ls
+ 1397  clear
+ 1398  ./sperf-32 ls
+ 1399  clear
+ 1400  ./sperf-32 ls
+ 1401  clear
+ 1402  ./sperf-32 ls
+ 1403  clear
+ 1404  ./sperf-32 ls
+ 1405  clear
+ 1406  ./sperf-32 ls
+ 1407  clear
+ 1408  ./sperf-32 ls
+ 1409  clear
+ 1410  ./sperf-32 ls
+ 1411  clear
+ 1412  ./sperf-32 ls
+ 1413  clear
+ 1414  ./sperf-32 ls
+ 1415  clear
+ 1416  ./sperf-32 ls
+ 1417  clear
+ 1418  ./sperf-32 ls
+ 1419  clear
+ 1420  ./sperf-32 ls
+ 1421  clear
+ 1422  ./sperf-32 ls
+ 1423  clear
+ 1424  ./sperf-32 ls
+ 1425  clear
+ 1426  ./sperf-32 ls
+ 1427  clear
+ 1428  ./sperf-32 ls
+ 1429  clear
+ 1430  ./sperf-32 ls
+ 1431  clear
+ 1432  ./sperf-32 ls
+ 1433  clear
+ 1434  ./sperf-32 ls
+ 1435  clear
+ 1436  ./sperf-32 ls
+ 1437  clear
+ 1438  ./sperf-32 ls
+ 1439  clear
+ 1440  ./sperf-32 ls
+ 1441  clear
+ 1442  ./sperf-32 ls
+ 1443  clear
+ 1444  ./sperf-32 ls
+ 1445  clear
+ 1446  ./sperf-32 ls
+ 1447  clear
+ 1448  ./sperf-32 ls
+ 1449  clear
+ 1450  ./sperf-32 ls
+ 1451  clear
+ 1452  ./sperf-32 ls
+ 1453  clear
+ 1454  ./sperf-32 ls
+ 1455  clear
+ 1456  ./sperf-32 ls
+ 1457  clear
+ 1458  ./sperf-32 ls
+ 1459  clear
+ 1460  ./sperf-32 ls
+ 1461  clear
+ 1462  ./sperf-32 ls
+ 1463  clear
+ 1464  ./sperf-32 ls
+ 1465  clear
+ 1466  ./sperf-32 ls
+ 1467  clear
+ 1468  ./sperf-32 ls
+ 1469  clear
+ 1470  ./sperf-32 ls
+ 1471  clear
+ 1472  ./sperf-32 ls
+ 1473  clear
+ 1474  ./sperf-32 ls
+ 1475  clear
+ 1476  ./sperf-32 ls
+ 1477  clear
+ 1478  ./sperf-32 ls
+ 1479  clear
+ 1480  ./sperf-32 ls
+ 1481  ./sperf-32 
+ 1482  ./sperf-32 ls -l
+ 1483  clear
+ 1484  ls
+ 1485  cd ..
+ 1486  ls
+ 1487  cd linux-minimal/
+ 1488  ls
+ 1489  tree linux-minimal/
+ 1490  cd linux-minimal/
+ 1491  ls
+ 1492  rm -rf *.Identifier
+ 1493  ls
+ 1494  cd ..
+ 1495  tree linux-minimal/
+ 1496  cd linux-minimal/
+ 1497  ls
+ 1498  cd initramfs/
+ 1499  ls
+ 1500  cd ..
+ 1501  ls
+ 1502  rm -rf *.Identifier
+ 1503  ls
+ 1504  tree
+ 1505  cd initramfs/
+ 1506  tree
+ 1507  ls
+ 1508  rm -rf *.Identifier
+ 1509  ls
+ 1510  cd bin/
+ 1511  ls
+ 1512  rm -rf *.Identifier
+ 1513  ls
+ 1514  cd  ..
+ 1515  ls
+ 1516  cd ..
+ 1517  tree
+ 1518  cd ..
+ 1519  tree
+ 1520  cd linux-minimal/
+ 1521  ls
+ 1522  cd linux-minimal/
+ 1523  ls
+ 1524  vim initramfs/init 
+ 1525  make
+ 1526  make run
+ 1527  ls
+ 1528  rm -rf 16pic_5326745_b.jpg:Zone.Identifier 
+ 1529  ls;
+ 1530  ls
+ 1531  rm -rf test.*
+ 1532  ls
+ 1533  rm -rf a.out
+ 1534  rm -rf obsidian_1.4.13_amd64.deb 
+ 1535  ls
+ 1536  cd vimTest/
+ 1537  ls
+ 1538  cd ..
+ 1539  rm -rf vimTest/
+ 1540  ls
+ 1541  cat wget-log 
+ 1542  clear
+ 1543  ls
+ 1544  rm -rf wget-log 
+ 1545  ls
+ 1546  cat 1
+ 1547  clear
+ 1548  ls
+ 1549  cd linux-minimal/
+ 1550  ls
+ 1551  ls -a
+ 1552  cd linux-minimal/
+ 1553  ls
+ 1554  cd ..
+ 1555  make
+ 1556  cd linux-minimal/
+ 1557  make
+ 1558  ls -a
+ 1559  tree
+ 1560  make run
+ 1561  ls
+ 1562  cd  linux-minimal/
+ 1563  ls
+ 1564  cd linux-minimal/
+ 1565  ls
+ 1566  cd initramfs/bin/
+ 1567  ls
+ 1568  cd ..
+ 1569  tree
+ 1570  cd initramfs/
+ 1571  ls
+ 1572  vim init 
+ 1573  cd ..
+ 1574  make run
+ 1575  ls
+ 1576  tree
+ 1577  ls
+ 1578  sudo make run
+ 1579  ls
+ 1580  cd linux-minimal/
+ 1581  ls
+ 1582  cd ..
+ 1583  ls
+ 1584  rm -rf linux-minimal/
+ 1585  ls
+ 1586  cd NJU_OS/
+ 1587  ls
+ 1588  cd ..
+ 1589  cd NJU_OS/
+ 1590  unzip linux-minimal.zip 
+ 1591  gzip linux-minimal.zip 
+ 1592  ls
+ 1593  cat linux-minimal.zip:Zone.Identifier 
+ 1594  cd ..
+ 1595  ls
+ 1596  cd NJU_OS/
+ 1597  ls
+ 1598  rm -rf linux-minimal.zip:Zone.Identifier 
+ 1599  rm -rf linux-.*
+ 1600  ls
+ 1601  rm -rf linux-minimal.zip.gz 
+ 1602  ls
+ 1603  rm -rf linux.*
+ 1604  ls
+ 1605  rm -rf linux-*
+ 1606  ls
+ 1607  wget https://box.nju.edu.cn/f/3f67e092e1ba441187d9/?dl=1
+ 1608  ls
+ 1609  cat index.html\?dl=1 
+ 1610  1;0c1;0c1;0cls
+ 1611  ls
+ 1612  lss
+ 1613  ls
+ 1614  cd NJU_OS/
+ 1615  ls
+ 1616  rm -rf index.html\?dl=1 
+ 1617  ls
+ 1618  wget " https://box.nju.edu.cn/f/3f67e092e1ba441187d9/?dl=1"
+ 1619  wget "https://box.nju.edu.cn/f/3f67e092e1ba441187d9/?dl=1"
+ 1620  ls
+ 1621  rm -rf index.html\?dl=1 
+ 1622  ls
+ 1623  wget 'https://box.nju.edu.cn/f/3f67e092e1ba441187d9/?dl=1'
+ 1624  ls
+ 1625  mv index.html\?dl=1 linux-minimal.zip
+ 1626  unzip 
+ 1627  sudo apt install unzip
+ 1628  clear
+ 1629  ls
+ 1630  unzip linux-minimal.zip 
+ 1631  ls
+ 1632  cd linux-minimal/
+ 1633  ls
+ 1634  cd ..
+ 1635  rm -rf linux-minimal.zip 
+ 1636  ls
+ 1637  cd linux-minimal/
+ 1638  ls
+ 1639  cd initramfs/
+ 1640  ls
+ 1641  vim init 
+ 1642  cd ..
+ 1643  make
+ 1644  make run
+ 1645  ls
+ 1646  cd NJU_OS/
+ 1647  ls
+ 1648  cd linux-minimal/
+ 1649  ls
+ 1650  cat Makefile 
+ 1651  make
+ 1652  make run
+ 1653  cd /Operating-Systems-Three-Easy-Pieces/ostep-homework/cpu-intro
+ 1654  cd Operating-Systems-Three-Easy-Pieces/ostep-homework/cpu-intro
+ 1655  ls
+ 1656  clear
+ 1657  ls
+ 1658  ./process-run.py 
+ 1659  ./process-run.py -h
+ 1660  ls
+ 1661  python3  ./process-run.py -h
+ 1662  python3  ./process-run.py -c p
+ 1663  python3  ./process-run.py -l 5:100 -c
+ 1664  python3  ./process-run.py -l 5:100 -c -p
+ 1665  python3  ./process-run.py -l 5:100 -c
+ 1666  ./process-run.py -l 5:100,5:100
+ 1667  python3  ./process-run.py -l 5:100,5:100
+ 1668  python3  ./process-run.py -l 5:100,5:100 -c
+ 1669  python3 ./process-run.py -l 3:0 -L 5
+ 1670  python3 ./process-run.py -l 3:0 -L 5 -c
+ 1671  python3 ./process-run.py -l 3:0 -L 5
+ 1672  python3 ./process-run.py -l 3:0 -L 5 -c
+ 1673  python3 ./process-run.py -l 3:0 -L 5 -c -p
+ 1674  man strdup
+ 1675  ls
+ 1676  stracee python3 ./process-run.py -l 3:0 -L 5 -c -p
+ 1677  strace python3 ./process-run.py -l 3:0 -L 5 -c -p
+ 1678  trace python3 ./process-run.py -l 3:0 -L 5 -c -p
+ 1679  strace python3 ./process-run.py -l 3:0 -L 5 -c -p
+ 1680  clear_console 
+ 1681  clear
+ 1682  man execve
+ 1683  man sperf
+ 1684  clear
+ 1685  tree
+ 1686  tree /
+ 1687  man fflush;
+ 1688  ls
+ 1689  clear
+ 1690  ls
+ 1691  ls
+ 1692  cd NJU_OS/
+ 1693  ls
+ 1694  cd linux-minimal/
+ 1695  ls
+ 1696  tree
+ 1697  cd build/
+ 1698  ls
+ 1699  ls -ll
+ 1700  ls -lh
+ 1701  cat initramfs.cpio.gz 
+ 1702  clear
+ 1703  cd ..
+ 1704  ls
+ 1705  cd build/
+ 1706  ls
+ 1707  cd ..
+ 1708  ls
+ 1709  cat Makefile 
+ 1710  make initramfs 
+ 1711  make run
+ 1712  ls
+ 1713  cd NJU_OS/
+ 1714  ls
+ 1715  cd linux-minimal/
+ 1716  ls
+ 1717  tree
+ 1718  cat Makefile 
+ 1719  cd initramfs/
+ 1720  cat init 
+ 1721  vim init 
+ 1722  ls
+ 1723  cd ..
+ 1724  ls
+ 1725  make 
+ 1726  make run
+ 1727  ls
+ 1728  cd NJU_OS/
+ 1729  ls
+ 1730  cd linux-minimal/initramfs/
+ 1731  ls
+ 1732  ..
+ 1733  cd ..
+ 1734  ls
+ 1735  cat Makefile 
+ 1736  ls
+ 1737  cd initramfs/
+ 1738  cat init 
+ 1739  clear
+ 1740  ls
+ 1741  cd ..
+ 1742  ls
+ 1743  vim Makefile 
+ 1744  man cpio 
+ 1745  clear
+ 1746  ls
+ 1747  vim Makefile 
+ 1748  ls
+ 1749  ls initramfs/
+ 1750  ls initramfs/bin/
+ 1751  vim Makefile 
+ 1752  ls
+ 1753  ls build/
+ 1754  ls initramfs/
+ 1755  ls -l vmlinuz 
+ 1756  vim initramfs/init 
+ 1757  ls
+ 1758  make clean
+ 1759  make 
+ 1760  make run
+ 1761  cd NJU_OS/linux-minimal/
+ 1762  make
+ 1763  make run
+ 1764  ls
+ 1765  make run
+ 1766  cd ..
+ 1767  cd NJU_OS/os-workbench-2022/sperf
+ 1768  ls
+ 1769  make
+ 1770  ls
+ 1771  make
+ 1772  ls
+ 1773  make
+ 1774  ls
+ 1775  make
+ 1776  ls
+ 1777  make
+ 1778  ls
+ 1779  make
+ 1780  ./sperf-32 lsa
+ 1781  make
+ 1782  ./sperf-32 ls
+ 1783  make
+ 1784  ./sperf-32 ls
+ 1785  clearr
+ 1786  make
+ 1787  clear
+ 1788  make
+ 1789  clear
+ 1790  make
+ 1791  git add .
+ 1792  git pull sast M3
+ 1793  git push sast M3
+ 1794  git pull origin L2
+ 1795  git status
+ 1796  git statu
+ 1797  git status
+ 1798  git branch -a
+ 1799  git checkout L2
+ 1800  git branch -a
+ 1801  ls
+ 1802  cd os-workbench-2022/sperf/
+ 1803  ls
+ 1804  make3
+ 1805  make
+ 1806  ./sperf-32 ls
+ 1807  make
+ 1808  ./sperf-32 ls
+ 1809  make
+ 1810  ./sperf-32 ls
+ 1811  make
+ 1812  ./sperf-32 ls
+ 1813  make
+ 1814  ./sperf-32 ls
+ 1815  make
+ 1816  ./sperf-32 ls
+ 1817  make
+ 1818  ./sperf-32 ls
+ 1819  make
+ 1820  ./sperf-32 ls
+ 1821  make
+ 1822  ./sperf-32 ls
+ 1823  make
+ 1824  ./sperf-32 ls
+ 1825  make
+ 1826  ./sperf-32 ls
+ 1827  make
+ 1828  ./sperf-32 ls
+ 1829  make
+ 1830  ./sperf-32 ls
+ 1831  make
+ 1832  ./sperf-32 ls
+ 1833  make
+ 1834  ./sperf-32 ls
+ 1835  make
+ 1836  ./sperf-32 ls
+ 1837  make
+ 1838  ./sperf-32 ls
+ 1839  make
+ 1840  ./sperf-32 ls
+ 1841  make
+ 1842  ./sperf-32 ls
+ 1843  make
+ 1844  ./sperf-32 ls
+ 1845  make
+ 1846  ./sperf-32 ls
+ 1847  make
+ 1848  ./sperf-32 ls
+ 1849  make
+ 1850  ./sperf-32 ls
+ 1851  make
+ 1852  ./sperf-32 ls
+ 1853  make
+ 1854  ./sperf-32 ls
+ 1855  make
+ 1856  ./sperf-32 ls
+ 1857  make
+ 1858  ./sperf-32 ls
+ 1859  make
+ 1860  ./sperf-32 ls
+ 1861  make
+ 1862  ./sperf-32 ls
+ 1863  make
+ 1864  ./sperf-32 ls
+ 1865  make
+ 1866  ./sperf-32 ls
+ 1867  make
+ 1868  ./sperf-32 ls
+ 1869  make
+ 1870  ./sperf-32 ls
+ 1871  make
+ 1872  ./sperf-32 ls
+ 1873  make
+ 1874  ./sperf-32 ls
+ 1875  make
+ 1876  ./sperf-32 ls
+ 1877  make
+ 1878  ./sperf-32 ls
+ 1879  make
+ 1880  ./sperf-32 ls
+ 1881  make
+ 1882  ./sperf-32 ls
+ 1883  make
+ 1884  ./sperf-32 ls
+ 1885  make
+ 1886  ./sperf-32 ls
+ 1887  make
+ 1888  ./sperf-32 ls
+ 1889  make
+ 1890  ./sperf-32 ls
+ 1891  make
+ 1892  ./sperf-32 ls
+ 1893  make
+ 1894  ./sperf-32 ls
+ 1895  clear
+ 1896  make
+ 1897  ./sperf-32 ls
+ 1898  make
+ 1899  ./sperf-32 ls
+ 1900  make
+ 1901  ./sperf-32 ls
+ 1902  make
+ 1903  ./sperf-32 ls
+ 1904  make
+ 1905  ./sperf-32 ls
+ 1906  make
+ 1907  ./sperf-32 ls
+ 1908  make
+ 1909  ./sperf-32 ls
+ 1910  make
+ 1911  ./sperf-32 ls
+ 1912  make
+ 1913  ./sperf-32 ls
+ 1914  clear
+ 1915  make
+ 1916  clear
+ 1917  ./sperf-32 ls
+ 1918  make
+ 1919  ./sperf-32 ls
+ 1920  make
+ 1921  ./sperf-32 ls
+ 1922  make
+ 1923  ./sperf-32 ls
+ 1924  make
+ 1925  ./sperf-32 ls
+ 1926  clear
+ 1927  make
+ 1928  clear
+ 1929  ./sperf-32 ls
+ 1930  make
+ 1931  ./sperf-32 ls
+ 1932  make
+ 1933  ./sperf-32 ls
+ 1934  make
+ 1935  ./sperf-32 ls
+ 1936  make
+ 1937  ./sperf-32 ls
+ 1938  clear
+ 1939  make
+ 1940  ./sperf-32 ls
+ 1941  make
+ 1942  ./sperf-32 ls
+ 1943  make
+ 1944  ./sperf-32 ls
+ 1945  make
+ 1946  ./sperf-32 ls
+ 1947  make
+ 1948  ./sperf-32 ls
+ 1949  make
+ 1950  ./sperf-32 ls
+ 1951  make
+ 1952  ./sperf-32 ls
+ 1953  make
+ 1954  ./sperf-32 ls
+ 1955  ls
+ 1956  cd NJU_OS/linux-minimal/
+ 1957  make
+ 1958  make run
+ 1959  clear
+ 1960  make run
+ 1961  ls
+ 1962  cat Makefile 
+ 1963  qemu-system-x86_64           -nographic           -serial mon:stdio           -m 128           -kernel vmlinuz
+ 1964  ls
+ 1965  clear
+ 1966  ls
+ 1967  cat Makefile 
+ 1968  qemu-system-x86_64 -nographic -m 128 -kernel vmlinuz
+ 1969  cat Makefile 
+ 1970  qemu-system-x86_64 -initrd build/initramfs.cpio.gz 
+ 1971  qemu-system-x86_64 -kernel   -initrd build/initramfs.cpio.gz 
+ 1972  ls
+ 1973  cd NJU_OS/linux-minimal/
+ 1974  ls
+ 1975  cat Makefile 
+ 1976  ls
+ 1977  ls -ll
+ 1978  ls -l
+ 1979  ls -ll vmlinuz 
+ 1980  pstree 
+ 1981  stree
+ 1982  tree
+ 1983  ls -l vmlinuz 
+ 1984  cd initramfs
+ 1985  ls -l init 
+ 1986  cd ..
+ 1987  cd build/
+ 1988  ls -l
+ 1989  cd ..
+ 1990  cd initramfs/bin/
+ 1991  ls -l
+ 1992  cd ..
+ 1993  ls
+ 1994  make
+ 1995  make run
+ 1996  ls
+ 1997  git branch -c OS2022-Midterm
+ 1998  git branch -a
+ 1999  git checkout OS2022-Midterm 
+ 2000  mkdir OS2022-Midterm
+ 2001  cd OS2022-Midterm/
+ 2002  ls
+ 2003  wget https://jyywiki.cn/pages/OS/2022/demos/thread.h
+ 2004  wget https://jyywiki.cn/pages/OS/2022/demos/thread-sync.h
+ 2005  wget https://jyywiki.cn/pages/OS/2022/demos/midterm-example.c
+ 2006  git add .
+ 2007  git commit -m "init Midterm, you can get all source code from this branch"
+ 2008  git push sast OS2022-Midterm
+ 2009  gcc -c midterm-example.c 
+ 2010  gcc -o midterm-example.o a.out && ./a.out 
+ 2011  gcc -o midterm-example.c a.out && ./a.out 
+ 2012  git pull sast OS2022-Midterm 
+ 2013  git fetch sast OS2022-Midterm 
+ 2014  git reset sast OS2022-Midterm 
+ 2015  git branch -a
+ 2016  git branch -vv
+ 2017  git checkout sast OS2022-Midterm --  OS2022-Midterm
+ 2018  git checkout sast OS2022-Midterm --  OS2022-Midterm/tees
+ 2019  git checkout sast OS2022-Midterm OS2022-Midterm
+ 2020  git reset OS2022-Midterm 
+ 2021  git pull sast OS2022-Midterm 
+ 2022  git branch -v
+ 2023  git remote 
+ 2024  git log --graph --oneline
+ 2025  ls
+ 2026  cd ..
+ 2027  ls
+ 2028  cd OS2022-Midterm/
+ 2029  ls
+ 2030  cd ..
+ 2031  git remote -v
+ 2032  ls
+ 2033  git branch
+ 2034  ls
+ 2035  git status
+ 2036  git log
+ 2037  git remote show sast 
+ 2038  git log
+ 2039  git remote set-url sast https://github.com/Analalid/jyy-nju-os.git
+ 2040  git pull sast OS2022-Midterm 
+ 2041  git log
+ 2042  git remote show sast
+ 2043  ls
+ 2044  ls OS2022-Midterm/
+ 2045  git remote -v
+ 2046  git branch -vv
+ 2047  git branch -u sast/OS2022-Midterm 
+ 2048  git branch -vv
+ 2049  git pull sast OS2022-Midterm 
+ 2050  ls
+ 2051  ls OS2022-Midterm/
+ 2052  git fetch sast OS2022-Midterm:OS2022-Midterm 
+ 2053  git remote show sast
+ 2054  git log
+ 2055  git status
+ 2056  git restore OS2022-Midterm/thread-sync.h
+ 2057  ls OS2022-Midterm/
+ 2058  ls
+ 2059  ls OS2022-Midterm/
+ 2060  git status
+ 2061  git restore OS2022-Midterm/midterm-example.c
+ 2062  ls
+ 2063  ls OS2022-Midterm/
+ 2064  history >tmp.txt
